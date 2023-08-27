@@ -1,13 +1,13 @@
 import Presence from '@adiwajshing/baileys'
 let handler  = async (m, { conn, args, text }) => {
-if (!text) throw `*ENTER THE NAME YOU WANT TO BE THE NEW GROUP NAME*`
+if (!text) throw `*Введите имя для замены*`
 try {
 let text = args.join` `
 if(!args || !args[0]) {
 } else {
 conn.groupUpdateSubject(m.chat, text)}
 } catch (e) {
-throw '*SORRY THERE WAS AN ERROR, THE NAME CAN NOT BE MORE THAN 25 CHARACTERS*'
+throw '*Имя не может содержать больше 25 символов*'
 }}
 handler.help = ['setname <text>']
 handler.tags = ['group']
