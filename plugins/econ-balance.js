@@ -3,26 +3,26 @@ let handler = async (m, {conn, usedPrefix}) => {
 	
     let who = m.quoted ? m.quoted.sender : m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
     let user = global.db.data.users[who]
-    if (!(who in global.db.data.users)) throw `✳️ The user is not found in my database`
+    if (!(who in global.db.data.users)) throw `✳️ Пользователь не найден`
     conn.reply(m.chat, `
-┌───⊷ *BALANCE* ⊶
-▢ *📌Number* : _@${who.split('@')[0]}_
-▢ *💎Diamonds* : _${user.diamond}_
-▢ *💎Gold* : _${user.gold}_
-▢ *💎Rock* : _${user.rock}_
-▢ *💎EMARALD* : _${user.emerald}_
-▢ *💎Rank* : _${user.role}_
-▢ *💎Health* : _${user.health}_
-▢ *💎Wood* : _${user.wood}_
-▢ *💎Potions* : _${user.potion}_
-▢ *💎Iron* : _${user.iron}_
-▢ *💎Money* : _${user.money}_
-▢ *⬆️XP* : _Total ${user.exp}_
+┌───⊷ *Баланс* ⊶
+▢ *📌номер* : _@${who.split('@')[0]}_
+▢ *💎кристалы* : _${user.diamond}_
+▢ *💎золото* : _${user.gold}_
+▢ *💎камень* : _${user.rock}_
+▢ *💎порода* : _${user.emerald}_
+▢ *💎ранг* : _${user.role}_
+▢ *💎здоровье* : _${user.health}_
+▢ *💎дерево* : _${user.wood}_
+▢ *💎зелье* : _${user.potion}_
+▢ *💎железо* : _${user.iron}_
+▢ *💎деньги* : _${user.money}_
+▢ *⬆️XP* : _итого ${user.exp}_
 └──────────────
 
-*NOTE :* 
-You can buy 💎 diamonds using the commands*
-❏ *${usedPrefix}todiamond* <amount>
+*Записка :* 
+Вы можете купить 💎 бриллианты , используя команды*
+❏ *${usedPrefix}todiamond* <кол-во>
 ❏ *${usedPrefix}todiamondall*`, m, { mentions: [who] })
 }
 handler.help = ['balance']
