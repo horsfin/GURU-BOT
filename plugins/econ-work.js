@@ -4,7 +4,7 @@ let handler = async (m, { conn, usedPrefix, command }) => {
 
   let hasil = Math.floor(Math.random() * 2000)
   let time = global.db.data.users[m.sender].lastwork + 3600000
-  if (new Date - global.db.data.users[m.sender].lastwork < 3600000) throw `*🧘🏻‍♂️ You are tired* and therefore you have to wait *${msToTime(time - new Date())}* to work again!`
+  if (new Date - global.db.data.users[m.sender].lastwork < 3600000) throw `*🧘🏻‍♂️ Вы устали,подождите *${msToTime(time - new Date())}* прежде чем работать!`
 
     /*let w = await axios.get(global.API('fgmods', '/api/work', { }, 'apikey'))
     let res = w.data.result*/
