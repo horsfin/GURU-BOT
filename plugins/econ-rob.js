@@ -2,20 +2,20 @@
 let ro = 3000
 let handler = async (m, { conn, usedPrefix, command}) => {
     let time = global.db.data.users[m.sender].lastrob + 7200000
-    if (new Date - global.db.data.users[m.sender].lastrob < 7200000) throw `⏱️¡Hey! wait *${msToTime(time - new Date())}* to steal again`
+    if (new Date - global.db.data.users[m.sender].lastrob < 7200000) throw `⏱️¡Hey! wait *${msToTime(time - new Date())}* чтобы снова украсть`
     let who
     if (m.isGroup) who = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : false
     else who = m.chat
-    if (!who) throw `✳️ Tag someone to steal`
-    if (!(who in global.db.data.users)) throw `✳️ The user is not found in my database`
+    if (!who) throw `✳️ Отметьте кого-то для кражи`
+    if (!(who in global.db.data.users)) throw `✳️ Пользователя нет в дата-базе`
     let users = global.db.data.users[who]
     let rob = Math.floor(Math.random() * ro)
-    if (users.exp < rob) return m.reply(`🔖 @${who.split`@`[0]} has less than *${ro} xp*\nDon't steal from a rotten":`, null, { mentions: [who] })    
+    if (users.exp < rob) return m.reply(`🔖 @${who.split`@`[0]} имеет меньше чем *${ro} xp*\nНе воруй у бедняка":`, null, { mentions: [who] })    
    global.db.data.users[m.sender].exp += rob
    global.db.data.users[who].exp -= rob
   
     m.reply(`
-  ‣ Robbed *${rob} XP* a @${who.split`@`[0]}
+  ‣ Своровано *${rob} XP* у @${who.split`@`[0]}
   `, null, { mentions: [who] })
     global.db.data.users[m.sender].lastrob = new Date * 1
   }
