@@ -10,7 +10,7 @@ let handler  = async (m, { conn, command, args, usedPrefix, DevMode }) => {
 
 let lgocraft = `
 █▀▀▀▀█▀▀▀█▀▀▀▀█
-  ᴄʀᴀꜰᴛ ᴛᴀʙʟᴇ
+Таблица крафта
 █▄▄▄▄█▄▄▄█▄▄▄▄█`
 
   let caption = `
