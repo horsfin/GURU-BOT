@@ -10,13 +10,14 @@ let handler = async (m, { conn, usedPrefix, command}) => {
       switch (command) {
         case 'list':
 lkr = "*Get ready for the ride, here are your ticket options:*\n\n" +
-"🤖 *" + usedPrefix + "botmenu* - Секретная панель бота?\n\n" +
-"🧑‍🤝‍🧑 *" + usedPrefix + "groupmenu* - Меню группы\n\n" +
-"🎉 *" + usedPrefix + "funmenu* -ФАН МЕНЮ,пора кушать тортик!\n\n" +
-"💰 *" + usedPrefix + "economymenu* - Экономика,накопи алмазов и хр!\n\n" +
-"🎮 *" + usedPrefix + "gamemenu* - Игровое меню!\n\n" +
-"🎨 *" + usedPrefix + "stickermenu* - Радуга стикеров,сделай свой стикер!\n\n" +
-"🧰 *" + usedPrefix + "toolmenu* - Набор инструментов,что ты выберешь дружок?\n\n" +
+"🤖 *" + usedPrefix + "botmenu* - The Bot's secret control panel. What's your command, oh great one?\n\n" +
+"🧑‍🤝‍🧑 *" + usedPrefix + "groupmenu* - Group shenanigans central! Unite, chat, conquer!\n\n" +
+"📥 *" + usedPrefix + "dlmenu* - 'DL' stands for 'Delicious Loot'. Come grab your goodies!\n\n" +
+"🎉 *" + usedPrefix + "funmenu* - The bot's party hat. Games, jokes and instant ROFLs. Let's get this party started!\n\n" +
+"💰 *" + usedPrefix + "economymenu* - Bling bling! Your personal vault of virtual economy. Spend or save? Choose wisely!\n\n" +
+"🎮 *" + usedPrefix + "gamemenu* - Enter the gaming arena. May the odds be ever in your favor!\n\n" +
+"🎨 *" + usedPrefix + "stickermenu* - A rainbow of stickers for your inner artist. Make your chats pop!\n\n" +
+"🧰 *" + usedPrefix + "toolmenu* - Your handy-dandy toolkit. What's your pick, genius?\n\n" +
 break;
 
           
@@ -25,7 +26,7 @@ break;
 
         case 'botmenu':
           lkr = `❀° ┄──•••───╮
-          БОТ МЕНЮ  
+          БОТ МЕНЮ 
    ╰───•••──┄ °❀     
    ┏━━━ʕ•㉨•ʔ━━━┓
    ⎪⌲👑 _${usedPrefix}gita_
@@ -33,17 +34,19 @@ break;
    ⎪⌲👑 _${usedPrefix}uptime_
    ⎪⌲👑 _${usedPrefix}bot_
    ⎪⌲👑 _${usedPrefix}owner_
+   ⎪⌲👑 _${usedPrefix}script_
    ⎪⌲👑 _${usedPrefix}runtime_
    ⎪⌲👑 _${usedPrefix}infobot_
+   ⎪⌲👑 _${usedPrefix}donate_
    ⎪⌲👑 _${usedPrefix}groups_
    ⎪⌲👑 _${usedPrefix}blocklist_
    ⎪⌲👑 _${usedPrefix}listprem_
-   ⎪⌲👑    R.I.P
+   ⎪⌲👑    Guru
    ┗━━━ʕ•㉨•ʔ━━━┛`; // Your bot menu message here
           break;
         case 'ownermenu':
           lkr = `❀° ┄──•••───╮
-          МЕНЮ ВЛАДЕЛЬЦА 
+          𝙊𝙒𝙉𝙀𝙍 𝙈𝙀𝙉𝙐  
      ╰───•••──┄ °❀     
      ┏━━━ʕ•㉨•ʔ━━━┓
      ⎪⌲👑 _${usedPrefix}banchat_
@@ -84,7 +87,7 @@ break;
           case 'downloadermenu':
             case 'dlmenu' :
           lkr = `❀° ┄──•••───╮
-          МЕНЮ ЗАГРУЗКИ
+          ДЛ МЕНЮ
    ╰───•••──┄ °❀     
    ┏━━━ʕ•㉨•ʔ━━━┓
    ⎪⌲💎_${usedPrefix}play_
@@ -93,7 +96,8 @@ break;
    ⎪⌲💎 _${usedPrefix}ytv <link>_
    ⎪⌲💎 _${usedPrefix}ytmp3 <link>_
    ⎪⌲💎 _${usedPrefix}ytmp4 <link>_
-   ⎪⌲💎 _${usedPrefix}tiktokstalk_
+   ⎪⌲💎 _${usedPrefix}tiktok <link>_
+   ⎪⌲💎 _${usedPrefix}instagram <link>_
    ┗━━━ʕ•㉨•ʔ━━━┛`; // 
           break;
           case 'economymenu':
@@ -108,9 +112,7 @@ break;
    ⎪⌲👑 _${usedPrefix}craft_
    ⎪⌲👑 _${usedPrefix}balance_
    ⎪⌲👑 _${usedPrefix}shop_
-   ⎪⌲👑 _${usedPrefix}sell_
    ⎪⌲👑 _${usedPrefix}adventure_
-   ⎪⌲👑 _${usedPrefix}opencrate_
    ⎪⌲👑 _${usedPrefix}mine_
    ⎪⌲👑 _${usedPrefix}work_
    ⎪⌲👑 _${usedPrefix}todiamond_
@@ -119,12 +121,11 @@ break;
           break;
           case 'funmenu':
           lkr = `❀° ┄──•••───╮
-          ФАН МЕНЮ
+          ФАН
     ╰───•••──┄ °❀     
     ┏━━━ʕ•㉨•ʔ━━━┓
     ⎪⌲👑 _${usedPrefix}gay_
     ⎪⌲👑 _${usedPrefix}ship_
-    ⎪⌲👑 _${usedPrefix}lolicon_
     ┗━━━ʕ•㉨•ʔ━━━┛`; // 
           break;
           case 'animemenu':
@@ -178,12 +179,11 @@ break;
     ╰───•••──┄ °❀     
     ┏━━━ʕ•㉨•ʔ━━━┓
     ⎪⌲👑 _${usedPrefix}slot_
-    ⎪⌲👑 _${usedPrefix}casino_
     ┗━━━ʕ•㉨•ʔ━━━┛`; // 
           break;
           case 'stickermenu':
-          lkr = `❀° ┄──•••───╮
-          СТИКЕР МЕНЮ
+           lkr = `❀° ┄──•••───╮
+           СТИКЕРЫ
      ╰───•••──┄ °❀     
      ┏━━━ʕ•㉨•ʔ━━━┓
      ⎪⌲👑 _${usedPrefix}sticker_
@@ -197,7 +197,7 @@ break;
           break;
           case 'toolmenu':
           lkr = `❀° ┄──•••───╮
-          ИНСТРУМЕНТ МЕНЮ
+          ИНСТРУМЕНТЫ
      ╰───•••──┄ °❀     
      ┏━━━ʕ•㉨•ʔ━━━┓
      ⎪⌲👑 _${usedPrefix}calc_
@@ -207,7 +207,6 @@ break;
      ⎪⌲👑 _${usedPrefix}tts_
      ⎪⌲👑 _${usedPrefix}translate_
      ⎪⌲👑 _${usedPrefix}wikipedia_
-     ⎪⌲👑 _${usedPrefix}readqr_
      ⎪⌲👑 _${usedPrefix}fancy_
      ⎪⌲👑 _${usedPrefix}weather_
      ┗━━━ʕ•㉨•ʔ━━━┛`; // 
@@ -234,4 +233,3 @@ break;
     
     export default handler
     
-
