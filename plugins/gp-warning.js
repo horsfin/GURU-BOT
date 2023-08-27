@@ -4,31 +4,31 @@ let handler = async (m, { conn, text, args, groupMetadata, usedPrefix, command }
         let who
         if (m.isGroup) who = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : false
         else who = m.chat
-        if (!who) throw `✳️ Tag or mention someone\n\n📌 Example : ${usedPrefix + command} @user`
-        if (!(who in global.db.data.users)) throw `✳️ The user is not found in my database`
+        if (!who) throw `✳️ Отметки нет\n\n📌 Пример : ${usedPrefix + command} @пользователь`
+        if (!(who in global.db.data.users)) throw `✳️ Данного пользователя нет в базе`
         let name = conn.getName(m.sender)
         let warn = global.db.data.users[who].warn
         if (warn < war) {
             global.db.data.users[who].warn += 1
             m.reply(`
-⚠️ *Warned User* ⚠️
+⚠️ *ВАРН ПОЛЬЗОВАТЕЛЯ* ⚠️
 
-▢ *Admin:* ${name}
-▢ *Usuario:* @${who.split`@`[0]}
-▢ *Warns:* ${warn + 1}/${war}
-▢ *Reason:* ${text}`, null, { mentions: [who] }) 
+▢ *Админ:* ${name}
+▢ *Пользователь:* @${who.split`@`[0]}
+▢ *Варн:* ${warn + 1}/${war}
+▢ *Причина:* ${text}`, null, { mentions: [who] }) 
             m.reply(`
-⚠️ *caution* ⚠️
-You received a warning from an admin
+⚠️ *осторожно* ⚠️
+вы получили предупреждение от админа
 
-▢ *Warns:* ${warn + 1}/${war} 
-if you receive *${war}* warnings you will be automatically removed from the group`, who)
+▢ *Варн:* ${warn + 1}/${war} 
+Если вы получите *${war}* варнов вы будете удалены из группы`, who)
         } else if (warn == war) {
             global.db.data.users[who].warn = 0
-            m.reply(`⛔ The user exceeded the *${war}* warnings will therefore be removed`)
+            m.reply(`⛔ Пользователь превысил *${war}*варнов, будет удален`)
             await time(3000)
             await conn.groupParticipantsUpdate(m.chat, [who], 'remove')
-            m.reply(`♻️ You were removed from the group *${groupMetadata.subject}* because you have been warned *${war}* times`, who)
+            m.reply(`♻️ Вы были удалены из группы *${groupMetadata.subject}* потому что вы были предупреждены *${war}* times`, who)
         }
 }
 handler.help = ['warn @user']
