@@ -9,14 +9,14 @@ let handler = async (m, { conn }) => {
     if (!canLevelUp(user.level, user.exp, global.multiplier)) {
         let { min, xp, max } = xpRange(user.level, global.multiplier);
         let txt = `
-┌───⊷ *LEVEL*
-▢ Number : *${name}*
-▢ Level : *${user.level}*
+┌───⊷ *УРОВЕНЬ*
+▢ Номер : *${name}*
+▢ Уровень : *${user.level}*
 ▢ XP : *${user.exp - min}/${xp}*
-▢ Role : *${user.role}*
+▢ Роль : *${user.role}*
 └──────────────
 
-Hey there, ${name}! You're not ready to level up just yet. It seems like you need to munch up *${max - user.exp}* more XP to level up and reach new heights! Keep going, and the bots will be singing your praises soon! 🚀
+Привет, ${name}! Вы пока не готовы повышать уровень,вам нужно подкрепится *${max - user.exp}* больше опыта для повышения уровня и достижения новых высот! Продолжайте в том же духе, и скоро боты будут петь вам дифирамбы! 🚀
 `.trim();
 
         try {
@@ -27,17 +27,19 @@ Hey there, ${name}! You're not ready to level up just yet. It seems like you nee
         }
     } else {
         let str = `
-┌─⊷ *LEVEL UP*
-▢ Previous level : *${user.level - 1}*
-▢ Current level : *${user.level}*
-▢ Role : *${user.role}*
+┌─⊷ *УРОВЕНЬ*
+▢ Предыдущий уровень : *${user.level - 1}*
+▢ Текущий уровень: *${user.level}*
+▢ Роль : *${user.role}*
 └──────────────
 
-Woo-hoo, ${name}! You've soared to new heights and reached level ${user.level}! 🎉 Time to celebrate! 🎊
-Your newfound power will strike fear into the hearts of trolls, and the bots will bow before your command! Keep up the incredible work, and who knows what epic adventures await you next! 🌟
+У-У-У, ${name}!Вы взлетели на новые высоты ${user.level}! 🎉 Время праздновать! 🎊
+Ваша новообретенная сила вселит страх в сердца троллей, и боты склонятся перед вашей командой! Продолжайте в том же духе, и кто знает, какие эпические приключения ждут вас дальше! 🌟
 `.trim();
+больше опыта для повышения уровня и достижения новых высот! Продолжайте в том же духе, и скоро боты будут петь вам дифирамбы
 
         try {
+больше опыта для повышения уровня и достижения новых высот! Продолжайте в том же духе, и скоро боты будут петь вам дифирамбы
             let img = `https://wecomeapi.onrender.com/levelup-image?avatar=${encodeURIComponent(pp)}`;
             conn.sendFile(m.chat, img, 'levelup.jpg', str, m);
         } catch (e) {
