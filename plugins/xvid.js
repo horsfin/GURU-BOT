@@ -4,11 +4,11 @@ let handler = async (m, { conn, args, text, usedPrefix, command }) => {
   let chat = global.db.data.chats[m.chat];
   if (!chat.nsfw) throw `🚫 This group does not support NSFW content.\n\nTo turn it on, use: *${usedPrefix}enable* nsfw`;
   let user = global.db.data.users[m.sender].age;
-  if (user < 18) throw `❎ You must be 18 years or older to use this feature.`;
-  if (!text) throw `✳️ What do you want to search?\n📌 Usage: *${usedPrefix + command} <search>*\n\nExample: Hot desi bhabi or you can use a link as well\nExample: .xnxx link *`;
+  if (user < 18) throw `❎ Вам нет 18`;
+  if (!text) throw `✳️ Какой поиск?\n📌 Пример: *${usedPrefix + command} <search>*\n\nПример: горячая девочка, также вы можете воспользоваться ссылкой\nПример: .xnxx ссылка *`;
 
   m.react('⌛');
-    if (!text) throw 'Please provide a search query or a valid Xvideos URL.';
+    if (!text) throw 'Это точно ссылка Xvideos?.';
   
     // Check if the input is a valid Xvideos URL
     const isURL = /^(https?:\/\/)?(www\.)?xvideos\.com\/.+$/i.test(text);
@@ -27,17 +27,17 @@ let handler = async (m, { conn, args, text, usedPrefix, command }) => {
           m.chat,
           Buffer.from(buffer),
           `${title}.mp4`,
-          `Here is your Xvideos video: ${title}`
+          `Вот ваше видео: ${title}`
         );
   
       } else {
         // If it's not a valid URL, perform a search and display the search results
         const results = await xvideosSearch(text);
         if (results.length === 0) {
-          m.reply('No search results found for the given query.');
+          m.reply('Нет результата.');
         } else {
           const searchResults = results.map((result, index) => {
-            return `${index + 1}. *${result.title}*\nDuration: ${result.duration}\nQuality: ${result.quality}\nURL: ${result.url}`;
+            return `${index + 1}. *${result.title}*\nОпределение: ${result.duration}\nКачество: ${result.quality}\nURL: ${result.url}`;
           }).join('\n\n');
   
           m.reply(`*Search Results for "${text}":*\n\n${searchResults}`);
