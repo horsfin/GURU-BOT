@@ -4,25 +4,22 @@ import fetch from 'node-fetch'
 let handler = async function (m, { conn, text, usedPrefix }) {
   
 let m2 = `
-≡ _Use the commands with the prefix_ \`\`\`${usedPrefix}\`\`\` 
+≡ _ИСПОЛЬЗУЙ КОМАНДЫ С ПРЕФИКСОМ_ \`\`\`${usedPrefix}\`\`\` 
 
 ▢ ‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‌‎
-Ⓟ = Premium
-ⓓ = Diamonds
+Ⓟ = ПРЕМИУМ
+ⓓ = КРИСТАЛЫ
 -----  -----  -----  -----  -----
   ≡ *Полный лист меню*
 
-┌─⊷ *ABOUT*
+┌─⊷ *ТЕМА*
 ▢ .blocklist
 ▢ .info (инфо)
 ▢ .owner (владелец)
-▢ .donate (донат)
-▢ .gpguru
 ▢ .listprem (лист премиум)
 ▢ .help (помощь)
-▢ .audios 
 ▢ .ping (скорость)
-▢ .runtime
+▢ .runtime (время работы)
 └───────────
 
 ┌─⊷ *ИГРЫ*
@@ -34,21 +31,22 @@ let m2 = `
 ▢ .daily
 ▢ .leaderboard (лидеры)
 ▢ .levelup (уровень)
-▢ .mine
-▢ .rob
+▢ .mine (добывать)
+▢ .rob (грабить)
 ▢ .buy (покупка)
 ▢ .buyall
 ▢ .transfer [tip] [amount] [@tag]
 ▢ .work (работать)
+▢ .on levelup (активировать повышение уровня)
 └───────────
 
 ┌─⊷ *РЕГИСТРАЦИИ*
 ▢ .reg <имя.возраст> (регистрация)
-▢ .mysn
+▢ .mysn (мой сын)
 ▢ .unreg <Num Serie>
 └───────────
 
-┌─⊷ *STICKER*
+┌─⊷ *СТИКЕРЫ*
 ▢ .attp <текст> (стикер)
 ▢ .emojimix <эмодзи+эмодзи> (ⓓ)
 ▢ .sticker (сделать стик)
@@ -67,7 +65,6 @@ let m2 = `
 
 ┌─⊷ *ПРЕМИУМ*
 ▢ .gdrive (ⓓ) (Ⓟ)
-▢ .mediafire <url> (ⓓ)
 ▢ .xvid (ⓓ) (Ⓟ)
 ▢ .xnxx (ⓓ) (Ⓟ)
 └───────────
@@ -77,13 +74,11 @@ let m2 = `
 ▢ .delete (удалить)
 ▢ .delwarn @пользователь
 ▢ .demote (@тег) (понизить)
-▢ .infogp (инфо)
 ▢ .hidetag (тег скрытый)
 ▢ .invite <777xxx> (приглашение,)
 ▢ .kick @участник (кик)
 ▢ .link (ссылка)
 ▢ .promote (повысить)
-▢ .resetlink
 ▢ .setbye <текст>
 ▢ .group *open/close*
 ▢ .setwelcome <текст>
@@ -96,41 +91,29 @@ let m2 = `
 ┌─⊷ *РП*
 ▢ .kill @tag (ⓓ)
 ▢ .kiss @tag (ⓓ)
-▢ .pat @tag (ⓓ)
-▢ .slap @tag (ⓓ)
 └───────────
 
 ┌─⊷ *ЗАГРУЗЧИК*
-▢ .facebook <ССЫЛКА> (ⓓ)
-▢ .gdrive (ⓓ) (Ⓟ)
-▢ .gitclone <ССЫЛКА> (ⓓ)
-▢ .igstalk
 ▢ .instagram <link ig> (ⓓ)
-▢ .mediafire <ССЫЛКА> (ⓓ)
 ▢ .play
 ▢ .play2
-▢ .tiktok (ⓓ)
-▢ .tiktokstalk
-▢ .twitter <ССЫЛКА> (ⓓ)
 ▢ .ytmp3 <ССЫЛКА> (ⓓ)
 ▢ .ytsearch
 ▢ .ytmp4 <ССЫЛКА yt> (ⓓ)
 └───────────
 
-┌─⊷ *TOOLS*
-▢ .cal <equation>
-▢ .google (ⓓ)
-▢ .lyrics
-▢ .readmore <text1>|<text2>
-▢ .ssweb <url> (ⓓ)
-▢ .tourl
-▢ .trad <leng> <text>
-▢ .tts <lang> <teXTSs>
-▢ .wikipedia
+┌─⊷ *ИНСТРУМЕНТЫ*
+▢ .calс <equation>
+▢ .google (ⓓ) (запрос)
+▢ .lyrics (песня)
+▢ .ssweb <ссылка> (ⓓ)
+▢ .tts <язык> <текст>
+▢ .wikipedia (википедия)
 └───────────
 
 ┌─⊷ *ФАН*
 ▢ .gay @участник
+▢ .ship (шип)
 └───────────
 
 ┌─⊷ *DATABASE*
