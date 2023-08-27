@@ -6,8 +6,8 @@ var number = text.split`@`[1]
 }else if(!isNaN(text)) {
 var number = text
 }
-if(!text && !m.quoted) return conn.reply(m.chat, `✳️ Using the command \n *${usedPrefix + command}* @tag  (or reply to a message)`, m)
-if(number.length > 13 || (number.length < 11 && number.length > 0)) return conn.reply(m.chat, `✳️ Number incorrect`, m)
+if(!text && !m.quoted) return conn.reply(m.chat, `✳️ Используй команду \n *${usedPrefix + command}* @таг (или ответ на сообщение)`, m)
+if(number.length > 13 || (number.length < 11 && number.length > 0)) return conn.reply(m.chat, `✳️ Номер не коректен`, m)
 try {
 if(text) {
 var user = number + '@s.whatsapp.net'
@@ -19,7 +19,7 @@ var user = number + '@s.whatsapp.net'
 } catch (e) {
 } finally {
 conn.groupParticipantsUpdate(m.chat, [user], 'promote')
-m.reply(`✅ User promoted`)
+m.reply(`✅ Пользователь повышен`)
 }}
 handler.help = ['promote']
 handler.tags = ['group']
