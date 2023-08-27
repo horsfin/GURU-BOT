@@ -4,14 +4,14 @@ let handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isR
 	
 const sections = [
    {
-	title: `≡ List of options`,
+	title: `≡ Список опций`,
 	rows: [
-	{title: "🔮 | Welcome", rowId: `${usedPrefix + command} welcome`},
+	{title: "🔮 | Приветствие", rowId: `${usedPrefix + command} welcome`},
 	{title: "🌎 | Public", rowId: `${usedPrefix + command} public`},
 	{title: "🔞 | Nsfw", rowId: `${usedPrefix + command} nsfw`},
 	{title: "🧬 | OnlyEnglish", rowId: `${usedPrefix + command} onlyenglish`},
-	{title: "🔗 | Antilink", rowId: `${usedPrefix + command} antilink`},
-    {title: "🚫 | Antidelete", rowId: `${usedPrefix + command} antidelete`},
+	{title: "🔗 | Антиссылки", rowId: `${usedPrefix + command} antilink`},
+    {title: "🚫 | Aнтиудаление", rowId: `${usedPrefix + command} antidelete`},
     {title: "🖼 | Autosticker", rowId: `${usedPrefix + command} autosticker`},
 	{title: "⏏️ | Autolevelup", rowId: `${usedPrefix + command} autolevelup`},
 	{title: "🗣️ | ChatBot", rowId: `${usedPrefix + command} chatbot`},
@@ -205,9 +205,9 @@ break
       
     default:
      if (!/[01]/.test(command)) return m.reply(`
-≡ List of options
+≡ Лист опций
 
-┌─⊷ *ADMIN*
+┌─⊷ *АДМИНАМ*
 ▢ welcome
 ▢ antilink
 ▢ nsfw
@@ -217,16 +217,16 @@ break
 ▢ antidelete
 ▢ jarvis
 └───────────── 
-┌─⊷ *USERS*
+┌─⊷ *ПОЛЬЗОВАТЕЛЯМ*
 ▢ autolevelup
 ▢ chatbot 
 └─────────────
-┌─⊷ *OWNER*
+┌─⊷ *ВЛАДЕЛЬЦУ*
 ▢ public
 ▢ onlydm
 ▢ grouponly
 └─────────────
-*📌 Example :*
+*📌 ПРИМЕР :*
 *${usedPrefix}on* welcome
 *${usedPrefix}off* welcome
 `)
@@ -243,7 +243,7 @@ break
 */
 
 m.reply(`
-✅ *${type}* Now *${isEnable ? 'Active' : 'Deactive'}* ${isAll ? 'for this bot' : isUser ? '' : 'for this bot'}
+✅ *${type}* Сейчас *${isEnable ? 'Активно' : 'Неактивно'}* ${isAll ? 'для этого бота' : isUser ? '' : 'для этого бота'}
 `.trim()) 
 
 }
