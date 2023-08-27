@@ -1,7 +1,7 @@
 
 let handler = async (m, { conn, usedPrefix, command }) => {
 	
-if (!m.quoted) throw `✳️ Reply to the message you want to delete`
+if (!m.quoted) throw `✳️ ОТМЕТЬ ПОЛЬЗОВАТЕЛЯ ДЛЯ УДАЛЕНИЯ`
 try {
 let delet = m.message.extendedTextMessage.contextInfo.participant
 let bang = m.message.extendedTextMessage.contextInfo.stanzaId
