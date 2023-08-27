@@ -10,148 +10,111 @@ let m2 = `
 Ⓟ = Premium
 ⓓ = Diamonds
 -----  -----  -----  -----  -----
-  ≡ *ALL MENU LIST*
+  ≡ *Полный лист меню*
 
 ┌─⊷ *ABOUT*
 ▢ .blocklist
-▢ .info
-▢ .owner
-▢ .donate
+▢ .info (инфо)
+▢ .owner (владелец)
+▢ .donate (донат)
 ▢ .gpguru
-▢ .listprem
-▢ .help
-▢ .audios
-▢ .ping
+▢ .listprem (лист премиум)
+▢ .help (помощь)
+▢ .audios 
+▢ .ping (скорость)
 ▢ .runtime
 └───────────
 
-┌─⊷ *GAMES*
-▢ .dado
-▢ .delttt
-▢ .Math <mode>
-▢ .ppt <stone/paper/scissors>
+┌─⊷ *ИГРЫ*
 ▢ .slot <gamble>
-▢ .tictactoe <tag Someone>
 └───────────
 
-┌─⊷ *LEVELS AND ECO*
-▢ .adddi <@user>
-▢ .addxp <@user>
-▢ .balance
+┌─⊷ *УРОВНИ И ЭКО*
+▢ .balance (баланс)
 ▢ .daily
-▢ .leaderboard
-▢ .levelup
+▢ .leaderboard (лидеры)
+▢ .levelup (уровень)
 ▢ .mine
 ▢ .rob
-▢ .buy
+▢ .buy (покупка)
 ▢ .buyall
 ▢ .transfer [tip] [amount] [@tag]
-▢ .work
+▢ .work (работать)
 └───────────
 
-┌─⊷ *REGISTER*
-▢ .reg <name.age>
+┌─⊷ *РЕГИСТРАЦИИ*
+▢ .reg <имя.возраст> (регистрация)
 ▢ .mysn
 ▢ .unreg <Num Serie>
 └───────────
 
 ┌─⊷ *STICKER*
-▢ .attp <text>
-▢ .emojimix <emoji+emoji> (ⓓ)
-▢ .getsticker (ⓓ)
-▢ .smaker (ⓓ)
-▢ .sticker
-▢ .toimg <sticker>
-▢ .tovid
-▢ .trigger <@user>
-▢ .ttp <text>
-▢ .take <name>|<author>
+▢ .attp <текст> (стикер)
+▢ .emojimix <эмодзи+эмодзи> (ⓓ)
+▢ .sticker (сделать стик)
+▢ .ttp <текст>
+▢ .take <имя>|<автор>(сменить стикер)
 └───────────
 
-┌─⊷ *IMAGE*
-▢ .tvid (ⓓ)
-▢ .imagen (ⓓ)
-▢ .girl (ⓓ)
-▢ .meme (ⓓ)
-▢ .pinterest
-▢ .wallpaper (ⓓ)
+┌─⊷ *ФОТО*
+▢ .girl (ⓓ) (девочка)
 └───────────
 
-┌─⊷ *MAKER*
-▢ .logololi (ⓓ)
-▢ .neon (ⓓ)
-▢ .devil (ⓓ)
-▢ .wolf (ⓓ)
-▢ .phlogo (ⓓ)
+┌─⊷ *МАКЕР*
+▢ .logololi (ⓓ) (лоли)
+▢ .neon (ⓓ) (неон)
 └───────────
 
-┌─⊷ *PREMIUM*
+┌─⊷ *ПРЕМИУМ*
 ▢ .gdrive (ⓓ) (Ⓟ)
 ▢ .mediafire <url> (ⓓ)
 ▢ .xvid (ⓓ) (Ⓟ)
 ▢ .xnxx (ⓓ) (Ⓟ)
 └───────────
 
-┌─⊷ *GROUP*
-▢ .add
-▢ .delete
-▢ .delwarn @user
-▢ .demote (@tag)
-▢ .infogp
-▢ .hidetag
-▢ .invite <917xxx>
-▢ .kick @user
-▢ .link
-▢ .poll <Guru|piro|xd>
-▢ .perfil
-▢ .promote
+┌─⊷ *ГРУППА*
+▢ .add (добавить)
+▢ .delete (удалить)
+▢ .delwarn @пользователь
+▢ .demote (@тег) (понизить)
+▢ .infogp (инфо)
+▢ .hidetag (тег скрытый)
+▢ .invite <777xxx> (приглашение,)
+▢ .kick @участник (кик)
+▢ .link (ссылка)
+▢ .promote (повысить)
 ▢ .resetlink
-▢ .setbye <text>
+▢ .setbye <текст>
 ▢ .group *open/close*
-▢ .setwelcome <text>
-▢ .simulate <event> @user
-▢ .staff
-▢ .tagall
-▢ .totag
-▢ .warn @user
-▢ .warns
-▢ .checkexpired
+▢ .setwelcome <текст>
+▢ .staff (админы)
+▢ .tagall (тег всех)
+▢ .warn @пользователь (варн)
+▢ .warns (варны)
 └───────────
 
-┌─⊷ *EN/DISABLE OPTIONS*
-▢ .enable <option>
-▢ .disable <option>
-└───────────
-
-┌─⊷ *ANIME*
-▢ .waifu (ⓓ)
-▢ .neko (ⓓ)
-▢ .megumin (ⓓ)
-▢ .loli (ⓓ)
-└───────────
-
-┌─⊷ *ANIME REACTIONS*
+┌─⊷ *РП*
 ▢ .kill @tag (ⓓ)
 ▢ .kiss @tag (ⓓ)
 ▢ .pat @tag (ⓓ)
 ▢ .slap @tag (ⓓ)
 └───────────
 
-┌─⊷ *DOWNLOADERS*
-▢ .facebook <url> (ⓓ)
+┌─⊷ *ЗАГРУЗЧИК*
+▢ .facebook <ССЫЛКА> (ⓓ)
 ▢ .gdrive (ⓓ) (Ⓟ)
-▢ .gitclone <url> (ⓓ)
+▢ .gitclone <ССЫЛКА> (ⓓ)
 ▢ .igstalk
 ▢ .instagram <link ig> (ⓓ)
-▢ .mediafire <url> (ⓓ)
+▢ .mediafire <ССЫЛКА> (ⓓ)
 ▢ .play
 ▢ .play2
 ▢ .tiktok (ⓓ)
 ▢ .tiktokstalk
-▢ .twitter <url> (ⓓ)
-▢ .ytmp3 <url> (ⓓ)
+▢ .twitter <ССЫЛКА> (ⓓ)
+▢ .ytmp3 <ССЫЛКА> (ⓓ)
 ▢ .ytsearch
-▢ .ytmp4 <link yt> (ⓓ)
+▢ .ytmp4 <ССЫЛКА yt> (ⓓ)
 └───────────
 
 ┌─⊷ *TOOLS*
@@ -166,13 +129,8 @@ let m2 = `
 ▢ .wikipedia
 └───────────
 
-┌─⊷ *FUN*
-▢ .afk <razon>
-▢ .tomp3
-▢ .toav
-▢ .gay @user
-▢ .pregunta
-▢ .bot
+┌─⊷ *ФАН*
+▢ .gay @участник
 └───────────
 
 ┌─⊷ *DATABASE*
@@ -181,19 +139,9 @@ let m2 = `
 └───────────
 
 ┌─⊷ *NSFW +18*
-▢ .xwaifu (ⓓ)
-▢ .xneko (ⓓ)
-▢ .blowjob (ⓓ)
-▢ .ass (ⓓ)
-▢ .boobs (ⓓ)
-▢ .lesbian (ⓓ)
-▢ .pussy (ⓓ)
-▢ .pack (ⓓ)
-▢ .chut (ⓓ)
-▢ .gand (ⓓ)
+▢ .ass (ⓓ) (жопка)
 └───────────
-
-┌─⊷ *OWNER*
+┌─⊷ *ВЛАДЕЛЕЦ*
 ▢ .expired <days>
 ▢ .addprem <@tag>
 ▢ .banchat
@@ -218,8 +166,7 @@ let m2 = `
 ▢ =>
 ▢ $
 └───────────  
-
-Bot has more than 300 commands and i am lazy to write all
+У меня имеется 300 команд ,но мне лень писать все..
 `
     /*let pp = './Guru.jpg'
     conn.sendButton(m.chat, m2, '▢ ᴳᵁᴿᵁ  ┃ ᴮᴼᵀ\n▢ Follow on Instagram\nhttps://www.instagram.com/asli_guru69\n', pp, [
