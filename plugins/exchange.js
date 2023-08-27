@@ -7,11 +7,11 @@ let handler = async (m, { conn, command, args }) => {
     global.db.data.users[m.sender].exp -= xpperexp * amount
     global.db.data.users[m.sender].exp += count
     conn.reply(m.chat, `
-┌─「 *PAYMENT NOTE* 」
-‣ *nominal purchase* : + ${amount}💎 
-‣ *Spent* : -${xpperexp * amount} XP
+┌─「 *Платежная записка* 」
+‣ *Покупка* : + ${amount}💎 
+‣ *Трата* : -${xpperexp * amount} XP
 └──────────────`, m)
-  } else conn.reply(m.chat, `❎ Sorry, you don't have enough *DIAMOND* to buy*${amount}* Diamond💎\n\n you can get *DIAMOND* using the commands from the *games and economy menu*`, m)
+  } else conn.reply(m.chat, `❎Извини у тебя недостаточно *КРИСТАЛОВ* чтобы купить*${amount}* кристал💎\n\n Вы можече получить кристал из команд экономии и игр*`, m)
 }
 handler.help = ['exc', 'excall']
 handler.tags = ['econ']
