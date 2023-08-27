@@ -2,17 +2,17 @@
 import yts from 'yt-search'
 
 let handler = async (m, {conn, text }) => {
-  if (!text) throw '✳️ What do you want me to search for on YouTube?'
+  if (!text) throw '✳️ Что вы хотите?'
   let results = await yts(text)
   let tes = results.all
   let teks = results.all.map(v => {
     switch (v.type) {
       case 'video': return `
 ▢ ${v.title}
-▢ *Link* : ${v.url}
-▢ *Duration* : ${v.timestamp}
-▢ *publiced :* ${v.ago}
-▢ *Views:* ${v.views}
+▢ *Ссылка* : ${v.url}
+▢ *Продолжительность* : ${v.timestamp}
+▢ *Публиковано :* ${v.ago}
+▢ *Просмотры:* ${v.views}
 
    `.trim()
       case 'canal': return `
