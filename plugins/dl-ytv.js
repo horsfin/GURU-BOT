@@ -4,8 +4,8 @@ import os from 'os';
 
 let limit = 500;
 let handler = async (m, { conn, args, isPrems, isOwner, usedPrefix, command }) => {
-  if (!args || !args[0]) throw `✳️ Example:\n${usedPrefix + command} https://youtu.be/YzkTFFwxtXI`;
-  if (!args[0].match(/youtu/gi)) throw `❎ Verify that the YouTube link`;
+  if (!args || !args[0]) throw `✳️ пример:\n${usedPrefix + command} https://youtu.be/YzkTFFwxtXI`;
+  if (!args[0].match(/youtu/gi)) throw `❎ убедитесь что это ссылка ютуб`;
 
   let chat = global.db.data.chats[m.chat];
   m.react(rwait);
@@ -13,11 +13,11 @@ let handler = async (m, { conn, args, isPrems, isOwner, usedPrefix, command }) =
     const info = await ytdl.getInfo(args[0]);
     const format = ytdl.chooseFormat(info.formats, { quality: 'highest' });
     if (!format) {
-      throw new Error('No valid formats found');
+      throw new Error('не найдено нужного формата');
     }
 
     if (format.contentLength / (1024 * 1024) >= limit) {
-      return m.reply(`≡ *GURU YTDL*\n\n▢ *⚖️Size*: ${format.contentLength / (1024 * 1024).toFixed(2)}MB\n▢ *🎞️Quality*: ${format.qualityLabel}\n\n▢ The file exceeds the download limit *+${limit} MB*`);
+      return m.reply(`≡ *ЗАГРУЗЧИК*\n\n▢ *⚖️размер*: ${format.contentLength / (1024 * 1024).toFixed(2)}MB\n▢ *🎞️качество*: ${format.qualityLabel}\n\n▢ фаил превышает лимит загрузки *+${limit} MB*`);
     }
 
     const tmpDir = os.tmpdir();
@@ -28,18 +28,18 @@ let handler = async (m, { conn, args, isPrems, isOwner, usedPrefix, command }) =
       quality: format.itag,
     }).pipe(writableStream);
 
-    writableStream.on('finish', () => {
+    writableStream.on('ФИНИШ', () => {
       conn.sendFile(
         m.chat,
         fs.readFileSync(fileName),
         `${info.videoDetails.videoId}.mp4`,
         `✼ ••๑⋯❀ Y O U T U B E ❀⋯⋅๑•• ✼
 	  
-	  ❏ Title: ${info.videoDetails.title}
-	  ❐ Duration: ${info.videoDetails.lengthSeconds} seconds
-	  ❑ Views: ${info.videoDetails.viewCount}
-	  ❒ Upload: ${info.videoDetails.publishDate}
-	  ❒ Link: ${args[0]}
+	  ❏ Заглавление: ${info.videoDetails.title}
+	  ❐ Продолжительность: ${info.videoDetails.lengthSeconds} секунд
+	  ❑ Просмотров: ${info.videoDetails.viewCount}
+	  ❒ Загружено: ${info.videoDetails.publishDate}
+	  ❒ Ссылка: ${args[0]}
 	  
 	  ⊱─━⊱༻●༺⊰━─⊰`,
         m,
@@ -53,11 +53,11 @@ let handler = async (m, { conn, args, isPrems, isOwner, usedPrefix, command }) =
 
     writableStream.on('error', (error) => {
       console.error(error);
-      m.reply('Error while trying to download the video. Please try again.');
+      m.reply('Ошибка.');
     });
   } catch (error) {
     console.error(error);
-    m.reply('Error while trying to process the video. Please try again.');
+    m.reply('Ошибка.');
   }
 };
 
