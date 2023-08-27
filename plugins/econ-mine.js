@@ -14,12 +14,12 @@ const cooldown = 86400000
 let handler = async (m,{ conn}, usedPrefix ) => {
   let user = global.db.data.users[m.sender]
   if (user.health < 80) return m.reply(`
-Requires at least 80 ❤️Healths for the mining!!
-please buy ❤️Healths first by typing * .buy potion <quantity>*,
-and type * .heal <quantity>* to use potions
+Требуется 80 сердец для добычи!
+Пожалуйста купите сердца * .buy potion <кол-во>*,
+И напишите * .heal <quantity>* чтобы использовать зелье
 `.trim())
   //if (user.pickaxe == 0) return m.reply('for mining u need a picaxe 🗿')
-  if (new Date - user.lastclaim < cooldown) throw `You alrady mining!, wait for *${((user.lastclaim + cooldown) - new Date()).toTimeString()}*`
+  if (new Date - user.lastclaim < cooldown) throw `Ты начал искать!, ждать *${((user.lastclaim + cooldown) - new Date()).toTimeString()}*`
   let text = ''
   for (let reward of Object.keys(rewards)) {
     if (!(reward in user)) continue
@@ -28,9 +28,9 @@ and type * .heal <quantity>* to use potions
   }
   //conn.sendButton(m.chat,'*––––––『 MINE 』––––––*', text.trim(), null, [['Adventure', '.adventure'], ['Weekly', '.weekly']],m)
   m.reply(`
-  🎁 *YOU WENT ON MINING *
+  🎁 *Вы продолжили заниматься добычей ископаемых *
   
-  ▢ *AND GOT:*
+  ▢ *И получил:*
    ${text}`)
   user.lastclaim = new Date * 1
 }
