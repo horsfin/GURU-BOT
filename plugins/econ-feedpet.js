@@ -1,15 +1,15 @@
 let handler = async (m, { conn, args, usedPrefix }) => {
     let htki = '––––––『'
   let htka = '』––––––'
-	let info = `*➞ ᴇxᴀᴍᴘʟᴇ:* ${usedPrefix}feed cat
+	let info = `*➞ Пример:* ${usedPrefix}feed cat
    
 - - - - - - - - - - - - - - - - - - - - - - - - - 
-${htki} LIST PET ${htka}
+${htki} СПИСОК ЖИВОТНЫХ ${htka}
 🐈 • ᴄᴀᴛ
 🐕 • ᴅᴏɢ
 🦊 • ғᴏx
 🐎 • ʜᴏʀsᴇ`
-let pesan = pickRandom(['ɴʏᴜᴍᴍᴍ~', 'ᴛʜᴀɴᴋs', 'ᴛʜᴀɴᴋʏᴏᴜ ^-^', '...', 'ᴛʜᴀɴᴋ ʏᴏᴜ~', 'ᴀʀɪɢᴀᴛᴏᴜ ^-^'])
+let pesan = pickRandom(['мяу~', 'спасибо', 'спасибо тебе ^-^', '...', 'спасибо тебе~', 'спс ^-^'])
     let type = (args[0] || '').toLowerCase()
     let emo = (type == 'fox' ? '🦊':'' || type == 'cat' ? '🐈':'' || type == 'dog' ? '🐕':'' || type == 'horse' ? '🐴':'' ) 
     let user = global.db.data.users[m.sender]
@@ -19,8 +19,8 @@ let pesan = pickRandom(['ɴʏᴜᴍᴍᴍ~', 'ᴛʜᴀɴᴋs', 'ᴛʜᴀɴᴋʏ�
     let anjing = global.db.data.users[m.sender].dog
     switch (type) {
         case 'fox':
-            if (rubah == 0) return conn.sendButton(m.chat, `${htki} NOT FOUND ${htka}`, 'ʏᴏᴜ ᴅᴏɴ\'ᴛ ʜᴀᴠᴇ ᴛʜɪs ᴘᴇᴛ ʏᴇᴛ!', null, [['ADVENTURE', '.profile'],['ʙᴜʏ ᴘᴇᴛ', '.petshop']],m)
-            if (rubah == 10) return conn.sendButton(m.chat, `${htki} LEVEL MAX ${htka}`, 'ʏᴏᴜʀ ᴘᴇᴛ ɪs ᴍᴀx ʟᴇᴠᴇʟ !', null, [['ADVENTURE', '.profile'],['ʙᴜʏ ɴᴇᴡ ᴘᴇᴛ', '.petshop']],m)
+            if (rubah == 0) return conn.sendButton(m.chat, `${htki} не найдено ${htka}`, 'ʏᴏᴜ ᴅᴏɴ\'ᴛ ʜᴀᴠᴇ ᴛʜɪs ᴘᴇᴛ ʏᴇᴛ!', null, [['ADVENTURE', '.profile'],['ʙᴜʏ ᴘᴇᴛ', '.petshop']],m)
+            if (rubah == 10) return conn.sendButton(m.chat, `${htki} УРОВЕНЬ МАКС ${htka}`, 'ВАШЕ ЖИВОТНОЕ МАКСИМАЛЬНОГО УРОВНЯ!', null, [['ADVENTURE', '.profile'],['ʙᴜʏ ɴᴇᴡ ᴘᴇᴛ', '.petshop']],m)
             let __waktur = (new Date - user.foxlastfeed)
             let _waktur = (600000 - __waktur)
             let waktur = clockString(_waktur)
@@ -35,11 +35,11 @@ let pesan = pickRandom(['ɴʏᴜᴍᴍᴍ~', 'ᴛʜᴀɴᴋs', 'ᴛʜᴀɴᴋʏ�
                         if (user.foxexp > naiklvl) {
                             user.fox += 1
                             user.foxexp -= (rubah * 100)
-                            conn.sendButton(m.chat, `${htki} LEVELUP ${htka}`, `*ᴄᴏɴɢʀᴀᴛs!* , ʏᴏᴜʀ ᴘᴇᴛ ʟᴇᴠᴇʟᴜᴘ`,null, [['ADVENTURE', '.profile'],['sᴇᴇ ᴀʙɪʟɪᴛʏ ᴘᴇᴛ', '.petshop']], m)
+                            conn.sendButton(m.chat, `${htki} LEVELUP ${htka}`, `*ᴄᴏɴɢʀᴀᴛs!* , ваше животное повышено`,null, [['ADVENTURE', '.profile'],['sᴇᴇ ᴀʙɪʟɪᴛʏ ᴘᴇᴛ', '.petshop']], m)
                         }
                     }
                 } else m.reply(`ʏᴏᴜʀ ᴘᴇᴛ ғᴏᴏᴅ ɴᴏᴛ ᴇɴᴏᴜɢʜ`)
-            } else conn.sendButton(m.chat, `${htki} COOLDOWN ${htka}`, `ʏᴏᴜʀ ᴘᴇᴛ ɪs ғᴜʟʟ, ᴛʀʏ ғᴇᴇᴅɪɴɢ ɪᴛ ᴀɢᴀɪɴ ɪɴ\n➞ *${waktur}*`, null, [['ADVENTURE', '.profile']], m)
+            } else conn.sendButton(m.chat, `${htki} COOLDOWN ${htka}`, `ваше животное сильно\n➞ *${waktur}*`, null, [['ADVENTURE', '.profile']], m)
             break
         case 'cat':
             if (kucing == 0) return conn.sendButton(m.chat, `${htki} NOT FOUND ${htka}`, 'ʏᴏᴜ ᴅᴏɴ\'ᴛ ʜᴀᴠᴇ ᴛʜɪs ᴘᴇᴛ ʏᴇᴛ!', null, [['ADVENTURE', '.profile'],['ʙᴜʏ ᴘᴇᴛ', '.petshop']],m)
