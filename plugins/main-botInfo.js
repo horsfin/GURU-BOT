@@ -41,34 +41,26 @@ let handler = async (m, { conn, usedPrefix, command }) => {
   let neww = performance.now()
   let speed = neww - old
   let who = m.quoted ? m.quoted.sender : m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
-if (!(who in global.db.data.users)) throw `✳️ The user is not found in my database`
+if (!(who in global.db.data.users)) throw `✳️ Данного пользователя нет в моей базе`
 let pp = await conn.profilePictureUrl(who, 'image').catch(_ => './Guru.jpg')
 let user = global.db.data.users[who]
   
 let infobt = `
 ≡ *INFO BOT*
   
-*STATE*
-▢ *${groupsIn.length}* GROUP CHATS
-▢ *${groupsIn.length}* united groups
-▢ *${groupsIn.length - groupsIn.length}* abandoned groups
-▢ *${chats.length - groupsIn.length}* private chats
-▢ *${chats.length}* Total Chats
+*СОСТОЯНИЕ*
+▢ *${groupsIn.length}* ГРУППЫ
+▢ *${groupsIn.length}* Объедененые группы
+▢ *${groupsIn.length - groupsIn.length}* Покинутые группы
+▢ *${chats.length - groupsIn.length}* приватные чаты
+▢ *${chats.length}* Всего чатов
 
-*≡ OWNER*
-  *GURU*
-▢ Instagram :
-  • https://instagram.com/asli_guru69
-▢ GitHub :
-  • https://github.com/Guru322
-▢ Telegram : 
-  • t.me/i_want_to_be_isekaied (GURU) 
-▢ YouTube : 
-  • https://youtube.com/@Asliguru
+*≡ Владелец*
+  *R.I.P*
 
- *≡ S E R V E R*
-*🛑 RAM:* ${format(totalmem() - freemem())} / ${format(totalmem())}
-*🔵 FreeRAM:* ${format(freemem())}
+ *≡ CЕРВЕР*
+*🛑 РАМ:* ${format(totalmem() - freemem())} / ${format(totalmem())}
+*🔵 СВОБОДНО:* ${format(freemem())}
 
 *≡  NodeJS memory *
 ${'```' + Object.keys(used).map((key, _, arr) => `${key.padEnd(Math.max(...arr.map(v => v.length)), ' ')}: ${format(used[key])}`).join('\n') + '```'}
