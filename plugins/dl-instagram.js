@@ -1,7 +1,7 @@
 import fetch from 'node-fetch';
 
 let handler = async (m, { conn, usedPrefix, args, command, text }) => {
-  if (!text) throw `LINK?`;
+  if (!text) throw `ССЫЛКА?`;
   m.reply(wait);
 
   let res;
@@ -13,10 +13,10 @@ let handler = async (m, { conn, usedPrefix, args, command, text }) => {
 
   let api_response = await res.json();
   if (!api_response || !api_response.result || api_response.result.length === 0) {
-    throw `No video found or Invalid response from API.`;
+    throw `Видео не найдено.`;
   }
 
-  let cap = `HERE IS THE VIDEO >,<`;
+  let cap = `ВОТ ЭТО ВИДЕО >,<`;
 
   conn.sendFile(m.chat, api_response.result[0], 'instagram.mp4', cap, m);
 }
