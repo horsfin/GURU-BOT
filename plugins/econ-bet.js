@@ -3,7 +3,7 @@ let confirm = {}
 async function handler(m, { conn, args }) {
   // Check if the user is already in a gamble.
   if (m.sender in confirm) {
-    throw 'You are still in a gamble. Please wait until it is finished.'
+    throw 'Вы уже участвуете в игре.'
   }
 
   try {
@@ -16,17 +16,17 @@ async function handler(m, { conn, args }) {
     }
 
     if (user.money < count) {
-      return m.reply('💹 You do not have enough money for this bet.')
+      return m.reply('💹 У вас недостаточно денег.')
     }
 
     if (!(m.sender in confirm)) {
       confirm[m.sender] = {
         sender: m.sender,
         count,
-        timeout: setTimeout(() => (m.reply('Bet timed out.'), delete confirm[m.sender]), 60000)
+        timeout: setTimeout(() => (m.reply('Время ожидания ставки истекло.'), delete confirm[m.sender]), 60000)
       }
 
-      let txt = `Are you sure you want to place this bet? Respond with 'yes' or 'no'. \n\nBet Amount: ${count} 💹\nYou have 60 seconds to respond.`
+      let txt = `Вы верены что хотите сделать ставку? Ответьте 'yes' или 'no'. \n\nСумма: ${count} 💹\nУ вас есть 60 секунд на ответ.`
       return conn.sendMessage(m.chat, { text: txt, quoted: m, contextInfo: { mentionedJid: [m.sender] } });
     }
   } catch (e) {
@@ -35,7 +35,7 @@ async function handler(m, { conn, args }) {
       let { timeout } = confirm[m.sender]
       clearTimeout(timeout)
       delete confirm[m.sender]
-      m.reply('Bet cancelled due to an error.')
+      m.reply('Ставка отменена из-за ошибки.')
     }
   }
 }
@@ -66,10 +66,10 @@ handler.before = async m => {
       }
 
       let result = `
-      | *Players* | *Points* |
-      * Bot:*      ${botScore}
-      * You:*    ${playerScore}
-      You *${status}*. Your new balance: ${user.money} 💹
+      | *Игрок* | *Очки* |
+      * Бот:*      ${botScore}
+      * Вы:*    ${playerScore}
+      Вы *${status}*. Ваш новый баланс: ${user.money} 💹
           `.trim()
 
       m.reply(result)
@@ -79,7 +79,7 @@ handler.before = async m => {
     } else if (/^(✖️|no)?$/i.test(txt)) {
       clearTimeout(timeout)
       delete confirm[m.sender]
-      m.reply('Bet cancelled.')
+      m.reply('Ставка отменена.')
       return true
     }
 
@@ -90,7 +90,7 @@ handler.before = async m => {
     // If money was lost due to an error, restore it.
     if (initialMoney > user.money) user.money = initialMoney
 
-    m.reply('Bet cancelled due to an error.')
+    m.reply('Ставка отменена из-за ошибка.')
     return true
   } finally {
     clearTimeout(timeout)
