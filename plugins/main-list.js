@@ -9,15 +9,18 @@ let handler = async (m, { conn, usedPrefix, command}) => {
       let lkr;
       switch (command) {
         case 'list':
-lkr = "*Get ready for the ride, here are your ticket options:*\n\n" +
-"🤖 *" + usedPrefix + "botmenu* - The Bot's secret control panel. What's your command, oh great one?\n\n" +
-"🧑‍🤝‍🧑 *" + usedPrefix + "groupmenu* - Group shenanigans central! Unite, chat, conquer!\n\n" +
-"📥 *" + usedPrefix + "dlmenu* - 'DL' stands for 'Delicious Loot'. Come grab your goodies!\n\n" +
-"🎉 *" + usedPrefix + "funmenu* - The bot's party hat. Games, jokes and instant ROFLs. Let's get this party started!\n\n" +
-"💰 *" + usedPrefix + "economymenu* - Bling bling! Your personal vault of virtual economy. Spend or save? Choose wisely!\n\n" +
-"🎮 *" + usedPrefix + "gamemenu* - Enter the gaming arena. May the odds be ever in your favor!\n\n" +
-"🎨 *" + usedPrefix + "stickermenu* - A rainbow of stickers for your inner artist. Make your chats pop!\n\n" +
-"🧰 *" + usedPrefix + "toolmenu* - Your handy-dandy toolkit. What's your pick, genius?\n\n" +
+lkr = "*Приготовься к чудесам вот список меню:*\n\n" +
+"🤖 *" + usedPrefix + "botmenu* - Панель управления ботом,ей может управлять только мой хозяин\n\n" +
+"👑 *" + usedPrefix + "ownermenu* - Священый список только для избранных,для моего босса РИПА!\n\n" +
+"🧑‍🤝‍🧑 *" + usedPrefix + "groupmenu* - Групповое меню для админов группы,эй админы пользуйтесь!\n\n" +
+"📥 *" + usedPrefix + "dlmenu* - Меню загрузки,загружайте и ищите что хотите маленькие нигодяи!\n\n" +
+"🎉 *" + usedPrefix + "funmenu* - Фан меню,найди себе пару или сделай из друга гея!\n\n" +
+"💰 *" + usedPrefix + "economymenu* - Меню экономики копай ресурсы и добывай опыт!\n\n" +
+"🎮 *" + usedPrefix + "gamemenu* - Игры для тебя дружок,тут ты можешь поднять или профукать опыт!\n\n" +
+"🎨 *" + usedPrefix + "stickermenu* - Стикеры,возможностей много попытайся понять все!\n\n" +
+"🧰 *" + usedPrefix + "toolmenu* - Набор инструментов,каков твой выбор гений?\n\n" +
+"🎩 *" + usedPrefix + "СКРЫТО* - Create a logo that screams YOU. Or whispers. You choose the volume.\n\n" +
+"🌙 *" + usedPrefix + "СКРЫТО* - The After Dark menu. But remember, sharing adult secrets must be consent-based.";
 break;
 
           
@@ -26,7 +29,7 @@ break;
 
         case 'botmenu':
           lkr = `❀° ┄──•••───╮
-          БОТ МЕНЮ 
+          𝘽𝙊𝙏 𝙈𝙀𝙉𝙐  
    ╰───•••──┄ °❀     
    ┏━━━ʕ•㉨•ʔ━━━┓
    ⎪⌲👑 _${usedPrefix}gita_
@@ -41,7 +44,7 @@ break;
    ⎪⌲👑 _${usedPrefix}groups_
    ⎪⌲👑 _${usedPrefix}blocklist_
    ⎪⌲👑 _${usedPrefix}listprem_
-   ⎪⌲👑    Guru
+   ⎪⌲👑    R.I.P
    ┗━━━ʕ•㉨•ʔ━━━┛`; // Your bot menu message here
           break;
         case 'ownermenu':
@@ -65,21 +68,23 @@ break;
           break;
           case 'groupmenu':
           lkr = `❀° ┄──•••───╮
-          ГРУППОВОЕ МЕНЮ
+          𝙂𝙍𝙊𝙐𝙋 𝙈𝙀𝙉𝙐 
     ╰───•••──┄ °❀     
     ┏━━━ʕ•㉨•ʔ━━━┓
-    ⎪⌲💎_${usedPrefix}kick *<@tag>*_
-    ⎪⌲💎_${usedPrefix}promote *<@tag>*_
-    ⎪⌲💎 _${usedPrefix}demote *<@tag>*_
+    ⎪⌲💎_${usedPrefix}kick *<@тег>*_
+    ⎪⌲💎_${usedPrefix}promote *<@тег>*_
+    ⎪⌲💎 _${usedPrefix}demote *<@тег>*_
+    ⎪⌲💎 _${usedPrefix}infogroup_
+    ⎪⌲💎 _${usedPrefix}resetlink_
     ⎪⌲💎 _${usedPrefix}link_
-    ⎪⌲💎 _${usedPrefix}setpp *<image>*_
-    ⎪⌲💎 _${usedPrefix}setname *<text>*_
-    ⎪⌲💎 _${usedPrefix}setdesc *<text>*_
-    ⎪⌲💎 _${usedPrefix}setwelcome *<text>*_
-    ⎪⌲💎 _${usedPrefix}setbye *<text>*_
-    ⎪⌲💎 _${usedPrefix}hidetag *<text/image/audio/vid>*_
-    ⎪⌲💎 _${usedPrefix}warn *<@tag>*_
-    ⎪⌲💎 _${usedPrefix}unwarn *<@tag>*_
+    ⎪⌲💎 _${usedPrefix}setpp *<фото>*_
+    ⎪⌲💎 _${usedPrefix}setname *<текст>*_
+    ⎪⌲💎 _${usedPrefix}setdesc *<текст>*_
+    ⎪⌲💎 _${usedPrefix}setwelcome *<текст>*_
+    ⎪⌲💎 _${usedPrefix}setbye *<текст>*_
+    ⎪⌲💎 _${usedPrefix}hidetag *<текст/фото/аулио/видео>*_
+    ⎪⌲💎 _${usedPrefix}warn *<@тег>*_
+    ⎪⌲💎 _${usedPrefix}unwarn *<@тег>*_
     ⎪⌲💎 _${usedPrefix}group *<open/close>*_
     ⎪⌲💎 _${usedPrefix}enable
     ┗━━━ʕ•㉨•ʔ━━━┛`; // 
@@ -87,45 +92,70 @@ break;
           case 'downloadermenu':
             case 'dlmenu' :
           lkr = `❀° ┄──•••───╮
-          ДЛ МЕНЮ
+          𝘿𝙇 𝙈𝙀𝙉𝙐 
    ╰───•••──┄ °❀     
    ┏━━━ʕ•㉨•ʔ━━━┓
-   ⎪⌲💎_${usedPrefix}play_
+   ⎪⌲💎_${usedPrefix}play_ 
    ⎪⌲💎_${usedPrefix}song_
-   ⎪⌲💎 _${usedPrefix}yta <link>_
-   ⎪⌲💎 _${usedPrefix}ytv <link>_
-   ⎪⌲💎 _${usedPrefix}ytmp3 <link>_
-   ⎪⌲💎 _${usedPrefix}ytmp4 <link>_
-   ⎪⌲💎 _${usedPrefix}tiktok <link>_
-   ⎪⌲💎 _${usedPrefix}instagram <link>_
+   ⎪⌲💎 _${usedPrefix}yta <ссылка>_
+   ⎪⌲💎 _${usedPrefix}ytv <ссылка>_
+   ⎪⌲💎 _${usedPrefix}ytmp3 <ссылка>_
+   ⎪⌲💎 _${usedPrefix}ytmp4 <ссылка>_
+   ⎪⌲💎 _${usedPrefix}скрыто_
+   ⎪⌲💎 _${usedPrefix}pinterest_
+   ⎪⌲💎 _${usedPrefix}скрыто <link>_
+   ⎪⌲💎 _${usedPrefix}скрыто <link>_
+   ⎪⌲💎 _${usedPrefix}скрыто <link>_
+   ⎪⌲💎 _${usedPrefix}скрыто <link>_
+   ⎪⌲💎 _${usedPrefix}tiktok <ссылка>_
+   ⎪⌲💎 _${usedPrefix}скрыто_
+   ⎪⌲💎 _${usedPrefix}instagram <ссылка>_
+   ⎪⌲💎 _${usedPrefix}spotify_
+   ⎪⌲💎 _${usedPrefix}скрыто<link>_
    ┗━━━ʕ•㉨•ʔ━━━┛`; // 
           break;
           case 'economymenu':
           lkr = `❀° ┄──•••───╮
-          ЭКОНОМИЯ
+          𝙀𝘾𝙊𝙉𝙊𝙈𝙔 
    ╰───•••──┄ °❀     
    ┏━━━ʕ•㉨•ʔ━━━┓
    ⎪⌲👑 _${usedPrefix}claim/daily_
+   ⎪⌲👑 _${usedPrefix}скрыто_
+   ⎪⌲👑 _${usedPrefix}скрыто_
    ⎪⌲👑 _${usedPrefix}leaderboard_
    ⎪⌲👑 _${usedPrefix}bet_
    ⎪⌲👑 _${usedPrefix}heal_
    ⎪⌲👑 _${usedPrefix}craft_
    ⎪⌲👑 _${usedPrefix}balance_
    ⎪⌲👑 _${usedPrefix}shop_
+   ⎪⌲👑 _${usedPrefix}sell_
    ⎪⌲👑 _${usedPrefix}adventure_
+   ⎪⌲👑 _${usedPrefix}opencrate_
    ⎪⌲👑 _${usedPrefix}mine_
    ⎪⌲👑 _${usedPrefix}work_
+   ⎪⌲👑 _${usedPrefix}скрыто_
    ⎪⌲👑 _${usedPrefix}todiamond_
    ⎪⌲👑 _${usedPrefix}tomoney_
    ┗━━━ʕ•㉨•ʔ━━━┛`; // 
           break;
           case 'funmenu':
           lkr = `❀° ┄──•••───╮
-          ФАН
+          𝙁𝙐𝙉 𝙈𝙀𝙉𝙐
     ╰───•••──┄ °❀     
     ┏━━━ʕ•㉨•ʔ━━━┓
+    ⎪⌲👑 _${usedPrefix}character_
+    ⎪⌲👑 _${usedPrefix}скрыто_
+    ⎪⌲👑 _${usedPrefix}скрыто_
+    ⎪⌲👑 _${usedPrefix}скрыто_
     ⎪⌲👑 _${usedPrefix}gay_
+    ⎪⌲👑 _${usedPrefix}скрыто_
     ⎪⌲👑 _${usedPrefix}ship_
+    ⎪⌲👑 _${usedPrefix}скрыто_
+    ⎪⌲👑 _${usedPrefix}скрыто_
+    ⎪⌲👑 _${usedPrefix}hornycard_
+    ⎪⌲👑 _${usedPrefix}скрыто_
+    ⎪⌲👑 _${usedPrefix}stupid_
+    ⎪⌲👑 _${usedPrefix}lolicon_
     ┗━━━ʕ•㉨•ʔ━━━┛`; // 
           break;
           case 'animemenu':
@@ -175,21 +205,36 @@ break;
           break;
           case 'gamemenu':
           lkr = `❀° ┄──•••───╮
-          ИГРОВОЕ МЕНЮ
+          𝙂𝘼𝙈𝙀 𝙈𝙀𝙉𝙐 
     ╰───•••──┄ °❀     
     ┏━━━ʕ•㉨•ʔ━━━┓
+    ⎪⌲👑 _${usedPrefix}скрыто_
+    ⎪⌲👑 _${usedPrefix}скрыто_
+    ⎪⌲👑 _${usedPrefix}скрыто_
+    ⎪⌲👑 _${usedPrefix}скрыто_
+    ⎪⌲👑 _${usedPrefix}ppt_
     ⎪⌲👑 _${usedPrefix}slot_
+    ⎪⌲👑 _${usedPrefix}casino_
+    ⎪⌲👑 _${usedPrefix}yourmom_
+    ⎪⌲👑 _${usedPrefix}скрыто_
     ┗━━━ʕ•㉨•ʔ━━━┛`; // 
           break;
           case 'stickermenu':
-           lkr = `❀° ┄──•••───╮
-           СТИКЕРЫ
+          lkr = `❀° ┄──•••───╮
+          𝙎𝙏𝙄𝘾𝙆𝙀𝙍 𝙈𝙀𝙉𝙐
      ╰───•••──┄ °❀     
      ┏━━━ʕ•㉨•ʔ━━━┓
      ⎪⌲👑 _${usedPrefix}sticker_
      ⎪⌲👑 _${usedPrefix}take_
+     ⎪⌲👑 _${usedPrefix}скрыто_
+     ⎪⌲👑 _${usedPrefix}скрыто_
+     ⎪⌲👑 _${usedPrefix}скрыто_
+     ⎪⌲👑 _${usedPrefix}getsticker_
      ⎪⌲👑 _${usedPrefix}emojimix_
+     ⎪⌲👑 _${usedPrefix}toimg_
+     ⎪⌲👑 _${usedPrefix}tovid_
      ⎪⌲👑 _${usedPrefix}ttp_
+     ⎪⌲👑 _${usedPrefix}скрыто_
      ⎪⌲👑 _${usedPrefix}attp_
      ⎪⌲👑 _${usedPrefix}attp2_
      ⎪⌲👑 _${usedPrefix}attp3_
@@ -197,18 +242,39 @@ break;
           break;
           case 'toolmenu':
           lkr = `❀° ┄──•••───╮
-          ИНСТРУМЕНТЫ
+          𝙏𝙊𝙊𝙇𝙎 𝙈𝙀𝙉𝙐
      ╰───•••──┄ °❀     
      ┏━━━ʕ•㉨•ʔ━━━┓
+     ⎪⌲👑 _${usedPrefix}скрыто_
+     ⎪⌲👑 _${usedPrefix}скрыто_
+     ⎪⌲👑 _${usedPrefix}скрыто_
      ⎪⌲👑 _${usedPrefix}calc_
      ⎪⌲👑 _${usedPrefix}google_
      ⎪⌲👑 _${usedPrefix}lyrics_
+     ⎪⌲👑 _${usedPrefix}скрыто_
      ⎪⌲👑 _${usedPrefix}ssweb_
      ⎪⌲👑 _${usedPrefix}tts_
      ⎪⌲👑 _${usedPrefix}translate_
+     ⎪⌲👑 _${usedPrefix}скрыто_
      ⎪⌲👑 _${usedPrefix}wikipedia_
+     ⎪⌲👑 _${usedPrefix}nowa_
+     ⎪⌲👑 _${usedPrefix}qrmaker_
+     ⎪⌲👑 _${usedPrefix}readqr_
      ⎪⌲👑 _${usedPrefix}fancy_
      ⎪⌲👑 _${usedPrefix}weather_
+     ⎪⌲👑 _${usedPrefix}скрыто_
+     ⎪⌲👑 _${usedPrefix}скрыто_
+     ⎪⌲👑 _${usedPrefix}скрыто_
+     ⎪⌲👑 _${usedPrefix}скрыто_
+     ⎪⌲👑 _${usedPrefix}скрыто_
+     ⎪⌲👑 _${usedPrefix}скрыто_
+     ⎪⌲👑 _${usedPrefix}скрыто_
+     ⎪⌲👑 _${usedPrefix}скрыто_
+     ⎪⌲👑 _${usedPrefix}скрыто_
+     ⎪⌲👑 _${usedPrefix}скрыто_
+     ⎪⌲👑 _${usedPrefix}tinyurl/shorturl_
+     ⎪⌲👑 _${usedPrefix}скрыто_
+     ⎪⌲👑 _${usedPrefix}true_
      ┗━━━ʕ•㉨•ʔ━━━┛`; // 
           break;
           case 'nsfwmenu':
