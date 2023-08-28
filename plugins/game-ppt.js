@@ -32,15 +32,15 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
             m.reply(`▢ Выйгрыш* 🎊\n\n‣ Вы : ${text}\n‣ Бот : ${astro}\n\n🎁 Очки *+${poin} XP*`)
         } else {
           global.db.data.users[m.sender].exp -= 300
-            m.reply(`▢ *Проигрыщ*\n\n‣ Вы : ${text}\n‣ Бот : ${astro}\n\nОчки *-${poin} XP*`)
+            m.reply(`▢ *Проигрыш*\n\n‣ Вы : ${text}\n‣ Бот : ${astro}\n\nОчки *-${poin} XP*`)
         }
     } else if (text == 'бумага') {
         if (astro == 'камень') {
             global.db.data.users[m.sender].exp += 300
-            m.reply(`▢ *Выйгрышь* 🎊\n\n‣ Вы : ${text}\n‣ Бот : ${astro}\n\n🎁 очки *+${poin} XP*`)
+            m.reply(`▢ *Выйгрыш* 🎊\n\n‣ Вы : ${text}\n‣ Бот : ${astro}\n\n🎁 очки *+${poin} XP*`)
         } else {
           global.db.data.users[m.sender].exp -= 300
-            m.reply(`▢ *Проигрышь*\n\n‣ Вы : ${text}\n‣ Бот : ${astro}\n\nочки *-${poin} XP*`)
+            m.reply(`▢ *Проигрыш*\n\n‣ Вы : ${text}\n‣ Бот : ${astro}\n\nочки *-${poin} XP*`)
         }
     } else {
         throw reseqv
