@@ -76,7 +76,7 @@ export default handler;*/
 import fetch from 'node-fetch';
 
 let handler = async (m, { conn, text }) => {
-  if (!text) throw 'NUMBER dedo?';
+  if (!text) throw 'НОМЕР?';
 
   try {
     let res = await fetch(`https://inrl-web.onrender.com/api/truecaller?number=${text}`);
@@ -90,7 +90,7 @@ let handler = async (m, { conn, text }) => {
     console.log('JSON response:', json);
 
     
-    json.creator = 'GURU';
+    json.creator = 'RIP';
 
     let milf = '';
     for (let prop in json) {
