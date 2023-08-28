@@ -121,7 +121,7 @@ break;
    ┏━━━ʕ•㉨•ʔ━━━┓
    ⎪⌲👑 _${usedPrefix}claim/daily_
    ⎪⌲👑 _${usedPrefix}скрыто_
-   ⎪⌲👑 _${usedPrefix}скрыто_
+   ⎪⌲👑 _${usedPrefix}level_
    ⎪⌲👑 _${usedPrefix}leaderboard_
    ⎪⌲👑 _${usedPrefix}bet_
    ⎪⌲👑 _${usedPrefix}heal_
@@ -133,7 +133,7 @@ break;
    ⎪⌲👑 _${usedPrefix}opencrate_
    ⎪⌲👑 _${usedPrefix}mine_
    ⎪⌲👑 _${usedPrefix}work_
-   ⎪⌲👑 _${usedPrefix}скрыто_
+   ⎪⌲👑 _${usedPrefix}donate_
    ⎪⌲👑 _${usedPrefix}todiamond_
    ⎪⌲👑 _${usedPrefix}tomoney_
    ┗━━━ʕ•㉨•ʔ━━━┛`; // 
