@@ -1,14 +1,14 @@
 //import db from '../lib/database.js'
 const rewards = {
-  xp: 9999,
-  деньги: 4999,
-  зелье: 5,
-  мусор: 101,
-  веревка: 25,
-  камень: 30,
-  железо: 25,
-  кристалы: 10,
-  изумруды: 4,
+  exp: 9999,
+  money: 4999,
+  potion: 5,
+  trash: 101,
+  string: 25,
+  rock: 30,
+  iron: 25,
+  diamond: 10,
+  emerald: 4,
 }
 const cooldown = 86400000
 let handler = async (m,{ conn}, usedPrefix ) => {
