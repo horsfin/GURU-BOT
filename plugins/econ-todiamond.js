@@ -11,7 +11,7 @@ let handler = async (m, { conn, command, args }) => {
 ‣ *КОЛ-ВО* : + ${count}💎 
 ‣ *ТРАТА* : -${xpperdiamond * count} XP
 └──────────────`, m)
-  } else conn.reply(m.chat, `❎ у тебя недостаточно опыта *${count}* кристал💎\n\nты можешь получить опыт из игр или экономики*`, m)
+  } else conn.reply(m.chat, `❎ у тебя недостаточно опыта что-бы получить*${count}* кристал💎\n\nты можешь получить опыт из игр или экономики*`, m)
 }
 handler.help = ['todiamond', 'todiamondall']
 handler.tags = ['econ']
