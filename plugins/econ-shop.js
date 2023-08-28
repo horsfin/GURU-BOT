@@ -58,10 +58,10 @@ let handler = async (m, { command, usedPrefix, args }) => {
     let user = global.db.data.users[m.sender]
     const listItems = Object.fromEntries(Object.entries(items[command.toLowerCase()]).filter(([v]) => v && v in user))
     const info = `
-Use Format *${usedPrefix}${command} [crate] [count]*
-Usage example: *${usedPrefix}${command} potion 10*
+Используй формат *${usedPrefix}${command} [ящик] [счет]*
+Пример: *${usedPrefix}${command} potion 10*
     
-📍Items list: 
+📍Список предметов: 
 ${Object.keys(listItems).map((v) => {
         let paymentMethod = Object.keys(listItems[v]).find(v => v in user)
         return `${v} | ${listItems[v][paymentMethod]} ${paymentMethod}`.trim()
@@ -72,15 +72,15 @@ ${Object.keys(listItems).map((v) => {
     if (!listItems[item]) return m.reply(info)
     if (command.toLowerCase() == 'buy') {
         let paymentMethod = Object.keys(listItems[item]).find(v => v in user)
-        if (user[paymentMethod] < listItems[item][paymentMethod] * total) return m.reply(`You don't have enough ${global.rpg.emoticon(paymentMethod)}${paymentMethod} to buy *${total}* ${global.rpg.emoticon(item)}${item}. You need *${(listItems[item][paymentMethod] * total) - user[paymentMethod]}* more ${paymentMethod} to be able to buy`)
+        if (user[paymentMethod] < listItems[item][paymentMethod] * total) return m.reply(`У тебя недостаточно ${global.rpg.emoticon(paymentMethod)}${paymentMethod} чтобы купить *${total}* ${global.rpg.emoticon(item)}${item}. Тебе нужно *${(listItems[item][paymentMethod] * total) - user[paymentMethod]}* больше ${paymentMethod} чтобы иметь возможность покупать`)
         user[paymentMethod] -= listItems[item][paymentMethod] * total
         user[item] += total
-        return m.reply(`You bought *${total}* ${global.rpg.emoticon(item)}${item}`)
+        return m.reply(`Вы купили *${total}* ${global.rpg.emoticon(item)}${item}`)
     } else {
-        if (user[item] < total) return m.reply(`You don't have enough *${item}* to sell, you only have ${user[item]} items`)
+        if (user[item] < total) return m.reply(`У тебя недостаточно *${item}* чтобы продать,у вас только ${user[item]} предметов`)
         user[item] -= total
         user.money += listItems[item].money * total
-        return m.reply(`You sold *${total}* ${item}`)
+        return m.reply(`Ты продал *${total}* ${item}`)
     }
 }
 
