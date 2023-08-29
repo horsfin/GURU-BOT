@@ -85,7 +85,7 @@ function clockString(ms) {
     
     function ucapan() {
       const time = moment.tz('Asia/Kolkata').format('HH')
-      let res = "happy early in the day☀️"
+      let res = "Доброе начало дня☀️"
       if (time >= 4) {
         res = "Доброе утро🌄"
       }
