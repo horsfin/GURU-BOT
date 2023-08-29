@@ -119,7 +119,7 @@ break;
           𝙀𝘾𝙊𝙉𝙊𝙈𝙔 
    ╰───•••──┄ °❀     
    ┏━━━ʕ•㉨•ʔ━━━┓
-   ⎪⌲👑 _${usedPrefix}claim/daily_
+   ⎪⌲👑 _${usedPrefix}daily/weekly/monthly_
    ⎪⌲👑 _${usedPrefix}скрыто_
    ⎪⌲👑 _${usedPrefix}level_
    ⎪⌲👑 _${usedPrefix}leaderboard_
@@ -127,10 +127,10 @@ break;
    ⎪⌲👑 _${usedPrefix}heal_
    ⎪⌲👑 _${usedPrefix}craft_
    ⎪⌲👑 _${usedPrefix}balance_
-   ⎪⌲👑 _${usedPrefix}shop_
+   ⎪⌲👑 _${usedPrefix}buy_
    ⎪⌲👑 _${usedPrefix}sell_
    ⎪⌲👑 _${usedPrefix}adventure_
-   ⎪⌲👑 _${usedPrefix}opencrate_
+   ⎪⌲👑 _${usedPrefix}transfer_
    ⎪⌲👑 _${usedPrefix}mine_
    ⎪⌲👑 _${usedPrefix}work_
    ⎪⌲👑 _${usedPrefix}donate_
