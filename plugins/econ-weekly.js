@@ -6,7 +6,7 @@ const rewards = {
   const cooldown = 604800000
   let handler = async (m) => {
     let user = global.db.data.users[m.sender]
-    if (new Date - user.lastweekly < cooldown) throw `You have already claimed this daily claim!, wait for *${((user.lastweekly + cooldown) - new Date()).toTimeString()}*`
+    if (new Date - user.lastweekly < cooldown) throw `Вы уже получали недельный бонус!, ждите *${((user.lastweekly + cooldown) - new Date()).toTimeString()}*`
     let text = ''
     for (let reward of Object.keys(rewards)) {
       if (!(reward in user)) continue
@@ -15,9 +15,9 @@ const rewards = {
     }
     //conn.sendButton(m.chat,'*––––––『 WEEKLY 』––––––*', text.trim(), null, [['Profile', ''], ['Monthly', '.monthly']],m)
     m.reply(`
-    🎁 *weekly reward*
+    🎁 *еженедельное вознаграждение*
     
-    ▢ *Has recieved:*
+    ▢ *Получил:*
      ${text}`)
     user.lastweekly = new Date * 1
   }
