@@ -19,9 +19,9 @@ let img = await q.download?.()
 stiker = await mp4ToWebp(img, { pack: packname || global.packname, author: author || global.author })
 } else if (args[0] && isUrl(args[0])) {
 stiker = await createSticker(false, args[0], '', author, 20)
-} else throw `*RESPOND TO A IMAGE OR VIDEO OR GIF ${usedPrefix + command}*`
+} else throw `*Ответь на фото,видио или гиф ${usedPrefix + command}*`
 } catch {
-stiker = '*huh*'	
+stiker = '*отправь команду вместе с фото*'	
 } finally {
 m.reply(stiker)}}
 handler.help = ['sfull']
