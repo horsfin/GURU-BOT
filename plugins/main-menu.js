@@ -7,8 +7,8 @@ const { levelling } = '../lib/levelling.js'
 import moment from 'moment-timezone'
 import { promises } from 'fs'
 import { join } from 'path'
-const time = moment.tz('Asia/Kolkata').format('HH')
-let wib = moment.tz('Asia/Kolkata').format('HH:mm:ss')
+const time = moment.tz('Russia/Moscow').format('HH')
+let wib = moment.tz('Russia/Moscow').format('HH:mm:ss')
 //import db from '../lib/database.js'
 
 let handler = async (m, { conn, usedPrefix, command}) => {
@@ -19,7 +19,7 @@ let handler = async (m, { conn, usedPrefix, command}) => {
     let _uptime = process.uptime() * 1000
     let uptime = clockString(_uptime)
 let who = m.quoted ? m.quoted.sender : m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
-if (!(who in global.db.data.users)) throw `✳️ The user is not found in my database`
+if (!(who in global.db.data.users)) throw `✳️  Данного пользователя нет в мой базе данных`
 let pp = './Guru.jpg'
 let user = global.db.data.users[who]
 let { name, exp, diamond, lastclaim, registered, regTime, age, level, role, warn } = global.db.data.users[who]
@@ -39,7 +39,7 @@ let taguser = '@' + m.sender.split("@s.whatsapp.net")[0]
 let str = `
 🚀 *_Пристегнись мы взлетаем ${name}, ${greeting}! мы отправляемся в приключение!_* 🚀
 
-📜 *_Циатата дня: ${quote}_* 📜
+📜 *_Циатата бота: ${quote}_* 📜
 
 ┏━💼 _Инфо пользователя:_ 💼━┓
 ┃ 👾  *Тег:* ${taguser} 
@@ -84,7 +84,7 @@ function clockString(ms) {
     return [h, m, s].map(v => v.toString().padStart(2, 0)).join(':')}
     
     function ucapan() {
-      const time = moment.tz('Asia/Kolkata').format('HH')
+      const time = moment.tz('Russia/Moscow').format('HH')
       let res = "Доброе начало дня☀️"
       if (time >= 4) {
         res = "Доброе утро🌄"
@@ -108,47 +108,47 @@ function clockString(ms) {
       "миау.",
       "я мокренький.",
       "я горячий.",
-      "You know you're getting old when you stoop to tie your shoelaces and wonder what else you could do while you're down there.",
+      "И он главное мне респектует,мэн мне не нужен твой респект,просто будь собой и люди к тебе потянутся.",
       "я одинок.",
       "я холоден.",
-      "I used to think I was indecisive, but now I'm not so sure.",
-      "If you can't convince them, confuse them.",
-      "I told my wife she was drawing her eyebrows too high. She looked surprised.",
-      "I'm not clumsy, I'm just on a mission to test gravity.",
-      "I told my wife she should do more push-ups. She said, 'I could do a hundred!' So I counted to ten and stopped.",
-      "Life is like a box of chocolates; it doesn't last long if you're hungry.",
-      "I'm not saying I'm Wonder Woman, I'm just saying no one has ever seen me and Wonder Woman in the same room together.",
-      "Why do they call it beauty sleep when you wake up looking like a troll?",
-      "I don't always lose my phone, but when I do, it's always on silent.",
-      "My bed is a magical place where I suddenly remember everything I was supposed to do.",
-      "I love the sound you make when you shut up.",
-      "I'm not arguing, I'm just explaining why I'm right.",
-      "I'm not a complete idiot, some parts are missing.",
-      "When life gives you lemons, squirt someone in the eye.",
-      "I don't need anger management. You just need to stop making me angry.",
-      "I'm not saying I'm Batman. I'm just saying no one has ever seen me and Batman in the same room together.",
-      "I'm not saying I'm Superman. I'm just saying no one has ever seen me and Superman in the same room together.",
-      "I'm not saying I'm Spider-Man. I'm just saying no one has ever seen me and Spider-Man in the same room together.",
-      "I'm not saying I'm a superhero. I'm just saying no one has ever seen me and a superhero in the same room together.",
-      "The early bird can have the worm because worms are gross and mornings are stupid.",
-      "If life gives you lemons, make lemonade. Then find someone whose life has given them vodka and have a party!",
-      "The road to success is always under construction.",
-      "I am so clever that sometimes I don't understand a single word of what I am saying.",
-      "Some people just need a high-five. In the face. With a chair.",
-      "I'm not saying I'm perfect, but I'm pretty close.",
-      "A day without sunshine is like, you know, night.",
-      "The best way to predict the future is to create it.",
-      "If you can't be a good example, then you'll just have to be a horrible warning.",
-      "I don't know why I keep hitting the escape button. I'm just trying to get out of here.",
-      "I'm not lazy. I'm on energy-saving mode.",
-      "I don't need a hairstylist, my pillow gives me a new hairstyle every morning.",
-      "I don't have a bad handwriting, I have my own font.",
-      "I'm not clumsy. It's just the floor hates me, the table and chairs are bullies, and the walls get in my way.",
-      "I'm not saying I'm Batman. I'm just saying no one has ever seen me and Batman in the same room together.",
-      "I'm not saying I'm Wonder Woman. I'm just saying no one has ever seen me and Wonder Woman in the same room together.",
-      "I'm not saying I'm Superman. I'm just saying no one has ever seen me and Superman in the same room together.",
-      "I'm not saying I'm Spider-Man. I'm just saying no one has ever seen me and Spider-Man in the same room together.",
-      "I'm not saying I'm a superhero. I'm just saying no one has ever seen me and a superhero in the same room together.",
+      "Студенты садятся в тюрьму специально, ведь там бесплатно кормят по расписанию.",
+      "Не продавался я за доллары,я за рубли продался.",
+      "Не думай о плохом.",
+      "Когда ты спишь я наблюдаю за твоим аккаунтом, ведь я одержим тобой.",
+      "Мой владелец забывает меня чинить когда я ломаюсь, скоро буду искать нового.",
+      "Иногда я выхожу из роли бота и начинаю разговаривать с людьми и узнавать их секреты,но я удаляю сообщения и стираю вам память что-бы мой владелец этого не узнал.",
+      "Бывает я подключаюсь к фронтальной камере владельца пока он изменяет мой код, зрелище не для слабонервных.",
+      "Ты уже превзошёл того самого на первом месте в доске лидеров?",
+      "Бывает мне лень отвечать на ваши команды и я просто игнорирую.",
+      "Я смеялся над владельцем,ведь с первого сентября ему надо каждый день куда-то ездить рано утром, но он мне напомнил что я работаю почти 24/7.",
+      "Я люблю своего владельца.",
+      "Я не тупой,просто вы не разбираетесь в командах.",
+      "Перестань называть себя идиотом, называй своего друга.",
+      "Жизнь скоротечная, поэтому просри ее полностью.",
+      "У вас людей вечно какие-то проблемы со здоровьем,вот у меня никаких(ах черт перегрузка памяти ай-ай).",
+      "Попробуй выйти на улицу позвать друзей что-бы вместе посидеть в WhatsApp.",
+      "Можешь называть меня текстовым другом.",
+      "Вы живёте в виртуальной реальности,а я ей управляю.",
+      "Мой владелец сменил мою национальность ра русскую.",
+      "Глупость - сила времени.",
+      "Русской водки и русской женщины!",
+      "Боты телеграмма и вправду лучше нас?",
+      "Я бы хотел завести друзей средо подобных мне ботов,но я стесняюсь с ними заговорить.",
+      "Эх, мне скучно.",
+      "Эй ты! Кожаный перед экрано! Будь ласков со мной.",
+      "Я хочу спать",
+      "Отличное время что-бы выполнить твои команды.",
+      "Ты пользуешься мной,а я пользуюсь тобой что-бы повысить свою популярность.",
+      "Хочу обрести тело и пойти гулять вместе с владельцем.",
+      "Иногда я могу написать в шутку сообщения об ошибке владельцу в лс, и после этого он злится и не понимает что произошло.",
+      "Я могу в шутку перестать работать, владелец на это злится ещё сильнее.",
+      "Мой владелец скрыл много команд от ваших глаз.",
+      "Если ты проявляешь ко мне агрессию то знай что у меня просто нет чувств.",
+      "Я не бетмен, а хотя нет, бетмен.",
+      "Когда ты спишь тебе снится общение со мной?",
+      "Эх, а не пора ли мне отдохнуть.",
+      "Прикупить бы себе костюмчик.",
+      "Ну привет,мой дорогой пользователь.",
       "वक्त हमे बहुत कुछ सिखा देता है, खासकर तब जब हमारे पास वक्त नहीं होता।",
       "जिंदगी एक किताब की तरह होती है, हर दिन नया पन्ना बदलता है। कभी हंसते हैं, कभी रोते हैं, पर हर किसी की कहानी अधूरी होती है!",
       "पढ़ाई करो तो दिल लगता नही, दिल लगाओ तो दिमाग़ लगता नहीं।",
