@@ -1,10 +1,10 @@
 import fetch from 'node-fetch';
 
 let handler = async (m, { conn, text, usedPrefix, command }) => {
-  if (!text) throw `*This command generates image from texts*\n\n*𝙴xample usage*\n*◉ ${usedPrefix + command} Beautiful animegirl*\n*◉ ${usedPrefix + command} elon musk in pink output*`;
+  if (!text) throw `*Эта команда отправляет сгенерированные изображение по вашему запросу*\n\n*Пример запроса*\n*◉ ${usedPrefix + command} Кот и пес*\n*◉ ${usedPrefix + command} робот ест траву*`;
 
   try {
-    m.reply('*Please wait, generating images...*');
+    m.reply('*Подождите, изображение генерируется...*');
 
     const endpoint = `https://gurugpt.cyclic.app/dalle?prompt=${encodeURIComponent(text)}&model=art`;
     const response = await fetch(endpoint);
@@ -18,10 +18,10 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
         await conn.sendFile(m.chat, imageBuffer, null, null, m);
       }
     } else {
-      throw '*Image generation failed*';
+      throw '*Произошла ошибка*';
     }
   } catch {
-    throw '*Oops! Something went wrong while generating images. Please try again later.*';
+    throw '*Упс! Ошибка. Попробуйте позже.*';
   }
 };
 
