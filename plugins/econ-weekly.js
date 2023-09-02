@@ -23,7 +23,7 @@ const rewards = {
   }
   handler.help = ['weekly']
   handler.tags = ['econ']
-  handler.command = /^(weekly)$/i
+  handler.command = /^(неделя)$/i
   
   handler.cooldown = cooldown
   
