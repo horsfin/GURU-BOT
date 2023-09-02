@@ -11,7 +11,7 @@ throw '*Имя не может содержать больше 25 символо
 }}
 handler.help = ['setname <text>']
 handler.tags = ['group']
-handler.command = /^(setname)$/i
+handler.command = /^(сменитьимя)$/i
 handler.group = true
 handler.admin = true
 export default handler
