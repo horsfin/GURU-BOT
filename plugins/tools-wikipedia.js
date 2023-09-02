@@ -19,9 +19,9 @@ ${resulw}`)
   m.reply('⚠️ No results found ')
 }
 }
-handler.help = ['wikipedia']
+handler.help = ['википедия']
 handler.tags = ['tools']
-handler.command = ['wiki','wikipedia'] 
+handler.command = ['вики','википедия'] 
 
 
 export default handler
