@@ -2,37 +2,37 @@ const handler = async (m, { conn, command, text }) => {
    const lovePercentage = Math.floor(Math.random() * 100); 
    const isHighLove = lovePercentage >= 50; 
    const loveMessages = [ 
-     "¡Eso es un amor ardiente y apasionado! ¡Ve y díselo ahora mismo!", 
-     "Parece que hay una chispa entre ustedes dos. ¡Inténtalo!", 
-     "Podría haber algo especial aquí. ¡Dale una oportunidad!", 
-     "Hmm, el amor está en el aire. ¡Quizás sea hora de un café juntos!", 
-     "Las estrellas indican que hay un potencial romántico. ¡Haz un movimiento!", 
-     "Una historia de amor increíble podría estar esperando para ser escrita por ustedes.", 
-     "No subestimen el poder del tiempo y la paciencia en el amor. Grandes cosas pueden suceder.", 
-     "Recuerden que el amor es un viaje, y cada paso es valioso, sin importar la distancia.", 
-     "Las conexiones fuertes pueden convertirse en relaciones hermosas. ¡Sigan explorando!", 
-     "El amor verdadero a menudo requiere tiempo y esfuerzo. ¡No renuncien!", 
+     "Это горячая и страстная любовь! Иди и скажи прямо сейчас!",
+"Кажется, между вами двумя есть искра. Попробуй!",
+"Здесь может быть что-то особенное. Дай ему шанс!",
+" Хм, любовь витает в воздухе. Может быть, пришло время вместе выпить кофе!",
+" Звезды указывают на наличие романтического потенциала. Сделай шаг!",
+" Невероятная история любви, возможно, ждет вашего написания.",
+" Не стоит недооценивать силу времени и терпения в любви. Могут случиться великие дела.",
+" Помните, что любовь-это путешествие, и каждый шаг ценен, независимо от расстояния.",
+"Крепкие связи могут перерасти в прекрасные отношения. Продолжайте исследовать!",
+"Настоящая любовь часто требует времени и усилий. Не сдавайтесь!", 
    ]; 
    const notSoHighLoveMessages = [ 
-     "A veces, la amistad es el comienzo de algo hermoso, pero no siempre se convierte en amor.", 
-     "El amor no es todo, ¡la amistad también es genial! Mantengan su amistad especial.", 
-     "Recuerda que las mejores relaciones comienzan con una buena amistad. ¡No subestimen su vínculo!", 
-     "A veces, el amor puede crecer con el tiempo. ¡Sigan fortaleciendo su conexión!", 
-     "La vida es una sorpresa, ¡quién sabe qué depara el futuro! No pierdan la esperanza.", 
-     "Aunque el amor no florezca como esperaban, su conexión sigue siendo valiosa.", 
-     "Los corazones pueden tardar en sincronizarse, pero eso no disminuye lo especial que son juntos.", 
-     "A pesar de los desafíos del amor, su amistad es un regalo que merece ser celebrado.", 
-     "El tiempo puede revelar cosas sorprendentes. ¡Sigamos explorando juntos!", 
-     "La vida está llena de giros inesperados. ¡Permanezcan abiertos a las posibilidades!", 
+     "Иногда дружба - это начало чего-то прекрасного, но она не всегда перерастает в любовь.",
+"Любовь-это еще не все, дружба-это тоже здорово! Сохраняйте свою особую дружбу.",
+" Помните, что лучшие отношения начинаются с хорошей дружбы. Не стоит недооценивать их связь!",
+" Иногда любовь со временем может расти. Продолжайте укреплять свою связь!",
+"Жизнь-это сюрприз, кто знает, что ждет в будущем! Не теряйте надежды.",
+" Даже если любовь не расцветет так, как вы надеялись, ваша связь по-прежнему ценна.",
+"Сердцам может потребоваться время, чтобы синхронизироваться, но это не умаляет того, насколько вы особенные вместе.",
+"Несмотря на трудности, связанные с любовью, ваша дружба-это подарок, которого вы заслуживаете праздновать.",
+" Время может раскрыть удивительные вещи. Давайте продолжим исследовать вместе!",
+"Жизнь полна неожиданных поворотов. Оставайтесь открытыми для возможностей!", 
    ]; 
-   const loveDescription = isHighLove ? "tienen una conexión profunda y un amor" : "tienen una conexión especial, aunque en el amor su porcentaje es"; 
+   const loveDescription = isHighLove ? "у них глубокая связь и любовь" : "у них особая связь, хотя в любви их доля составляет"; 
    const getRandomMessage = (messages) => messages[Math.floor(Math.random() * messages.length)]; 
    const loveMessage = isHighLove ? getRandomMessage(loveMessages) : getRandomMessage(notSoHighLoveMessages); 
    const response = 
-     `━━━━━━━⬣ *LOVE* ⬣━━━━━━━\n` + 
-     `*❥ En el universo del amor, ${text} y @${m.sender.split('@')[0]} ${loveDescription} del ${lovePercentage}% de un 100%*\n\n` + 
+     `━━━━━━━⬣ *ЛЮБОВЬ* ⬣━━━━━━━\n` + 
+     `*❥ Во вселенной любви, ${text} y @${m.sender.split('@')[0]} ${loveDescription} из ${lovePercentage}% из 100%*\n\n` + 
      `*❥ ${loveMessage}*\n` + 
-     `━━━━━━━⬣ *LOVE* ⬣━━━━━━━`     
+     `━━━━━━━⬣ *ЛЮБОВЬ* ⬣━━━━━━━`     
   
    async function loading() { 
  var hawemod = [ 
@@ -42,7 +42,7 @@ const handler = async (m, { conn, command, text }) => {
  "《 ██████████▒▒》80%", 
  "《 ████████████》100%" 
  ] 
-    let { key } = await conn.sendMessage(m.chat, {text: `*💞 ¡Calculando Porcentaje! 💞*`, mentions: conn.parseMention(response)}, {quoted: m}) 
+    let { key } = await conn.sendMessage(m.chat, {text: `*💞 Вычисление! 💞*`, mentions: conn.parseMention(response)}, {quoted: m}) 
   for (let i = 0; i < hawemod.length; i++) { 
     await new Promise(resolve => setTimeout(resolve, 1000));  
     await conn.sendMessage(m.chat, {text: hawemod[i], edit: key, mentions: conn.parseMention(response)}, {quoted: m});  
@@ -53,5 +53,5 @@ const handler = async (m, { conn, command, text }) => {
  }; 
  handler.help = ['love']; 
  handler.tags = ['fun']; 
- handler.command = /^(love|amor)$/i; 
+ handler.command = /^(любовь|amor)$/i; 
  export default handler
