@@ -74,9 +74,9 @@ export async function handler(chatUpdate) {
                 if (!isNumber(user.level))
                     user.level = 0
                 if (!('role' in user))
-                    user.role = 'Beginner'
+                    user.role = 'Новичок'
                 if (!('autolevelup' in user))
-                    user.autolevelup = false
+                    user.autolevelup = true
                 if (!isNumber(user.money))
                     user.money = 0
                 if (!isNumber(user.atm))
@@ -314,7 +314,7 @@ export async function handler(chatUpdate) {
             } else
                 global.db.data.chats[m.chat] = {
                     isBanned: false,
-                    welcome: true,
+                    welcome: false,
                     detect: false,
                     sWelcome: '',
                     sBye: '',
@@ -541,7 +541,7 @@ export async function handler(chatUpdate) {
                 else
                     m.exp += xp
                 if (!isPrems && plugin.diamond && global.db.data.users[m.sender].diamond < plugin.diamond * 1) {
-                     this.reply(m.chat, `✳️ твои кристалы закончились \n используй эту команду, чтобы купить больше кристалов \n*${usedPrefix}todiamond* <количество`, m)
+                     this.reply(m.chat, `✳️ Твои кристалы закончились \n используй эту команду, чтобы купить больше кристалов \n*${usedPrefix}todiamond* <количество>`, m)
                     continue // Limit habis
                 }
                 if (plugin.level > _user.level) {
@@ -785,7 +785,7 @@ export async function groupsUpdate(groupsUpdate) {
         if (!chats?.detect) continue
         if (groupUpdate.desc) text = (chats.sDesc || this.sDesc || conn.sDesc || '```Описание было изменено на```\n@desc').replace('@desc', groupUpdate.desc)
         if (groupUpdate.subject) text = (chats.sSubject || this.sSubject || conn.sSubject || '```Тема была изменена на```\n@subject').replace('@subject', groupUpdate.subject)
-        if (groupUpdate.icon) text = (chats.sIcon || this.sIcon || conn.sIcon || '```Значок был изменен на```').replace('@icon', groupUpdate.icon)
+        if (groupUpdate.icon) text = (chats.sIcon || this.sIcon || conn.sIcon || '```Аватар изменен на```').replace('@icon', groupUpdate.icon)
         if (groupUpdate.revoke) text = (chats.sRevoke || this.sRevoke || conn.sRevoke || '```Ссылка группы была изменена на```\n@revoke').replace('@revoke', groupUpdate.revoke)
         if (groupUpdate.announce == true) text = (chats.sAnnounceOn || this.sAnnounceOn || conn.sAnnounceOn || '*Группа была закрыта!*')
         if (groupUpdate.announce == false) text = (chats.sAnnounceOff || this.sAnnounceOff || conn.sAnnounceOff || '*Группа была открыта!*')
@@ -826,14 +826,14 @@ export async function deleteUpdate(message) {
 
 global.dfail = (type, m, conn) => {
     let msg = {
-        rowner: '*только создатель* • Данная команда доступна только создателю бота*',
-        owner: '*только владелец* • Данную команду может использовать только *Владелец бота',
+        rowner: '*только создатель* • Данная команда доступна только *создателю бота*',
+        owner: '*только владелец* • Данную команду может использовать только *Владелец бота*',
         mods: '*только модераторы* •Данную команду могут использовать только *Модераторы бота*',
         premium: '*только премиум* • Данную команду могут использовать только *Премиум пользователи',
         group: '*группа* • Эта команда может использоваться только в группах',
-        private: '*ЛС* • Данная команда может использоваться только в *Лс с ботом*',
+        private: '*ЛС* • Данная команда может использоваться только в *лс с ботом*',
         admin: '*только админы* • Данную команду могут использовать только *Админы группы*',
-        botAdmin: '*только админы бота* • Что-бы использовать эту команду я должен быть *Админ!*',
+        botAdmin: '*бот не админ* • Что-бы использовать эту команду я должен быть *Админ!*',
         unreg: '*вы не зарегестрированы* •  Зарегестрируйтесь что-бы использовать команду Набрав:\n\n*/reg имя.возраст*\n\n📌Пример : */reg Тянка.20*', 
         restrict: '*развал* • Данная команда *отключена*',
     }[type]
