@@ -7,12 +7,12 @@ let handler = async (m, { conn, args }) => {
     if (!groupMetadata) throw 'groupMetadata is undefined :\\'
     if (!('participants' in groupMetadata)) throw 'участники не определены :('
     let me = groupMetadata.participants.find(user => areJidsSameUser(user.id, conn.user.id))
-    if (!me) throw '✳️ Я не пренадлежу данной группе :('
+    if (!me) throw '✳️ Я не нахожусь в данной группе :('
     if (!me.admin) throw '✳️ Я не админ'
     m.reply('https://chat.whatsapp.com/' + await conn.groupInviteCode(group))
 }
 handler.help = ['link']
 handler.tags = ['group']
-handler.command = ['link', 'linkgroup'] 
+handler.command = ['ссылка', 'linkgroup'] 
 
 export default handler
