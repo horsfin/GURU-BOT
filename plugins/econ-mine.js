@@ -1,8 +1,8 @@
 //import db from '../lib/database.js'
 const rewards = {
-  exp: 9999,
+  exp: 20000,
   money: 4999,
-  potion: 5,
+  potion: 10,
   trash: 101,
   string: 25,
   rock: 30,
@@ -28,7 +28,7 @@ let handler = async (m,{ conn}, usedPrefix ) => {
   }
   //conn.sendButton(m.chat,'*––––––『 MINE 』––––––*', text.trim(), null, [['Adventure', '.adventure'], ['Weekly', '.weekly']],m)
   m.reply(`
-  🎁 *Вы продолжили заниматься добычей ископаемых *
+  🎁 *Вы продолжили заниматься добычей ископаемых*
   
   ▢ *И добыли:*
    ${text}`)
