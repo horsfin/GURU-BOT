@@ -21,9 +21,9 @@ let handler = async (m, {conn, isPrems }) => {
  ${text}`)
   global.db.data.users[m.sender].lastclaim = new Date * 1
 }
-handler.help = ['daily', 'claim']
+handler.help = ['бонус', 'claim']
 handler.tags = ['xp']
-handler.command = /^(daily|claim)$/i
+handler.command = /^(бонус|claim)$/i
 
 handler.cooldown = cooldown
 
