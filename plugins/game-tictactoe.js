@@ -47,7 +47,7 @@ import TicTacToe from '../lib/tictactoe.js';
        state: 'WAITING'}; 
      if (text) room.name = text; 
      const imgplay = `https://cope-cdnmed.agilecontent.com/resources/jpg/8/9/1590140413198.jpg`; 
-     conn.reply(m.chat, `*🕹 𝐓𝐑𝐄𝐒 𝐄𝐍 𝐑𝐀𝐘𝐀 🎮*\n\n*◉ Ожидание второго игрока*\n*◉ Если не хотите играть напишите ${usedPrefix}нетхо*\n\n◉ Для присоединения напишите: (${usedPrefix + command} ${text})`, m);  
+     conn.reply(m.chat, `*🕹 КРЕСТИКИ НОЛИКИ 🎮*\n\n*◉ Ожидание второго игрока*\n*◉ Если не хотите играть напишите ${usedPrefix}нетхо*\n\n◉ Для присоединения напишите: (${usedPrefix + command} ${text})`, m);  
      // conn.sendButton(m.chat, `*🕹 КРЕСТИКИ НОЛИКИ 🎮*\n\n*◉ Ожидая второго игрока*\n*◉ Или задержка времени, можно написать ${usedPrefix}нетхо*`, wm, imgplay, [['Присоединяйтесь к игре, `${usedPrefix + command} ${text}`]], m, { mentions: conn.parseMention(text) }) 
      conn.game[room.id] = room; 
    } 
