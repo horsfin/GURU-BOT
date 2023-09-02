@@ -31,6 +31,6 @@ let handler = async (m, { conn, text, args, isPrems, isOwner, usedPrefix, comman
 
 handler.help = ['ytmp3 <url>']
 handler.tags = ['dl']
-handler.command = ['ytmp3', 'yta'] 
+handler.command = ['ютмп3', 'юта'] 
 
 export default handler
