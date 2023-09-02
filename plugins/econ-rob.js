@@ -22,7 +22,7 @@ let handler = async (m, { conn, usedPrefix, command}) => {
 
   handler.help = ['rob']
   handler.tags = ['econ']
-  handler.command = ['robar', 'rob']
+  handler.command = ['обокрасть', 'своровать']
   
   export default handler
   
@@ -36,6 +36,6 @@ let handler = async (m, { conn, usedPrefix, command}) => {
     minutes = (minutes < 10) ? "0" + minutes : minutes
     seconds = (seconds < 10) ? "0" + seconds : seconds
   
-    return hours + " Hours(s) " + minutes + " Minute(s)"
+    return hours + " Часов " + minutes + " Минут"
   }
   
