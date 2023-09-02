@@ -7,7 +7,7 @@ let handler = async (m, { conn, usedPrefix, command }) => {
     if (!img) throw '*Реплани фото командой.*'
     await conn.updateProfilePicture(m.chat, img).then(_ => m.reply('Изображение установлено._*'))
     } else throw '*ОТВЕТЬ НА ИЗОБРАЖЕНИЕ.*'}
-    handler.command = /^setpp(group|grup|gc)?$/i
+    handler.command = /^сменитьаву(group|grup|gc)?$/i
     handler.group = true
     handler.admin = true
     handler.botAdmin = true
