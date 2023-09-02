@@ -5,7 +5,7 @@ let handler = async (m, { conn, args, groupMetadata}) => {
        let warn = global.db.data.users[who].warn
        let name = conn.getName(who)
       m.reply(`
- *ВАРН*
+ *ВАРНЫ*
 
 ▢ *Имя :* ${name} 
 ▢ *Варны :* ${warn}`)
@@ -13,7 +13,7 @@ let handler = async (m, { conn, args, groupMetadata}) => {
 
 handler.help = ['warns']
 handler.tags = ['group']
-handler.command = ['warns'] 
+handler.command = ['варны'] 
 handler.group = true
 
 export default handler
