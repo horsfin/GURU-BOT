@@ -58,7 +58,7 @@ let handler = async (m, { command, usedPrefix, args }) => {
     let user = global.db.data.users[m.sender]
     const listItems = Object.fromEntries(Object.entries(items[command.toLowerCase()]).filter(([v]) => v && v in user))
     const info = `
-Используй формат *${usedPrefix}${command} [ящик] [счет]*
+Вот так правильно *${usedPrefix}${command} [предмет] [счет]*
 Пример: *${usedPrefix}${command} potion 10*
     
 📍Список предметов: 
