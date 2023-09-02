@@ -9,6 +9,6 @@ let handler = async (m, { conn }) => {
 
 handler.help = ['gay @user']
 handler.tags = ['fun']
-handler.command = ['gay'] 
+handler.command = ['гей'] 
 
 export default handler
