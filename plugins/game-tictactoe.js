@@ -5,7 +5,7 @@ import TicTacToe from '../lib/tictactoe.js';
    if (!text) throw `*[❗] Нужно дать название игровой комнате*\n\n*—◉ Пример*\n*◉ ${usedPrefix + command} комнатушка*`;  
    let room = Object.values(conn.game).find((room) => room.state === 'WAITING' && (text ? room.name === text : true)); 
    if (room) { 
-     await m.reply('*[🕹️] Игра запущена *'); 
+     await m.reply('*[🕹️] Игра запущенаl*'); 
      room.o = m.chat;
      room.game.playerO = m.sender; 
      room.state = 'PLAYING'; 
@@ -47,10 +47,10 @@ import TicTacToe from '../lib/tictactoe.js';
        state: 'WAITING'}; 
      if (text) room.name = text; 
      const imgplay = `https://cope-cdnmed.agilecontent.com/resources/jpg/8/9/1590140413198.jpg`; 
-     conn.reply(m.chat, `*🕹 𝐓𝐑𝐄𝐒 𝐄𝐍 𝐑𝐀𝐘𝐀 🎮*\n\n*◉ 𝙴𝚂𝙿𝙴𝚁𝙰𝙽𝙳𝙾 𝙰𝙻 𝚂𝙴𝙶𝚄𝙽𝙳𝙾 𝙹𝚄𝙶𝙰𝙳𝙾𝚁*\n*◉ 𝙿𝙰𝚁𝙰 𝙱𝙾𝚁𝚁𝙰𝚁 𝙾 𝚂𝙰𝙻𝙸𝚁𝚂𝙴 𝙳𝙴 𝙻𝙰 𝙿𝙰𝚁𝚃𝙸𝙳𝙰 𝚄𝚂𝙴𝙽 𝙴𝙻 𝙲𝙾𝙼𝙰𝙽𝙳𝙾 ${usedPrefix}delttt*\n\n◉ 𝙿𝙰𝚁𝙰 𝚄𝙽𝙸𝚁𝚂𝙴 𝙰 𝙻𝙰 𝙿𝙰𝚁𝚃𝙸𝙳𝙰 𝙴𝚂𝙲𝚁𝙸𝙱𝙰: (${usedPrefix + command} ${text})`, m); 
-     // conn.sendButton(m.chat, `*🕹 𝐓𝐑𝐄𝐒 𝐄𝐍 𝐑𝐀𝐘𝐀 🎮*\n\n*◉ 𝙴𝚂𝙿𝙴𝚁𝙰𝙽𝙳𝙾 𝙰𝙻 𝚂𝙴𝙶𝚄𝙽𝙳𝙾 𝙹𝚄𝙶𝙰𝙳𝙾𝚁*\n*◉ 𝙿𝙰𝚁𝙰 𝙱𝙾𝚁𝚁𝙰𝚁 𝙾 𝚂𝙰𝙻𝙸𝚁𝚂𝙴 𝙳𝙴 𝙻𝙰 𝙿𝙰𝚁𝚃𝙸𝙳𝙰 𝚄𝚂𝙴𝙽 𝙴𝙻 𝙲𝙾𝙼𝙰𝙽𝙳𝙾 ${usedPrefix}delttt*`, wm, imgplay, [['𝚄𝙽𝙸𝚁𝚂𝙴 𝙰 𝙻𝙰 𝙿𝙰𝚁𝚃𝙸𝙳𝙰', `${usedPrefix + command} ${text}`]], m, { mentions: conn.parseMention(text) }) 
+     conn.reply(m.chat, `*🕹 𝐓𝐑𝐄𝐒 𝐄𝐍 𝐑𝐀𝐘𝐀 🎮*\n\n*◉ Ожидание второго игрока*\n*◉ Если не хотите играть напишите ${usedPrefix}нетхо*\n\n◉ Для присоединения напишите: (${usedPrefix + command} ${text})`, m);  
+     // conn.sendButton(m.chat, `*🕹 КРЕСТИКИ НОЛИКИ 🎮*\n\n*◉ Ожидая второго игрока*\n*◉ Или задержка времени, можно написать ${usedPrefix}нетхо*`, wm, imgplay, [['Присоединяйтесь к игре, `${usedPrefix + command} ${text}`]], m, { mentions: conn.parseMention(text) }) 
      conn.game[room.id] = room; 
    } 
  }; 
- handler.command = /^(tictactoe|ttc|ttt|xo)$/i; 
+ handler.command = /^(крестикинолики|ttc|ттт|xo)$/i; 
  export default handler;
