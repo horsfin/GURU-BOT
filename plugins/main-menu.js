@@ -74,7 +74,7 @@ let str = `
 }
 handler.help = ['main']
 handler.tags = ['group']
-handler.command = ['menu', 'help','h','command'] 
+handler.command = ['меню', 'хелп','х','команды'] 
 
 export default handler
 function clockString(ms) {
