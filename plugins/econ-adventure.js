@@ -26,9 +26,9 @@ let handler = async (m, { usedPrefix }) => {
     m.reply(text.trim())
     user.lastadventure = new Date * 1
 }
-handler.help = ['adventure', 'petualang', 'berpetualang', 'mulung']
+handler.help = ['приключения', 'petualang', 'berpetualang', 'mulung']
 handler.tags = ['rpg']
-handler.command = /^(adventure|(ber)?petualang(ang)?|mulung)$/i
+handler.command = /^(приключения|(ber)?petualang(ang)?|mulung)$/i
 
 handler.cooldown = cooldown
 handler.disabled = false
