@@ -36,7 +36,7 @@ let handler = async (m,{ conn}, usedPrefix ) => {
 }
 handler.help = ['mine', 'mining']
 handler.tags = ['xp']
-handler.command = /^(mine|mining)$/i
+handler.command = /^(добывать|mining)$/i
 
 handler.cooldown = cooldown
 
