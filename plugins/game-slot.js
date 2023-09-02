@@ -65,7 +65,7 @@ ${end}`)
 }
 handler.help = ['slot <bet amount>']
 handler.tags = ['game']
-handler.command = ['slot']
+handler.command = ['слот']
 
 export default handler
 
