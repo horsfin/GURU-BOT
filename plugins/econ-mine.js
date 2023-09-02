@@ -15,11 +15,11 @@ let handler = async (m,{ conn}, usedPrefix ) => {
   let user = global.db.data.users[m.sender]
   if (user.health < 80) return m.reply(`
 Требуется 80 сердец для добычи!
-Пожалуйста купите сердца * .buy potion <кол-во>*,
-И напишите * .heal <quantity>* чтобы использовать зелье
+Пожалуйста купите сердца *.buy potion <кол-во>* ,
+И напишите *.heal <quantity>* чтобы использовать зелье
 `.trim())
   //if (user.pickaxe == 0) return m.reply('for mining u need a picaxe 🗿')
-  if (new Date - user.lastclaim < cooldown) throw `Ты начал искать!, ждать *${((user.lastclaim + cooldown) - new Date()).toTimeString()}*`
+  if (new Date - user.lastclaim < cooldown) throw `Ты начал искать! Ждать *${((user.lastclaim + cooldown) - new Date()).toTimeString()}*`
   let text = ''
   for (let reward of Object.keys(rewards)) {
     if (!(reward in user)) continue
@@ -30,7 +30,7 @@ let handler = async (m,{ conn}, usedPrefix ) => {
   m.reply(`
   🎁 *Вы продолжили заниматься добычей ископаемых *
   
-  ▢ *И получил:*
+  ▢ *И добыли:*
    ${text}`)
   user.lastclaim = new Date * 1
 }
@@ -50,9 +50,9 @@ function msToTime(duration) {
     minutes = Math.floor((duration / (1000 * 60)) % 60),
     hours = Math.floor((duration / (1000 * 60 * 60)) % 24)
 
-  hours = (hours < 10) ? "0" + hours : hours
-  minutes = (minutes < 10) ? "0" + minutes : minutes
-  seconds = (seconds < 10) ? "0" + seconds : seconds
+  hours = (hours < 10) ? "0" + hours : часов
+  minutes = (minutes < 10) ? "0" + minutes : минут
+  seconds = (seconds < 10) ? "0" + seconds : секунд
 
   return hours + " Horas " + minutes + " Minutos"
 }
