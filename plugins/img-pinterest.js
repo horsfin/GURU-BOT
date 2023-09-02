@@ -9,6 +9,6 @@ let handler = async(m, { conn, text, usedPrefix, command }) => {
 }
 handler.help = ['pinterest']
 handler.tags = ['img']
-handler.command = ['pinterest'] 
+handler.command = ['пинтерест'] 
 
 export default handler
