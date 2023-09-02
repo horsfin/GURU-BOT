@@ -15,7 +15,7 @@ const Wind = res.data.wind.speed + "km/h"
 const wea = `「 📍 」МЕСТО: ${name}\n「 🗺️ 」CТРАНА: ${Country}\n「 🌤️ 」ВИД: ${Weather}\n「 🌡️ 」ТЕМПЕРАТУРА: ${Temperature}\n「 💠 」 МИНИМУМ ТЕМПЕРАТУРЫ: ${Minimum_Temperature}\n「 📛 」 МАКСИМУМ ТЕМПЕРАТУРЫ: ${Maximum_Temperature}\n「 💦 」ВЛАЖНОСТЬ: ${Humidity}\n「 🌬️ 」 СКОРОСТЬ ВЕТРА: ${Wind}`
 m.reply(wea)
 } catch {
-return "*ERROR*"}}
+return "*Ошибка*"}}
 handler.help = ['climate *<place>*']
 handler.tags = ['herramientas']
 handler.command = /^(climate|weather)$/i
