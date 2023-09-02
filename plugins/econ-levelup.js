@@ -48,6 +48,6 @@ let handler = async (m, { conn }) => {
 
 handler.help = ['levelup'];
 handler.tags = ['econ'];
-handler.command = ['nivel', 'lvl', 'levelup', 'level'];
+handler.command = ['nivel', 'лвл', 'уровень', 'левел'];
 
 export default handler
