@@ -71,6 +71,6 @@ m.react(done)
 }
 handler.help = ['info']
 handler.tags = ['main']
-handler.command = ['info', 'infobot', 'botinfo']
+handler.command = ['инфо', 'infobot', 'botinfo']
 
 export default handler
