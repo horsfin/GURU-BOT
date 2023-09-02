@@ -14,7 +14,7 @@ let handler = async (m, { conn, args, usedPrefix, command }) => {
 }
 handler.help = ['runtime']
 handler.tags = ['main']
-handler.command = ['runtime', 'uptime']
+handler.command = ['времярб', 'uptime']
 export default handler
 
 function clockString(ms) {
