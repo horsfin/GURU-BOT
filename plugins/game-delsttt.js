@@ -5,6 +5,6 @@ import MessageType from '@whiskeysockets/baileys';
    delete conn.game[room.id]; 
    await m.reply('*[ ✔ ] Ваша игровая комната была удалена*'); 
  }; 
- handler.command = /^(закончитьхо|конец|delxo|deltictactoe)$/i; 
+ handler.command = /^(нетхо|неткр|delxo|deltictactoe)$/i; 
  handler.fail = null; 
  export default ;
