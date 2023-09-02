@@ -27,7 +27,7 @@ let handler = async (m, { conn, args, text, usedPrefix, command }) => {
 }
 handler.help = ['getsticker']
 handler.tags = ['sticker']
-handler.command = ['getsticker', 'getstick', 'stickersearch', 'sticksearch'] 
+handler.command = ['найтистики', 'getstick', 'stickersearch', 'sticksearch'] 
 handler.diamond = false
 
 export default handler
