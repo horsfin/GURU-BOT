@@ -16,7 +16,7 @@ let handler = async (m, { conn, command, text, usedPrefix, participants }) => {
       "Вонючий",
       "Брилиантовый",
       "Секси",
-      "Горячмй",
+      "Горячий",
       "Гордый",
       "Обычный",
     ]
@@ -30,6 +30,6 @@ let handler = async (m, { conn, command, text, usedPrefix, participants }) => {
 }
 handler.help = ["character @tag"]
 handler.tags = ['fun']
-handler.command = /^(character)/i
+handler.command = /^(характер)/i
 
 export default handler 
