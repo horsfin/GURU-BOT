@@ -15,5 +15,5 @@ if (!aa) return conn.sendFile(m.chat, json2.result.link, 'error.mp3', null, m, f
 } catch {
 throw '* ОШИБКА*'
 }}
-handler.command = /^(spotify|song)$/i
+handler.command = /^(спотифай|трек)$/i
 export default handler
