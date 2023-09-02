@@ -54,5 +54,5 @@ function msToTime(duration) {
   minutes = (minutes < 10) ? "0" + minutes : минут
   seconds = (seconds < 10) ? "0" + seconds : секунд
 
-  return hours + " Horas " + minutes + " Minutos"
+  return hours + " часов" + minutes + " минут"
 }
