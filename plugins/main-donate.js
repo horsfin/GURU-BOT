@@ -6,9 +6,7 @@ let handler = async(m, { conn, usedPrefix, command }) => {
     console.log(`Command received: ${command}`);
 
     let message = `
-*Привет, я ценю вашу поддержку! 🙏*
-    
-// Если хочешь закинуть деньжат владельцу и купить xp или кристалы, то пиши команду /owner для связи с владельцем!`;
+// Если хочешь закинуть деньжат владельцу и купить xp или кристалы, то пиши команду /владелец для связи с владельцем!`;
 
     let img = 'https://i.postimg.cc/qBNB6LwK/barbaric-horse-killing-France.jpg'; 
 
@@ -19,6 +17,6 @@ let handler = async(m, { conn, usedPrefix, command }) => {
 
 handler.help = ['Donate'];
 handler.tags = ['Main'];
-handler.command = ['donate', 'support', 'contribute'];
+handler.command = ['донат', 'support', 'contribute'];
 
 export default handler;
