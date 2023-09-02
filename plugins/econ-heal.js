@@ -8,19 +8,19 @@ let buff = (buf == 0 ? '5' : '' || buf == 1 ? '10' : '' || buf == 2 ? '15' : '' 
     const heal = 15 + (buff * 4)
     let count = Math.max(1, Math.min(Number.MAX_SAFE_INTEGER, (isNumber(args[0]) && parseInt(args[0]) || Math.round((100 - user.health) / heal)))) * 1
     if (user.potion < count) return m.reply(`
-Ваше зелье недостаточно *${user.potion}* 🥤зелье
-введите *${usedPrefix}buy potion ${count - user.potion}* что бы купить 🥤зелье
+Ваших зелье недостаточно *${user.potion}* 🥤зелье
+введите *${usedPrefix}купить potion ${count - user.potion}* что бы купить 🥤зелье
 `.trim())
     user.potion -= count * 1
     user.health += heal * count
     m.reply(`
-Учаешно использовано *${count}* 🥤Зелье
+Успешно использовано *${count}* 🥤Зелье
 `.trim())
 }
 
 handler.help = ['heal']
 handler.tags = ['rpg']
-handler.command = /^(heal)$/i
+handler.command = /^(зелье)$/i
 
 export default handler
 
