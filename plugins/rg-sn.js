@@ -8,6 +8,6 @@ m.reply(`
 }
 handler.help = ['mysn']
 handler.tags = ['rg']
-handler.command = ['nserie', 'sn', 'mysn'] 
+handler.command = ['nserie', 'sn', 'мойсн'] 
 handler.register = true
 export default handler
