@@ -2,9 +2,9 @@ import fetch from 'node-fetch'
 import axios from 'axios'
 let handler = async (m, { conn, usedPrefix, command }) => {
 	
-	if (!global.db.data.chats[m.chat].nsfw) throw `🚫 group doesnt supprt nsfw \n\n enable it by \n*${usedPrefix}enable* nsfw`
+	if (!global.db.data.chats[m.chat].nsfw) throw `🚫 это запрещено в группе \n\n включите так \n*${usedPrefix}enable* nsfw`
     let user = global.db.data.users[m.sender].age
-    if (user < 17) throw m.reply(`❎ uneed to be atleast 18 years`) 
+    if (user < 17) throw m.reply(`❎ вам нету 18 лет`) 
    
 m.react(rwait)
 let type = (command).toLowerCase()
@@ -14,35 +14,35 @@ switch (type) {
 case 'ass':
 case 'gand':
     let as = await conn.getFile(global.API('fgmods', '/api/nsfw/ass', { }, 'apikey'))
-    conn.sendFile(m.chat, as.data, 'img.jpg', `✅ Random ${command}`, m)
+    conn.sendFile(m.chat, as.data, 'img.jpg', `✅ Рандом ${command}`, m)
     m.react(xmoji) 
 break
 
 case 'boobs':
 case 'boobies':
    let xb = await conn.getFile(global.API('fgmods', '/api/nsfw/boobs', { }, 'apikey'))
-   conn.sendFile(m.chat, xb.data, 'img.jpg', `✅ Random ${command}`, m)
+   conn.sendFile(m.chat, xb.data, 'img.jpg', `✅ Рандом ${command}`, m)
    m.react(xmoji) 
 break
 
-case 'pussy':
+case 'писи':
 case 'chut':		
    let xp = await conn.getFile(global.API('fgmods', '/api/nsfw/pussy', { }, 'apikey'))
-   conn.sendFile(m.chat, xp.data, 'img.jpg', `✅ Random ${command}`, m)
+   conn.sendFile(m.chat, xp.data, 'img.jpg', `✅ Рандом ${command}`, m)
    m.react(xmoji) 
 break
 
-case 'lesbians':
+case 'лесби':
 case 'lesbian':
    let les = await conn.getFile(global.API('fgmods', '/api/nsfw/lesbian', { }, 'apikey'))
-   conn.sendFile(m.chat, les.data, 'img.jpg', `✅ Random ${command}`, m)
+   conn.sendFile(m.chat, les.data, 'img.jpg', `✅ Рандом ${command}`, m)
    m.react(xmoji) 
 break
 
 case 'pack':
-case 'cosplay':
+case 'косплей':
 	     let img = await conn.getFile(global.API('fgmods', '/api/nsfw/cosplay', {}, 'apikey'))
-        conn.sendFile(m.chat, img.data, 'img.jpg', `✅ Result 🤭`, m)
+        conn.sendFile(m.chat, img.data, 'img.jpg', `✅ Результат 🤭`, m)
 	     m.react(xmoji) 
 	break
 
@@ -52,7 +52,7 @@ default:
 }
 handler.help = ['ass', 'boobs', 'lesbian', 'pussy', 'pack']
 handler.tags = ['nsfw']
-handler.command = /^(ass|gand|boobs|boobies|lesbian|lesbians|pussy|chut|cosplay|pack)$/i
+handler.command = /^(ass|gand|boobs|boobies|лесби|lesbians|писи|chut|косплей|pack)$/i
 handler.diamond = true
 handler.register = true
 handler.group = true
