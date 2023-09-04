@@ -4,8 +4,8 @@ let handler = async (m, { usedPrefix }) => {
     let timers = (cooldown - (new Date - user.lastadventure))
     if (user.health < 80) return m.reply(`
 Для этого приключения требуется 80 исцелений,
-пожалуйста сначала купите ❤️Healths набрав *${usedPrefix}buy potion <quantity>*,
-и введите *${usedPrefix}heal <quantity>* что бы использовать зелье
+пожалуйста сначала купите ❤️Зелье набрав *${usedPrefix}купить potion <quantity>*,
+и введите *${usedPrefix}зелье* что бы использовать зелье
 `.trim())
     if (new Date - user.lastadventure <= cooldown) return m.reply  (`
 Ты готов к преключению!!, подожди *🕐${timers.toTimeString()}*
