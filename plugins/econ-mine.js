@@ -15,8 +15,8 @@ let handler = async (m,{ conn}, usedPrefix ) => {
   let user = global.db.data.users[m.sender]
   if (user.health < 80) return m.reply(`
 Требуется 80 сердец для добычи!
-Пожалуйста купите сердца *.buy potion <кол-во>* ,
-И напишите *.heal <quantity>* чтобы использовать зелье
+Пожалуйста купите сердца *.купить potion <кол-во>* ,
+И напишите *.зелье* чтобы использовать зелье
 `.trim())
   //if (user.pickaxe == 0) return m.reply('for mining u need a picaxe 🗿')
   if (new Date - user.lastclaim < cooldown) throw `Ты начал искать! Ждать *${((user.lastclaim + cooldown) - new Date()).toTimeString()}*`
@@ -54,5 +54,5 @@ function msToTime(duration) {
   minutes = (minutes < 10) ? "0" + minutes : минут
   seconds = (seconds < 10) ? "0" + seconds : секунд
 
-  return hours + " часов" + minutes + " минут"
+  return часов + " часов" + минут + " минут"
 }
