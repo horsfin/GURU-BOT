@@ -1,111 +1,55 @@
-//GURU-BOT
-/*import fetch from 'node-fetch';
-
-let handler = async (m, { conn, text }) => {
-  if (!text) throw 'Please provide a phone number.';
-
-  try {
-    let res = await fetch(`https://inrl-web.onrender.com/api/truecaller?number=${text}`);
-
-    if (!res.ok) {
-      throw new Error(`API request failed with status ${res.status}`);
-    }
-
-    let json = await res.json();
-
-    if (!json.data || !json.data.length) {
-      throw new Error('No data found in API response.');
-    }
-
-    // Focus on the first object inside the data array.
-    let data = json.data[0];
-
-    // Add custom property.
-    data.creator = 'GURU';
-
-    let response = '';
-
-    // Add details directly to the response
-    response += `𝑁𝑎𝑚𝑒: ${data.name}\n`;
-    response += `𝙶𝚎𝚗𝚍𝚎𝚛: ${data.gender}\n`;
-    response += `𝚂𝚌𝚘𝚛𝚎: ${data.score}\n`;
-    response += `𝚂𝚌𝚘𝚛𝚎: ${data.access}\n`;
-    response += `𝙴𝚗𝚑𝚊𝚗𝚌𝚎𝚍: ${data.enhanced}\n`;
-
-    // Handle phone details
-    if (data.phones && data.phones.length > 0) {
-      let phone = data.phones[0];
-      response += `𝙿𝚑𝚘𝚗𝚎:\n`;
-      response += `  - 𝙚164𝙁𝙤𝙧𝙢𝙖𝙩: ${phone.e164Format}\n`;
-      response += `  - 𝙣𝙪𝙢𝙗𝙚𝙧𝙏𝙮𝙥𝙚: ${phone.numberType}\n`;
-      response += `  - 𝙣𝙖𝙩𝙞𝙤𝙣𝙖𝙡𝙁𝙤𝙧𝙢𝙖𝙩: ${phone.nationalFormat}\n`;
-      response += `  - 𝙙𝙞𝙖𝙡𝙞𝙣𝙜𝘾𝙤𝙙𝙚: ${phone.dialingCode}\n`;
-      response += `  - 𝙘𝙤𝙪𝙣𝙩𝙧𝙮𝘾𝙤𝙙𝙚: ${phone.countryCode}\n`;
-      response += `  - 𝙘𝙖𝙧𝙧𝙞𝙚𝙧: ${phone.carrier}\n`;
-      response += `  - 𝙩𝙮𝙥𝙚: ${phone.type}\n`;
-    }
-
-    // Handle address details
-    if (data.addresses && data.addresses.length > 0) {
-      let address = data.addresses[0];
-      response += `𝘈𝘥𝘥𝘳𝘦𝘴𝘴𝘦𝘴:\n`;
-      response += `  - 𝗮𝗱𝗱𝗿𝗲𝘀𝘀: ${address.address}\n`;
-      response += `  - 𝘀𝘁𝗿𝗲𝗲𝘁: ${address.street}\n`;
-      response += `  - 𝘇𝗶𝗽𝗖𝗼𝗱𝗲: ${address.zipCode}\n`;
-      response += `  - 𝗰𝗶𝘁𝘆: ${address.city}\n`;
-      response += `  - 𝗰𝗼𝘂𝗻𝘁𝗿𝘆𝗖𝗼𝗱𝗲: ${address.countryCode}\n`;
-      response += `  - 𝘁𝗶𝗺𝗲𝗭𝗼𝗻𝗲: ${address.timeZone}\n`;
-      response += `  - 𝘁𝘆𝗽𝗲: ${address.type}\n`;
-    }
-
-    // Add 'creator' property to the response
-    response += `𝗖𝗥𝗘𝗔𝗧𝗢𝗥: ${data.creator}\n`;
-
-    m.reply(response);
-  } catch (error) {
-    console.error(error);
-    m.reply('An error occurred while processing your request. Please try again.');
-  }
-};
-
-handler.help = ['true'];
-handler.tags = ['tools'];
-handler.command = /^(true|caller)$/i;
-
-export default handler;*/
-import fetch from 'node-fetch';
-
-let handler = async (m, { conn, text }) => {
-  if (!text) throw 'НОМЕР?';
-
-  try {
-    let res = await fetch(`https://inrl-web.onrender.com/api/truecaller?number=${text}`);
-
-    if (!res.ok) {
-      throw new Error(`API request failed with status ${res.status}`);
-    }
-
-    let json = await res.json();
-
-    console.log('JSON response:', json);
-
-    
-    json.creator = 'RIP';
-
-    let milf = '';
-    for (let prop in json) {
-      milf += `• *${prop}:* ${json[prop]}\n`;
-    }
-
-    m.reply(milf);
-  } catch (error) {
-    console.error(error);
-    // Handle the error appropriately
-  }
-};
-
-handler.help = ['true'];
-handler.tags = ['tools'];
-handler.command = /^(true|caller)$/i;
-
-export default handler;
+import fetch from 'node-fetch'  
+ //import { areJidsSameUser } from '@adiwajshing/baileys' 
+ let { areJidsSameUser } = (await import(global.baileys)).default 
+ let handler = async (m, { conn, text, participants, groupMetadata }) => { 
+ let fkontak = { "key": { "participants":"0@s.whatsapp.net", "remoteJid": "status@broadcast", "fromMe": false, "id": "Halo" }, "message": { "contactMessage": { "vcard": `BEGIN:VCARD\nVERSION:3.0\nN:Sy;Bot;;;\nFN:y\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD` }}, "participant": "0@s.whatsapp.net" } 
+ let grupos = [nna, nn, nnn, nnnt] 
+ let gata = [img5, img6, img7, img8, img9] 
+ let enlace = { contextInfo: { externalAdReply: {title: wm + ' 🐈', body: 'support group' , sourceUrl: grupos.getRandom(), thumbnail: await(await fetch(gata.getRandom())).buffer() }}} 
+ let enlace2 = { contextInfo: { externalAdReply: { showAdAttribution: true, mediaUrl: yt, mediaType: 'VIDEO', description: '', title: wm, body: '😻 СУПЕР R.I.P BOT - 𝗪𝗵𝗮𝘁𝘀𝗔𝗽𝗽 ', thumbnailUrl: await(await fetch(global.img)).buffer(), sourceUrl: yt }}} 
+ let dos = [enlace, enlace2] 
+  
+ let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender 
+ let mentionedJid = [who] 
+ var number = text.split`@`[1] 
+  
+ if(!text && !m.quoted) return await conn.reply(m.chat, `${mg}Тегните или ответьте на сообщение вашего партнёра\n\nСеріктесіңіздің хабарламасын тегтеңіз немесе оған жауап беріңіз`, fkontak, m) 
+ //await conn.sendButton(m.chat, `${mg} Тегните или ответьте на сообщение вашего партнёра\n\nСеріктесіңіздің хабарламасын тегтеңіз немесе оған жауап беріңіз`, wm, null, [['𝗠 𝗘 𝗡 𝗨 ☘️', '/меню']], fkontak, m) 
+  
+ try { 
+ if(text) { 
+ var user = number + '@s.whatsapp.net' 
+ } else if(m.quoted.sender) { 
+ var user = conn.getName(m.quoted.sender) 
+ } else if(m.mentionedJid) { 
+ var user = number + '@s.whatsapp.net' 
+ }   
+ } catch (e) { 
+ } finally { 
+  
+ let users = m.isGroup ? participants.find(v => areJidsSameUser(v.jid == user)) : {} 
+ let yo = conn.getName(m.sender) 
+ let tu = conn.getName(who) 
+  
+ if(!users) return await conn.reply(m.chat, `${fg}Пользователь не найден,он должен быть в этой группе!\n\Пайдаланушы табылмады, ол осы топта болуы керек!`, fkontak, m) 
+ //await conn.sendButton(m.chat, `${fg}Пользователь не найден,он должен быть в этой группе\n\nПайдаланушы табылмады, ол осы топта болуы керек`, wm, null, [['𝗠 𝗘 𝗡 𝗨 ☘️', '/меню']], fkontak, m) 
+  
+ if(user === m.sender) return  await conn.reply(m.chat, `${fg}Вы не можете быть партнером\n\nВы не можете быть партнёром`, fkontak,  m)
+ //await conn.sendButton(m.chat, `${fg}Вы не можете быть партнером\n\nВы не можете быть партнером`, wm, null, [['𝗠 𝗘 𝗡 𝗨 ☘️', '/меню']], fkontak, m) 
+  
+ if(user === conn.user.jid) return await conn.reply(m.chat, `${fg}Со мной вы не можете быть парой 😹\n\nМенімен сіз жұп бола алмайсыз`, fkontak, m) 
+ //await conn.sendButton(m.chat, `${fg}Со мной вы не можете быть парой 😹\n\nМенімен сіз жұп бола алмайсыз`, wm, null, [['𝗠 𝗘 𝗡 𝗨 ☘️', '/меню']], fkontak, m) 
+  
+ if(global.db.data.users[user].pasangan != m.sender){  
+ return await conn.reply(m.chat, `Вы не можете согласиться когда никто вас не приглашал,поговорите с *${tu}* парой на создание брака\n\n. *${tu}* ...`, fkontak, m, { contextInfo: { mentionedJid: [user, tu]}})         
+ //await conn.sendButton(m.chat, `🐻 *${tu}* 🐭\n\n🗡️ *${tu}* ⚠️`, wm, null, [['𝗠 𝗘 𝗡 𝗨 ☘️', '/меню']], fkontak, m, { contextInfo: { mentionedJid: [user, tu]}})         
+  
+ }else{
+ global.db.data.users[m.sender].pasangan = user 
+ return await conn.reply(m.chat, `🥳😻 Поздравляю пёсики!!! *${tu}*\n✅ Вы официально пара\n\nжелаю счастья 💖😁\n\n💝 мямяу\n\n*${tu} 💞 ${yo}*\n`, m, dos.getRandom(), { contextInfo: { mentionedJid: [user, tu, yo]}})         
+ //await conn.sendButton(m.chat, `🥳😻 Поздравляю пёсики!!! *${tu}*\n✅ Вы официально пара\n\nжелаю счасть 💖😁\n\n💝 мямяу`, `*${tu} 💞 ${yo}*\n` + wm, img5, [['𝗠 𝗘 𝗡 𝗨 ☘️', '/меню']], m, dos.getRandom(), { contextInfo: { mentionedJid: [user, tu, yo]}})         
+ }}} 
+  
+ handler.command = /^(aceptar|acepto|принять)$/i 
+ handler.group = true 
+ export default handler
