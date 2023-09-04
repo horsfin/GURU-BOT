@@ -86,7 +86,7 @@ ${Object.keys(listItems).map((v) => {
 
 handler.help = ['buy', 'sell'].map(v => v + ' [item] [count]')
 handler.tags = ['rpg']
-handler.command = /^(купить|продать)$/i
+handler.command = [купить|продать]
 
 handler.disabled = false
 
