@@ -541,7 +541,7 @@ export async function handler(chatUpdate) {
                 else
                     m.exp += xp
                 if (!isPrems && plugin.diamond && global.db.data.users[m.sender].diamond < plugin.diamond * 1) {
-                     this.reply(m.chat, `✳️ Твои кристалы закончились \n используй эту команду, чтобы купить больше кристалов \n*${usedPrefix}todiamond* <количество>`, m)
+                     this.reply(m.chat, `✳️ Твои кристалы закончились \n используй эту команду, чтобы купить больше кристалов \n*${usedPrefix}купитькр* <количество>`, m)
                     continue // Limit habis
                 }
                 if (plugin.level > _user.level) {
