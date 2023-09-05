@@ -6,10 +6,10 @@ let handler = async (m, { conn, text }) => {
            var number = text 
    } 
   
-   if(!text && !m.quoted) return conn.reply(m.chat, `Напишите номер, пометку или ответ на целевое сообщение.`, m) 
+   if(!text && !m.quoted) return conn.reply(m.chat, `Напишите номер, пометку или ответьте на целевое сообщение.`, m) 
   
-   if(isNaN(number)) return conn.reply(m.chat, `Nomor yang anda masukan tidak salah!`, m) 
-   if(number.length > 15) return conn.reply(m.chat, `Format salah!`, m) 
+   if(isNaN(number)) return conn.reply(m.chat, `Данный номер не найден!`, m) 
+   if(number.length > 15) return conn.reply(m.chat, `Формат номера неправильный!`, m) 
    try { 
                  if(text) { 
                          var user = number + '@s.whatsapp.net' 
@@ -23,17 +23,17 @@ let handler = async (m, { conn, text }) => {
      let groupMetadata = m.isGroup ? await conn.groupMetadata(m.chat) : {} 
      let participants = m.isGroup ? groupMetadata.participants : [] 
      let users = m.isGroup ? participants.find(u => u.id == user) : {} 
-     if(!users) return conn.reply(m.chat, `Target atau Nomor tidak ditemukan, mungkin sudah keluar atau bukan anggota grup ini.`, m) 
-     if(user === m.sender) return conn.reply(m.chat, `Tidak bisa berpacaran dengan diri sendiri!`, m) 
-     if(user === conn.user.jid) return conn.reply(m.chat, `Tidak bisa berpacaran dengan saya t_t`, m) 
+     if(!users) return conn.reply(m.chat, `Цель или номер не найдены, возможно, вышли из этой группы или не являются ее членами.`, m) 
+     if(user === m.sender) return conn.reply(m.chat, `Найди себе кого-то,самого себя любить будешь одновременно!`, m) 
+     if(user === conn.user.jid) return conn.reply(m.chat, `Нет,так не выйдет t_t`, m) 
   
      if(global.db.data.users[user].pasangan != m.sender){ 
-       conn.reply(m.chat,`Maaf @${user.split('@')[0]} tidak sedang menembak anda`,m,{contextInfo: { 
+       conn.reply(m.chat,`Еу @${user.split('@')[0]} я не собираюсь`,m,{contextInfo: { 
          mentionedJid: [user] 
        }}) 
      }else{ 
        global.db.data.users[m.sender].pasangan = user 
-       conn.reply(m.chat,`Selamat anda resmi berpacaran dengan @${user.split('@')[0]}\n\nSemoga langgeng dan bahagia selalu @${user.split('@')[0]} 💓 @${m.sender.split('@')[0]} 🥳🥳🥳`,m,{contextInfo: { 
+       conn.reply(m.chat,`Вы помолвлены @${user.split('@')[0]}\n\nжелаю что-бы это длилось вечно @${user.split('@')[0]} 💓 @${m.sender.split('@')[0]} 🥳🥳🥳`,m,{contextInfo: { 
          mentionedJid: [m.sender,user] 
        }}) 
      } 
