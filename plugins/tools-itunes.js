@@ -14,7 +14,7 @@ import util from 'util';
    const i = ps.getRandom(); 
    const j = ps.getRandom(); 
   
-   if (command == 'topgays') { 
+   if (command == 'топгеев') { 
      const vn = './media/gay2.mp3'; 
      const top = `*🌈TOП 10 ГЕЕВ/ЛЕСБИ ГРУППЫ* 
       
@@ -33,7 +33,7 @@ import util from 'util';
      // conn.sendFile(m.chat, vn, 'error.mp3', null, m, true, { type: 'audioMessage', ptt: true }) 
    } 
   
-   if (command == 'topotakus') { 
+   if (command == 'топцветков') { 
      const vn = './media/otaku.mp3'; 
      const top = `*🌸 TOП 10 ЦВЕТОЧКОВ ЭТОЙ ГРУППЫ 🌸* 
       
@@ -52,7 +52,7 @@ import util from 'util';
      // conn.sendFile(m.chat, vn, 'otaku.mp3', null, m, true, { type: 'audioMessage', ptt: true }) 
    } 
  } 
- handler.help = handler.command = ['топгеев', 'топцветов']; 
+ handler.help = handler.command = ['топгеев', 'топцветков']; 
  handler.tags = ['games']; 
  handler.group = true; 
  export default handler;
