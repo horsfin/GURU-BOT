@@ -82,7 +82,7 @@ const handler = async (m, {conn}) => {
    }, 20000); 
   
    setTimeout(() => { 
-     conn.reply(m.chat, `@${m.sender.split('@s.whatsapp.net')[0]} *${['ПОСТАВЛЕННАЯ ЦЕЛЬ 🎯', 'Приманка в движении 🍫 🍇 🍖', 'ЖИВОТНЫЕ ОБНАРУЖЕНЫ!! 🐂 🐅 🐘 🐼', 'ЖИВОТНЫЕ ОБНАРУЖЕНЫ!! 🐖 🐃 🐮 🐒'].getRandom()}*`, null, {mentions: [m.sender]}); 
+     conn.reply(m.chat, `@${m.sender.split('@s.whatsapp.net')[0]} *${['ПОСТАВЛЕННАЯ ЦЕЛЬ 🎯', 'Приманка в движении🍫 🍇 🍖', 'ЖИВОТНЫЕ ОБНАРУЖЕНЫ!! 🐂 🐅 🐘 🐼', 'ЖИВОТНЫЕ ОБНАРУЖЕНЫ!! 🐖 🐃 🐮 🐒'].getRandom()}*`, null, {mentions: [m.sender]}); 
    }, 18000); 
    // conn.sendHydrated(m.chat, `${conn.getName(m.sender)} *${['Поставленная цель`${conn.getName(m.sender)} *${'ПОСТАВЛЕННАЯ ЦЕЛЬ 🎯','Приманка в движении 🍫 🍇 🍖','ЖИВОТНЫЕ ОБНАРУЖЕНЫ!! 🐂 🐅 🐘 🐼','ANIMALES DETECTADOS!! 🐖 🐃 🐮 🐒'].getRandom()}*` 🎯','приманка в движении 🍫 🍇 🍖','ЖИВОТНЫЕ ОБНАРУЖЕНЫ!! 🐂 🐅 🐘 🐼','ЖИВОТНЫЕ ОБНАРУЖЕНЫ!! 🐖 🐃 🐮 🐒'].getRandom()}*`, wm, null, null, null, null, null, [ 
    // [null, null]], null)}, 18000) 
