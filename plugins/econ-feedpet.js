@@ -1,132 +1,115 @@
-let handler = async (m, { conn, args, usedPrefix }) => {
-    let htki = '––––––『'
-  let htka = '』––––––'
-	let info = `*➞ Пример:* ${usedPrefix}feed cat
-   
-- - - - - - - - - - - - - - - - - - - - - - - - - 
-${htki} СПИСОК ЖИВОТНЫХ ${htka}
-🐈 • ᴄᴀᴛ
-🐕 • ᴅᴏɢ
-🦊 • ғᴏx
-🐎 • ʜᴏʀsᴇ`
-let pesan = pickRandom(['мяу~', 'спасибо', 'спасибо тебе ^-^', '...', 'спасибо тебе~', 'спс ^-^'])
-    let type = (args[0] || '').toLowerCase()
-    let emo = (type == 'fox' ? '🦊':'' || type == 'cat' ? '🐈':'' || type == 'dog' ? '🐕':'' || type == 'horse' ? '🐴':'' ) 
-    let user = global.db.data.users[m.sender]
-    let rubah = global.db.data.users[m.sender].fox
-    let kuda = global.db.data.users[m.sender].horse
-    let kucing = global.db.data.users[m.sender].cat
-    let anjing = global.db.data.users[m.sender].dog
-    switch (type) {
-        case 'fox':
-            if (rubah == 0) return conn.sendButton(m.chat, `${htki} не найдено ${htka}`, 'ʏᴏᴜ ᴅᴏɴ\'ᴛ ʜᴀᴠᴇ ᴛʜɪs ᴘᴇᴛ ʏᴇᴛ!', null, [['ADVENTURE', '.profile'],['ʙᴜʏ ᴘᴇᴛ', '.petshop']],m)
-            if (rubah == 10) return conn.sendButton(m.chat, `${htki} УРОВЕНЬ МАКС ${htka}`, 'ВАШЕ ЖИВОТНОЕ МАКСИМАЛЬНОГО УРОВНЯ!', null, [['ADVENTURE', '.profile'],['ʙᴜʏ ɴᴇᴡ ᴘᴇᴛ', '.petshop']],m)
-            let __waktur = (new Date - user.foxlastfeed)
-            let _waktur = (600000 - __waktur)
-            let waktur = clockString(_waktur)
-            if (new Date - user.foxlastfeed > 600000) {
-                if (user.petFood > 0) {
-                    user.petFood -= 1
-                    user.foxexp += 20
-                    user.foxlastfeed = new Date * 1
-                    m.reply(`ғᴇᴇᴅɪɴɢ *${type}*...\n*${emo} ${type.capitalize()}:* ${pesan}`)
-                    if (rubah > 0) {
-                        let naiklvl = ((rubah * 100) - 1)
-                        if (user.foxexp > naiklvl) {
-                            user.fox += 1
-                            user.foxexp -= (rubah * 100)
-                            conn.sendButton(m.chat, `${htki} LEVELUP ${htka}`, `*ᴄᴏɴɢʀᴀᴛs!* , ваше животное повышено`,null, [['ADVENTURE', '.profile'],['sᴇᴇ ᴀʙɪʟɪᴛʏ ᴘᴇᴛ', '.petshop']], m)
-                        }
-                    }
-                } else m.reply(`ʏᴏᴜʀ ᴘᴇᴛ ғᴏᴏᴅ ɴᴏᴛ ᴇɴᴏᴜɢʜ`)
-            } else conn.sendButton(m.chat, `${htki} COOLDOWN ${htka}`, `ваше животное сильно\n➞ *${waktur}*`, null, [['ADVENTURE', '.profile']], m)
-            break
-        case 'cat':
-            if (kucing == 0) return conn.sendButton(m.chat, `${htki} NOT FOUND ${htka}`, 'ʏᴏᴜ ᴅᴏɴ\'ᴛ ʜᴀᴠᴇ ᴛʜɪs ᴘᴇᴛ ʏᴇᴛ!', null, [['ADVENTURE', '.profile'],['ʙᴜʏ ᴘᴇᴛ', '.petshop']],m)
-            if (kucing == 10) return conn.sendButton(m.chat, `${htki} LEVEL MAX ${htka}`, 'ʏᴏᴜʀ ᴘᴇᴛ ɪs ᴍᴀx ʟᴇᴠᴇʟ !', null, [['ADVENTURE', '.profile'],['ʙᴜʏ ɴᴇᴡ ᴘᴇᴛ', '.petshop']],m)
-            let __waktuc = (new Date - user.catlastfeed)
-            let _waktuc = (600000 - __waktuc)
-            let waktuc = clockString(_waktuc)
-            if (new Date - user.catlastfeed > 600000) {
-                if (user.petFood > 0) {
-                    user.petFood -= 1
-                    user.catngexp += 20
-                    user.catlastfeed = new Date * 1
-                    m.reply(`ғᴇᴇᴅɪɴɢ *${type}*...\n*${emo} ${type.capitalize()}:* ${pesan}`)
-            
-                    if (kucing > 0) {
-                        let naiklvl = ((kucing * 100) - 1)
-                        if (user.catexp > naiklvl) {
-                            user.cat += 1
-                            user.catngexp -= (kucing * 100)
-                            conn.sendButton(m.chat, `${htki} LEVELUP ${htka}`, `*ᴄᴏɴɢʀᴀᴛs!* , ʏᴏᴜʀ ᴘᴇᴛ ʟᴇᴠᴇʟᴜᴘ`,null, [['ADVENTURE', '.profile'],['sᴇᴇ ᴀʙɪʟɪᴛʏ ᴘᴇᴛ', '.petshop']], m)
-                        }
-                    }
-                } else m.reply(`ʏᴏᴜʀ ᴘᴇᴛ ғᴏᴏᴅ ɴᴏᴛ ᴇɴᴏᴜɢʜ`)
-            } else conn.sendButton(m.chat, `${htki} COOLDOWN ${htka}`, `ʏᴏᴜʀ ᴘᴇᴛ ɪs ғᴜʟʟ, ᴛʀʏ ғᴇᴇᴅɪɴɢ ɪᴛ ᴀɢᴀɪɴ ɪɴ\n➞ *${waktuc}*`, null, [['ADVENTURE', '.profile']], m)
-            break
-        case 'dog':
-            if (anjing == 0) return conn.sendButton(m.chat, `${htki} NOT FOUND ${htka}`, 'ʏᴏᴜ ᴅᴏɴ\'ᴛ ʜᴀᴠᴇ ᴛʜɪs ᴘᴇᴛ ʏᴇᴛ!', null, [['ADVENTURE', '.profile'],['ʙᴜʏ ᴘᴇᴛ', '.petshop']],m)
-            if (anjing == 10) return conn.sendButton(m.chat, `${htki} LEVEL MAX ${htka}`, 'ʏᴏᴜʀ ᴘᴇᴛ ɪs ᴍᴀx ʟᴇᴠᴇʟ !', null, [['ADVENTURE', '.profile'],['ʙᴜʏ ɴᴇᴡ ᴘᴇᴛ', '.petshop']],m)
-            let __waktua = (new Date - user.doglastfeed)
-            let _waktua = (600000 - __waktua)
-            let waktua = clockString(_waktua)
-            if (new Date - user.doglastfeed > 600000) {
-                if (user.petFood > 0) {
-                    user.petFood -= 1
-                    user.dogexp += 20
-                    user.doglastfeed = new Date * 1
-                    m.reply(`ғᴇᴇᴅɪɴɢ *${type}*...\n*${emo} ${type.capitalize()}:* ${pesan}`)
-                    if (anjing > 0) {
-                        let naiklvl = ((anjing * 100) - 1)
-                        if (user.dogexp > naiklvl) {
-                            user.dog += 1
-                            user.dogexp -= (anjing * 100)
-                            conn.sendButton(m.chat, `${htki} LEVELUP ${htka}`, `*ᴄᴏɴɢʀᴀᴛs!* , ʏᴏᴜʀ ᴘᴇᴛ ʟᴇᴠᴇʟᴜᴘ`,null, [['ADVENTURE', '.profile'],['sᴇᴇ ᴀʙɪʟɪᴛʏ ᴘᴇᴛ', '.petshop']], m)
-                        }
-                    }
-                } else m.reply(`ʏᴏᴜʀ ᴘᴇᴛ ғᴏᴏᴅ ɴᴏᴛ ᴇɴᴏᴜɢʜ`)
-            } else conn.sendButton(m.chat, `${htki} COOLDOWN ${htka}`, `ʏᴏᴜʀ ᴘᴇᴛ ɪs ғᴜʟʟ, ᴛʀʏ ғᴇᴇᴅɪɴɢ ɪᴛ ᴀɢᴀɪɴ ɪɴ\n➞ *${waktua}*`, null, [['ADVENTURE', '.profile']], m)
-            break
-        case 'horse':
-            if (kuda == 0) return conn.sendButton(m.chat, `${htki} NOT FOUND ${htka}`, 'ʏᴏᴜ ᴅᴏɴ\'ᴛ ʜᴀᴠᴇ ᴛʜɪs ᴘᴇᴛ ʏᴇᴛ!', null, [['ADVENTURE', '.profile'],['ʙᴜʏ ᴘᴇᴛ', '.petshop']],m)
-            if (kuda == 10) return conn.sendButton(m.chat, `${htki} LEVEL MAX ${htka}`, 'ʏᴏᴜʀ ᴘᴇᴛ ɪs ᴍᴀx ʟᴇᴠᴇʟ !', null, [['ADVENTURE', '.profile'],['ʙᴜʏ ɴᴇᴡ ᴘᴇᴛ', '.petshop']],m)
-            let __waktuk = (new Date - user.horselastfeed)
-            let _waktuk = (600000 - __waktuk)
-            let waktuk = clockString(_waktuk)
-            if (new Date - user.horselastfeed > 600000) {
-                if (user.petFood > 0) {
-                    user.petFood -= 1
-                    user.horseexp += 20
-                    user.horselastfeed = new Date * 1
-                    m.reply(`ғᴇᴇᴅɪɴɢ *${type}*...\n*${emo} ${type.capitalize()}:* ${pesan}`)
-                    if (kuda > 0) {
-                        let naiklvl = ((kuda * 100) - 1)
-                        if (user.horseexp > naiklvl) {
-                            user.horse += 1
-                            user.horseexp -= (kuda * 100)
-                            conn.sendButton(m.chat, `${htki} LEVELUP ${htka}`, `*ᴄᴏɴɢʀᴀᴛs!* , ʏᴏᴜʀ ᴘᴇᴛ ʟᴇᴠᴇʟᴜᴘ`,null, [['ADVENTURE', '.profile'],['sᴇᴇ ᴀʙɪʟɪᴛʏ ᴘᴇᴛ', '.petshop']], m)
-                        }
-                    }
-                } else m.reply(`ʏᴏᴜʀ ᴘᴇᴛ ғᴏᴏᴅ ɴᴏᴛ ᴇɴᴏᴜɢʜ`)
-            } else conn.sendButton(m.chat, `${htki} COOLDOWN ${htka}`, `ʏᴏᴜʀ ᴘᴇᴛ ɪs ғᴜʟʟ, ᴛʀʏ ғᴇᴇᴅɪɴɢ ɪᴛ ᴀɢᴀɪɴ ɪɴ\n➞ *${waktuk}*`, null, [['ADVENTURE', '.profile']], m)
-            break
-        default:
-            return conn.sendButton(m.chat, `${htki} NOT FOUND ${htka}`, info, null, [['ADVENTURE', '.profile'],['ʙᴜʏ ᴘᴇᴛ', '.petshop']], m)
-    }
-}
-handler.help = ['feed [pet type]']
-handler.tags = ['rpg']
-handler.command = /^(feed(ing)?)$/i
-
-export default handler
-
-function clockString(ms) {
-  let h = isNaN(ms) ? '--' : Math.floor(ms / 3600000)
-  let m = isNaN(ms) ? '--' : Math.floor(ms / 60000) % 60
-  let s = isNaN(ms) ? '--' : Math.floor(ms / 1000) % 60
-  return [h, ' H ', m, ' M ', s, ' S'].map(v => v.toString().padStart(2, 0)).join('')
-}
-function pickRandom(list) {
-  return list[Math.floor(Math.random() * list.length)]
-}
+const handler = async (m, {conn}) => { 
+   const user = global.db.data.users[m.sender]; 
+   const randomaku1 = `${Math.floor(Math.random() * 5)}`; 
+   const randomaku2 = `${Math.floor(Math.random() * 5)}`; 
+   const randomaku4 = `${Math.floor(Math.random() * 5)}`; 
+   const randomaku3 = `${Math.floor(Math.random() * 5)}`; 
+   const randomaku5 = `${Math.floor(Math.random() * 5)}`; 
+   const randomaku6 = `${Math.floor(Math.random() * 5)}`; 
+   const randomaku7 = `${Math.floor(Math.random() * 5)}`; 
+   const randomaku8 = `${Math.floor(Math.random() * 5)}`; 
+   const randomaku9 = `${Math.floor(Math.random() * 5)}`; 
+   const randomaku10 = `${Math.floor(Math.random() * 5)}`; 
+   const randomaku11 = `${Math.floor(Math.random() * 5)}`; 
+   const randomaku12 = `${Math.floor(Math.random() * 5)}`.trim(); 
+   const rbrb1 = (randomaku1 * 1); 
+   const rbrb2 = (randomaku2 * 1); 
+   const rbrb3 = (randomaku3 * 1); 
+   const rbrb4 = (randomaku4 * 1); 
+   const rbrb5 = (randomaku5 * 1); 
+   const rbrb6 = (randomaku6 * 1); 
+   const rbrb7 = (randomaku7 * 1); 
+   const rbrb8 = (randomaku8 * 1); 
+   const rbrb9 = (randomaku9 * 1); 
+   const rbrb10 = (randomaku10 * 1); 
+   const rbrb11 = (randomaku11 * 1); 
+   const rbrb12 = (randomaku12 * 1); 
+   const anti1 = `${rbrb1}`; 
+   const anti2 = `${rbrb2}`; 
+   const anti3 = `${rbrb3}`; 
+   const anti4 = `${rbrb4}`; 
+   const anti5 = `${rbrb5}`; 
+   const anti6 = `${rbrb6}`; 
+   const anti7 = `${rbrb7}`; 
+   const anti8 = `${rbrb8}`; 
+   const anti9 = `${rbrb9}`; 
+   const anti10 = `${rbrb10}`; 
+   const anti11 = `${rbrb11}`; 
+   const anti12 = `${rbrb12}`; 
+   const ar1 = `${['🪚', '⛏️', '🧨', '💣', '🔫', '🔪', '🗡️', '🏹', '🦾', '🥊', '🧹', '🔨', '🛻'].getRandom()}`; 
+   const ar2 = `${['🪚', '⛏️', '🧨', '💣', '🔫', '🔪', '🗡️', '🏹', '🦾', '🥊', '🧹', '🔨', '🛻'].getRandom()}`; 
+   const ar3 = `${['🪚', '⛏️', '🧨', '💣', '🔫', '🔪', '🗡️', '🏹', '🦾', '🥊', '🧹', '🔨', '🛻'].getRandom()}`; 
+   const ar4 = `${['🪚', '⛏️', '🧨', '💣', '🔫', '🔪', '🗡️', '🏹', '🦾', '🥊', '🧹', '🔨', '🛻'].getRandom()}`; 
+   const ar5 = `${['🪚', '⛏️', '🧨', '💣', '🔫', '🔪', '🗡️', '🏹', '🦾', '🥊', '🧹', '🔨', '🛻'].getRandom()}`; 
+   const ar6 = `${['🪚', '⛏️', '🧨', '💣', '🔫', '🔪', '🗡️', '🏹', '🦾', '🥊', '🧹', '🔨', '🛻'].getRandom()}`; 
+   const ar7 = `${['🪚', '⛏️', '🧨', '💣', '🔫', '🔪', '🗡️', '🏹', '🦾', '🥊', '🧹', '🔨', '🛻'].getRandom()}`; 
+   const ar8 = `${['🪚', '⛏️', '🧨', '💣', '🔫', '🔪', '🗡️', '🏹', '🦾', '🥊', '🧹', '🔨', '🛻'].getRandom()}`; 
+   const ar9 = `${['🪚', '⛏️', '🧨', '💣', '🔫', '🔪', '🗡️', '🏹', '🦾', '🥊', '🧹', '🔨', '🛻'].getRandom()}`; 
+   const ar10 = `${['🪚', '⛏️', '🧨', '💣', '🔫', '🔪', '🗡️', '🏹', '🦾', '🥊', '🧹', '🔨', '🛻'].getRandom()}`; 
+   const ar11 = `${['🪚', '⛏️', '🧨', '💣', '🔫', '🔪', '🗡️', '🏹', '🦾', '🥊', '🧹', '🔨', '🛻'].getRandom()}`; 
+   const ar12 = `${['🪚', '⛏️', '🧨', '💣', '🔫', '🔪', '🗡️', '🏹', '🦾', '🥊', '🧹', '🔨', '🛻'].getRandom()}`; 
+   const hsl = ` 
+ *✧ Результаты охоты ${conn.getName(m.sender)} ✧* 
+  
+  *🐂 ${ar1} ${anti1}*                         *🐃 ${ar7} ${anti7}* 
+  *🐅 ${ar2} ${anti2}*                         *🐮 ${ar8} ${anti8}* 
+  *🐘 ${ar3} ${anti3}*                         *🐒 ${ar9} ${anti9}* 
+  *🐐 ${ar4} ${anti4}*                         *🐗 ${ar10} ${anti10}* 
+  *🐼 ${ar5} ${anti5}*                         *🐖 ${ar11} ${anti11}* 
+  *🐊 ${ar6} ${anti6}*                    *🐓 ${ar12} ${anti12}*`.trim(); 
+   global.db.data.users[m.sender].banteng += rbrb1; 
+   global.db.data.users[m.sender].harimau += rbrb2; 
+   global.db.data.users[m.sender].gajah += rbrb3; 
+   global.db.data.users[m.sender].kambing += rbrb4; 
+   global.db.data.users[m.sender].panda += rbrb5; 
+   global.db.data.users[m.sender].buaya += rbrb6; 
+   global.db.data.users[m.sender].kerbau += rbrb7; 
+   global.db.data.users[m.sender].sapi += rbrb8; 
+   global.db.data.users[m.sender].monyet += rbrb9; 
+   global.db.data.users[m.sender].babihutan += rbrb10; 
+   global.db.data.users[m.sender].babi += rbrb11; 
+   global.db.data.users[m.sender].ayam += rbrb12; 
+  
+   const time = global.db.data.users[m.sender].lastberburu + 2700000; // 45 Minutos 
+   if (new Date - global.db.data.users[m.sender].lastberburu < 2700000) return conn.reply(m.chat, `𝙿𝙾𝚁 𝙵𝙰𝚅𝙾𝚁 𝙳𝙴𝚂𝙲𝙰𝙽𝚂𝙰 𝚄𝙽 𝙼𝙾𝙼𝙴𝙽𝚃𝙾 𝙿𝙰𝚁𝙰 𝚂𝙴𝙶𝚄𝙸𝚁 𝙲𝙰𝚉𝙰𝙽𝙳𝙾\n\n⫹⫺ 𝚃𝙸𝙴𝙼𝙿𝙾 ${clockString(time - new Date())}\n${wm}`, m); 
+   // conn.sendButton(m.chat, `Отдохни а потом начинай охоту.`, `⫹⫺ Время ${clockString(time - new Date())}\n${wm}`, null, [['🏞️ Захваченные ', '.kandang'],[`🎒 Инвентарь`, `.inventario`]], m) 
+  
+   setTimeout(() => { 
+     conn.reply(m.chat, hsl, m); 
+     // conn.sendButton(m.chat, hsl, wm, null, [['🔗 𝙶𝙸𝚃𝙷𝚄𝙱 🔗', '#script']], null) 
+     /* conn.sendHydrated(m.chat, hsl, wm, null, md, `𝙶𝙸𝚃𝙷𝚄𝙱`, null, null, [ 
+ [null, null]], null)*/ 
+   }, 20000); 
+  
+   setTimeout(() => { 
+     conn.reply(m.chat, `@${m.sender.split('@s.whatsapp.net')[0]} *${['ПОСТАВЛЕННАЯ ЦЕЛЬ 🎯', 'Приманка в движении 🍫 🍇 🍖', 'ЖИВОТНЫЕ ОБНАРУЖЕНЫ!! 🐂 🐅 🐘 🐼', 'ЖИВОТНЫЕ ОБНАРУЖЕНЫ!! 🐖 🐃 🐮 🐒'].getRandom()}*`, null, {mentions: [m.sender]}); 
+   }, 18000); 
+   // conn.sendHydrated(m.chat, `${conn.getName(m.sender)} *${['Поставленная цель`${conn.getName(m.sender)} *${'ПОСТАВЛЕННАЯ ЦЕЛЬ 🎯','Приманка в движении 🍫 🍇 🍖','ЖИВОТНЫЕ ОБНАРУЖЕНЫ!! 🐂 🐅 🐘 🐼','ANIMALES DETECTADOS!! 🐖 🐃 🐮 🐒'].getRandom()}*` 🎯','приманка в движении 🍫 🍇 🍖','ЖИВОТНЫЕ ОБНАРУЖЕНЫ!! 🐂 🐅 🐘 🐼','ЖИВОТНЫЕ ОБНАРУЖЕНЫ!! 🐖 🐃 🐮 🐒'].getRandom()}*`, wm, null, null, null, null, null, [ 
+   // [null, null]], null)}, 18000) 
+  
+   setTimeout(() => { 
+     conn.reply(m.chat, `@${m.sender.split('@s.whatsapp.net')[0]} *${['Оружие готово к охоте!!', 'Тестирование Оружия🔫 💣 🪓 🏹', 'ПОВОЗКИ ДЛЯ ОХОТЫ!! 🚗 🏍️ 🚜', 'ХОРОШЕЕ ВРЕМЯ ДЛЯ ОХОТЫ 🧤'].getRandom()}*`, null, {mentions: [m.sender]}); 
+   }, 15000); 
+   // conn.sendHydrated(m.chat, `${conn.getName(m.sender)} *${['Оружие готово к охоте!!','Тестирование Оружия 🔫 💣 🪓 🏹','ПОВОЗКИ ДЛЯ ОХОТЫ!! 🚗 🏍️ 🚜','ХОРОШЕЕ ВРЕМЯ ДЛЯ ОХОТЫ 🧤'].getRandom()}*`, wm, null, null, null, null, null, [ 
+   // [null, null]], null)}, 15000) 
+  
+   setTimeout(() => { 
+     conn.reply(m.chat, `@${m.sender.split('@s.whatsapp.net')[0]} *${['В поисках охотничьих принадлежностей...', 'Собираем все для охоты!!', 'Определение места охоты...', '!ПОДГОТОВКА МЕСТА ДЛЯ ОХОТЫ!'].getRandom()}*`, m, m.mentionedJid ? {mentions: [m.sender]} : {}); 
+   }, 0); 
+   // conn.sendHydrated(m.chat, `${conn.getName(m.sender)} *${['В поисках охотничьих принадлежностей...','Собираем все для охоты!!','Определение места охоты...',!ПОДГОТОВКА МЕСТА ДЛЯ ОХОТЫ!'].getRandom()}*`, wm, null, null, null, null, null, [ 
+   // [null, null]], null)}, 0) 
+   user.lastberburu = new Date * 1; 
+ }; 
+ handler.help = ['berburu']; 
+ handler.tags = ['rpg']; 
+ handler.command = /^(охота|охотиться|caza(r)?)$/i; 
+ handler.group = true; 
+ export default handler; 
+  
+ function clockString(ms) { 
+   const h = Math.floor(ms / 3600000); 
+   const m = Math.floor(ms / 60000) % 60; 
+   const s = Math.floor(ms / 1000) % 60; 
+   console.log({ms, h, m, s}); 
+   return [h, m, s].map((v) => v.toString().padStart(2, 0) ).join(':'); 
+ }
