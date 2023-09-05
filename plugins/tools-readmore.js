@@ -1,14 +1,32 @@
-let handler = async (m, { conn, text }) => {
-    let [l, r] = text.split`|`
-    if (!l) l = ''
-    if (!r) r = ''
-    conn.reply(m.chat, l + readMore + r, m)
-}
-handler.help = ['readmore <text1>|<text2>'] 
-handler.tags = ['tools']
-handler.command = ['leermas', 'readmore'] 
-
-export default handler
-
-const more = String.fromCharCode(8206)
-const readMore = more.repeat(4001)
+let handler = async (m, { conn }) => { 
+   ayg = global.db.data.users[m.sender] 
+  
+   if(ayg.pasangan == ""){ 
+     return conn.reply(m.chat,`Anda tidak memiliki pasangan.`,m) 
+   } 
+  
+   beb = global.db.data.users[global.db.data.users[m.sender].pasangan] 
+  
+   if (typeof beb == "undefined"){ 
+     conn.reply(m.chat,`Berhasil putus hubungan dengan @${global.db.data.users[m.sender].pasangan.split('@')[0]}`,m,{contextInfo: { 
+       mentionedJid: [global.db.data.users[m.sender].pasangan] 
+     }}) 
+     ayg.pasangan = "" 
+   } 
+  
+   if (m.sender == beb.pasangan){ 
+     conn.reply(m.chat,`Berhasil putus hubungan dengan @${global.db.data.users[m.sender].pasangan.split('@')[0]}`,m,{contextInfo: { 
+       mentionedJid: [global.db.data.users[m.sender].pasangan] 
+     }}) 
+     ayg.pasangan = "" 
+     beb.pasangan = "" 
+   }else { 
+     conn.reply(m.chat,`Anda tidak memiliki pasangan.`,m) 
+   } 
+ } 
+ handler.help = ['putus'] 
+ handler.tags = ['jadian'] 
+ handler.command = /^(putus)$/i 
+ handler.group = true 
+ handler.fail = null 
+ module.exports = handler
