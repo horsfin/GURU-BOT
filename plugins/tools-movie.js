@@ -38,11 +38,11 @@ let handler = async (m, { conn, usedPrefix, text }) => {
    if (global.db.data.users[user].pasangan == "") { 
      conn.reply(m.chat, `${orang} у вас нет напарника, и вы не предлагали никому.n\n\n*Напишите .tembak @пользователь предложите кому-то*`, m) 
    }else if (global.db.data.users[global.db.data.users[user].pasangan].pasangan != user){ 
-     conn.reply(m.chat, `${orang} sedang menunggu jawaban dari @${global.db.data.users[user].pasangan.split('@')[0]} потому что это не принято или в \n\nНапишите *${usedPrefix}ikhlasin* !`, m,{contextInfo: { 
+     conn.reply(m.chat, `${orang} ждешь ответа от @${global.db.data.users[user].pasangan.split('@')[0]} потому что это не принято\n\nНапишите *${usedPrefix}ikhlasin* !`, m,{contextInfo: { 
        mentionedJid: [global.db.data.users[user].pasangan] 
      }}) 
    }else { 
-     conn.reply(m.chat, `${orang} sedang menjalani hubungan dengan @${global.db.data.users[user].pasangan.split('@')[0]} 💓💓💓`, m,{contextInfo: { 
+     conn.reply(m.chat, `${orang} находится в отношениях с @${global.db.data.users[user].pasangan.split('@')[0]} 💓💓💓`, m,{contextInfo: { 
        mentionedJid: [global.db.data.users[user].pasangan] 
      }}) 
    } 
