@@ -1,45 +1,58 @@
-import fetch from 'node-fetch';
-
-let itunesHandler = async (m, { conn, text }) => {
-  if (!text) throw 'Please provide a song name';
-
-  try {
-    let res = await fetch(`https://api.popcat.xyz/itunes?q=${encodeURIComponent(text)}`);
-
-    if (!res.ok) {
-      throw new Error(`API request failed with status ${res.status}`);
-    }
-
-    let json = await res.json();
-
-    console.log('JSON response:', json);
-
-    let songInfo = 
-    `*Song Information:*\n
-     • *Name:* ${json.name}\n
-     • *Artist:* ${json.artist}\n
-     • *Album:* ${json.album}\n
-     • *Release Date:* ${json.release_date}\n
-     • *Price:* ${json.price}\n
-     • *Length:* ${json.length}\n
-     • *Genre:* ${json.genre}\n
-     • *URL:* ${json.url}`;
-
-    // Check if thumbnail is present, then send it with songInfo as caption
-    if (json.thumbnail) {
-      await conn.sendFile(m.chat, json.thumbnail, 'thumbnail.jpg', songInfo, m);
-    } else {
-      m.reply(songInfo);
-    }
-
-  } catch (error) {
-    console.error(error);
-    // Handle the error appropriately
-  }
-};
-
-itunesHandler.help = ['itunes'];
-itunesHandler.tags = ['music'];
-itunesHandler.command = /^(itunes)$/i;
-
-export default itunesHandler;
+import util from 'util'; 
+ import path from 'path'; 
+ const user = (a) => '@' + a.split('@')[0]; 
+ function handler(m, {groupMetadata, command, conn, participants}) { 
+   const ps = groupMetadata.participants.map((v) => v.id); 
+   const a = ps.getRandom(); 
+   const b = ps.getRandom(); 
+   const c = ps.getRandom(); 
+   const d = ps.getRandom(); 
+   const e = ps.getRandom(); 
+   const f = ps.getRandom(); 
+   const g = ps.getRandom(); 
+   const h = ps.getRandom(); 
+   const i = ps.getRandom(); 
+   const j = ps.getRandom(); 
+  
+   if (command == 'topgays') { 
+     const vn = './media/gay2.mp3'; 
+     const top = `*🌈TOП 10 ГЕЕВ/ЛЕСБИ ГРУППЫ* 
+      
+ *_1.- ${user(a)}_* 
+ *_2.- ${user(b)}_* 
+ *_3.- ${user(c)}_* 
+ *_4.- ${user(d)}_* 
+ *_5.- ${user(e)}_* 
+ *_6.- ${user(f)}_* 
+ *_7.- ${user(g)}_* 
+ *_8.- ${user(h)}_* 
+ *_9.- ${user(i)}_* 
+ *_10.- ${user(j)}_*`; 
+     m.reply(top, null, {mentions: [a, b, c, d, e, f, g, h, i, j]}); 
+     conn.sendMessage(m.chat, {audio: {url: vn}, fileName: 'error.mp3', mimetype: 'audio/mpeg', ptt: true}, {quoted: m}); 
+     // conn.sendFile(m.chat, vn, 'error.mp3', null, m, true, { type: 'audioMessage', ptt: true }) 
+   } 
+  
+   if (command == 'topotakus') { 
+     const vn = './media/otaku.mp3'; 
+     const top = `*🌸 TOП 10 ЦВЕТОЧКОВ ЭТОЙ ГРУППЫ 🌸* 
+      
+ *_1.- ${user(a)}_* 
+ *_2.- ${user(b)}_* 
+ *_3.- ${user(c)}_* 
+ *_4.- ${user(d)}_* 
+ *_5.- ${user(e)}_* 
+ *_6.- ${user(f)}_* 
+ *_7.- ${user(g)}_* 
+ *_8.- ${user(h)}_* 
+ *_9.- ${user(i)}_* 
+ *_10.- ${user(j)}_*`; 
+     m.reply(top, null, {mentions: [a, b, c, d, e, f, g, h, i, j]}); 
+     conn.sendMessage(m.chat, {audio: {url: vn}, fileName: 'error.mp3', mimetype: 'audio/mpeg', ptt: true}, {quoted: m}); 
+     // conn.sendFile(m.chat, vn, 'otaku.mp3', null, m, true, { type: 'audioMessage', ptt: true }) 
+   } 
+ } 
+ handler.help = handler.command = ['топгеев', 'топцветов']; 
+ handler.tags = ['games']; 
+ handler.group = true; 
+ export default handler;
