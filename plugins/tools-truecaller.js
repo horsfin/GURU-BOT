@@ -6,7 +6,7 @@ let handler = async (m, { conn, text }) => {
            var number = text 
    } 
   
-   if(!text && !m.quoted) return conn.reply(m.chat, `Berikan nomor, tag atau balas pesan target.`, m) 
+   if(!text && !m.quoted) return conn.reply(m.chat, `Напишите номер, пометку или ответ на целевое сообщение.`, m) 
   
    if(isNaN(number)) return conn.reply(m.chat, `Nomor yang anda masukan tidak salah!`, m) 
    if(number.length > 15) return conn.reply(m.chat, `Format salah!`, m) 
