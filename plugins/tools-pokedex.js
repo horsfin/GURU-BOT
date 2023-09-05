@@ -1,33 +1,69 @@
-let handler = async (m, { conn }) => {  
- let fkontak = { "key": { "participants":"0@s.whatsapp.net", "remoteJid": "status@broadcast", "fromMe": false, "id": "Halo" }, "message": { "contactMessage": { "vcard": `BEGIN:VCARD\nVERSION:3.0\nN:Sy;Bot;;;\nFN:y\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD` }}, "participant": "0@s.whatsapp.net" } 
- let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender 
- let name = await conn.getName(who) 
- let romper = global.db.data.users[m.sender].pasangan 
- var ayg = global.db.data.users[m.sender] 
- var beb = global.db.data.users[global.db.data.users[m.sender].pasangan] 
+let handler = async (m, { conn, usedPrefix, text }) => { 
+         if(isNaN(text)) { 
+           var number = text.split`@`[1] 
+   } else if(!isNaN(text)) { 
+           var number = text 
+   } 
   
- if(ayg.pasangan == ""){ 
- return await conn.reply(m.chat, `𝙐𝙎𝙏𝙀𝘿 *${name}* 𝙉𝙊 𝙏𝙄𝙀𝙉𝙀 𝙋𝘼𝙍𝙀𝙅𝘼\n\n𝘿𝙊𝙀𝙎 𝙉𝙊𝙏 𝙃𝘼𝙑𝙀 𝘼 𝙋𝘼𝙍𝙏𝙉𝙀𝙍`, fkontak,  m)     
- //await conn.sendButton(m.chat, `𝙐𝙎𝙏𝙀𝘿 *${name}* 𝙉𝙊 𝙏𝙄𝙀𝙉𝙀 𝙋𝘼𝙍𝙀𝙅𝘼\n\n𝘿𝙊𝙀𝙎 𝙉𝙊𝙏 𝙃𝘼𝙑𝙀 𝘼 𝙋𝘼𝙍𝙏𝙉𝙀𝙍`, wm, null, [['𝗠 𝗘 𝗡 𝗨 ☘️', '/menu']], fkontak, m) 
+   if(!text && !m.quoted) return conn.reply(m.chat, `Masukan nomor, tag target atau balas pesan target`, m) 
+  
+   if(isNaN(number)) return conn.reply(m.chat, `_*Nomor tidak valid.*_`, m) 
+   if(number.length > 15) return conn.reply(m.chat, `*_Format Tidak Valid.*_`, m) 
+   try { 
+                 if(text) { 
+                         var user = number + '@s.whatsapp.net' 
+                 } else if(m.quoted.sender) { 
+                         var user = m.quoted.sender 
+                 } else if(m.mentionedJid) { 
+                     var user = number + '@s.whatsapp.net' 
+                         }   
+                 } catch (e) { 
+   } finally { 
+     let groupMetadata = m.isGroup ? await conn.groupMetadata(m.chat) : {} 
+     let participants = m.isGroup ? groupMetadata.participants : [] 
+     let users = m.isGroup ? participants.find(u => u.id == user) : {} 
+     if(!users) return conn.reply(m.chat, `*_Target atau Nomor tidak ditemukan, mungkin sudah keluar atau bukan anggota grup ini.*_`, m) 
+     if(user === m.sender) return conn.reply(m.chat, `_*Tidak bisa berpacaran dengan diri sendiri.*_`, m) 
+     if(user === conn.user.jid) return conn.reply(m.chat, `_*Tidak bisa berpacaran dengan saya. :')*_`, m) 
+  
+     if (typeof global.db.data.users[user] == "undefined") return m.reply("_*Orang yang anda tag tidak terdaftar di dalam database.*_") 
+  
+     if(global.db.data.users[m.sender].pasangan != "" && global.db.data.users[global.db.data.users[m.sender].pasangan].pasangan == m.sender && global.db.data.users[m.sender].pasangan != user){ 
+       conn.reply(m.chat,`Kamu sudah berpacaran dengan @${global.db.data.users[m.sender].pasangan.split('@')[0]}\n\nSilahkan putus dulu (ketik .putus untuk memutuskan hubungan) untuk menembak @${user.split('@')[0]}\n\nBtw yang setia dikit banget!`,m,{contextInfo: { 
+         mentionedJid: [user,global.db.data.users[m.sender].pasangan] 
+       }}) 
+     }else if(global.db.data.users[user].pasangan != ""){ 
+       var pacar = global.db.data.users[user].pasangan 
+       if (global.db.data.users[pacar].pasangan == user){ 
+         if (m.sender == pacar && global.db.data.users[m.sender].pasangan == user) return conn.reply(m.chat,`Anda sudah berpacaran dengan @${beb.split('@')[0]}`,m,{contextInfo: { 
+           mentionedJid: [beb] 
+         }}) 
+         conn.reply(m.chat,`Maaf, @${user.split('@')[0]} sudah berpacaran dengan @${pacar.split('@')[0]}\nSilahkan cari pasangan lain!`,m,{contextInfo: { 
+           mentionedJid: [user,pacar] 
+         }}) 
+       }else{ 
+         global.db.data.users[m.sender].pasangan = user 
+         conn.reply(m.chat,`Anda baru saja mengajak @${user.split('@')[0]} berpacaran\n\nSilahkan menunggu jawaban darinya!\n\nKetik *${usedPrefix}terima @user* untuk menerima\n*${usedPrefix}tolak @user untuk menolak*`,m,{contextInfo: { 
+           mentionedJid: [user] 
+         }}) 
+       } 
+     }else if (global.db.data.users[user].pasangan == m.sender){ 
+       global.db.data.users[m.sender].pasangan = user 
+       conn.reply(m.chat,`Selamat anda resmi berpacaran dengan @${user.split('@')[0]}\n\nSemoga langgeng dan bahagia selalu 🥳🥳🥳`,m,{contextInfo: { 
+         mentionedJid: [user] 
+       }}) 
+     }else { 
+       global.db.data.users[m.sender].pasangan = user 
+       conn.reply(m.chat,`Kamu baru saja mengajak @${user.split('@')[0]} berpacaran\n\nSilahkan menunggu jawaban darinya!\n\nKetik *${usedPrefix}terima @user* untuk menerima\n*${usedPrefix}tolak @user untuk menolak*`,m,{contextInfo: { 
+         mentionedJid: [user] 
+       }}) 
+     } 
+         }         
  } 
-  
- if (typeof beb == "undefined"){ 
- await conn.reply(m.chat, `${name}* 💔 𝙍𝙊𝙈𝙋𝙄𝙊 𝘿𝙀𝙁𝙄𝙉𝙄𝙏𝙄𝙑𝘼𝙈𝙀𝙉𝙏𝙀 𝘾𝙊𝙉 *${await conn.getName(romper)}*\n\n𝙏𝙃𝙄𝙎 𝙍𝙀𝙇𝘼𝙏𝙄𝙊𝙉𝙎𝙃𝙄𝙋 𝙃𝘼𝙎 𝙀𝙉𝘿𝙀𝘿\n\n*✩ Wa.me/${global.db.data.users[m.sender].pasangan.split('@')[0]}*\n\n${wm}`, fkontak, m, { contextInfo: { mentionedJid: [ m.sender, romper ]}})  
- //await conn.sendButton(m.chat, `*${name}* 💔 𝙍𝙊𝙈𝙋𝙄𝙊 𝘿𝙀𝙁𝙄𝙉𝙄𝙏𝙄𝙑𝘼𝙈𝙀𝙉𝙏𝙀 𝘾𝙊𝙉 *${await conn.getName(romper)}*\n\n𝙏𝙃𝙄𝙎 𝙍𝙀𝙇𝘼𝙏𝙄𝙊𝙉𝙎𝙃𝙄𝙋 𝙃𝘼𝙎 𝙀𝙉𝘿𝙀𝘿`, `*✩ Wa.me/${global.db.data.users[m.sender].pasangan.split('@')[0]}*\n` + wm, null, [ //`✩ Wa.me/${global.db.data.users[m.sender].pasangan.split('@')[0]}\n\n`['𝗠 𝗘 𝗡 𝗨 ☘️', '/menu']], fkontak, m, { contextInfo: { mentionedJid: [ m.sender, romper ]}})                                                  
- ayg.pasangan = "" 
- } 
-  
- if (m.sender == beb.pasangan){ 
- await conn.reply(m.chat, `*${name}* 💔 𝙍𝙊𝙈𝙋𝙄𝙊 𝘿𝙀𝙁𝙄𝙉𝙄𝙏𝙄𝙑𝘼𝙈𝙀𝙉𝙏𝙀 𝘾𝙊𝙉 *${await conn.getName(romper)}*\n\n𝙏𝙃𝙄𝙎 𝙍𝙀𝙇𝘼𝙏𝙄𝙊𝙉𝙎𝙃𝙄𝙋 𝙃𝘼𝙎 𝙀𝙉𝘿𝙀𝘿\n\n*✩ Wa.me/${global.db.data.users[m.sender].pasangan.split('@')[0]}\n\n${wm}`, fkontak, m, { contextInfo: { mentionedJid: [ m.sender, romper ]}})  
- //await conn.sendButton(m.chat, `*${name}* 💔 𝙍𝙊𝙈𝙋𝙄𝙊 𝘿𝙀𝙁𝙄𝙉𝙄𝙏𝙄𝙑𝘼𝙈𝙀𝙉𝙏𝙀 𝘾𝙊𝙉 *${await conn.getName(romper)}*\n\n𝙏𝙃𝙄𝙎 𝙍𝙀𝙇𝘼𝙏𝙄𝙊𝙉𝙎𝙃𝙄𝙋 𝙃𝘼𝙎 𝙀𝙉𝘿𝙀𝘿`, `*✩ Wa.me/${global.db.data.users[m.sender].pasangan.split('@')[0]}*\n` + wm, null, [['𝗠 𝗘 𝗡 𝗨 ☘️', '/menu']], fkontak, m, { contextInfo: { mentionedJid: [ m.sender, romper ]}}) 
- ayg.pasangan = "" 
- beb.pasangan = "" 
- }else { 
- await conn.reply(m.chat, `𝙐𝙎𝙏𝙀𝘿 *${name}* 𝙉𝙊 𝙏𝙄𝙀𝙉𝙀 𝙋𝘼𝙍𝙀𝙅𝘼\n\n𝘿𝙊𝙀𝙎 𝙉𝙊𝙏 𝙃𝘼𝙑𝙀 𝘼 𝙋𝘼𝙍𝙏𝙉𝙀𝙍`, fkontak,  m)     
- //await conn.sendButton(m.chat, `𝙐𝙎𝙏𝙀𝘿 *${name}* 𝙉𝙊 𝙏𝙄𝙀𝙉𝙀 𝙋𝘼𝙍𝙀𝙅𝘼\n\n𝘿𝙊𝙀𝙎 𝙉𝙊𝙏 𝙃𝘼𝙑𝙀 𝘼 𝙋𝘼𝙍𝙏𝙉𝙀𝙍`, wm, null, [['𝗠 𝗘 𝗡 𝗨 ☘️', '/menu']], fkontak, m) 
- }} 
-  
- handler.command = /^(cortar|romper|finish|terminar)$/i 
+ handler.help = ['tembak *@tag*'] 
+ handler.tags = ['jadian'] 
+ handler.command = /^(tembak)$/i 
  handler.group = true 
-  
- export default handler
+ handler.limit = false 
+ handler.fail = null 
+ module.exports = handler
