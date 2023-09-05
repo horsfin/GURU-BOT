@@ -1,4 +1,4 @@
-let handler = async (m, { conn, usedPrefix, text }) => { 
+  handler = async (m, { conn, usedPrefix, text }) => { 
          if(isNaN(text)) { 
            var number = text.split`@`[1] 
    } else if(!isNaN(text)) { 
@@ -62,7 +62,7 @@ let handler = async (m, { conn, usedPrefix, text }) => {
  } 
  handler.help = ['tembak *@tag*'] 
  handler.tags = ['jadian'] 
- handler.command = /^(tembak)$/i 
+ handler.command = /^(предложить)$/i 
  handler.group = true 
  handler.limit = false 
  handler.fail = null 
