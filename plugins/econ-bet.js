@@ -26,7 +26,7 @@ async function handler(m, { conn, args }) {
         timeout: setTimeout(() => (m.reply('Время ожидания ставки истекло.'), delete confirm[m.sender]), 60000)
       }
 
-      let txt = `Вы верены что хотите сделать ставку? Ответьте 'yes' или 'no'. \n\nСумма: ${count} 💹\nУ вас есть 60 секунд на ответ.`
+      let txt = `Вы верены что хотите сделать ставку? Ответьте 'да' или 'нет'. \n\nСумма: ${count} 💹\nУ вас есть 60 секунд на ответ.`
       return conn.sendMessage(m.chat, { text: txt, quoted: m, contextInfo: { mentionedJid: [m.sender] } });
     }
   } catch (e) {
@@ -50,14 +50,14 @@ handler.before = async m => {
   let txt = (m.msg && m.msg.selectedDisplayText ? m.msg.selectedDisplayText : m.text ? m.text : '').toLowerCase()
 
   try {
-    if (/^(✔️|y(es|a))?$/i.test(txt)) {
+    if (/^(✔️|д(а|a))?$/i.test(txt)) {
       let botScore = (Math.ceil(Math.random() * 51)) * 1  // Random score for the bot (1 to 51)
       let playerScore = (Math.floor(Math.random() * 101)) * 1  // Random score for the player (1 to 100)
-      let status = 'lost'
+      let status = 'проиграли'
 
       if (botScore < playerScore) {
         user.money += count * 1
-        status = 'won'
+        status = 'выйграли'
       } else if (botScore > playerScore) {
         user.money -= count * 1
       } else {
@@ -76,7 +76,7 @@ handler.before = async m => {
       clearTimeout(timeout)
       delete confirm[m.sender]
       return true
-    } else if (/^(✖️|no)?$/i.test(txt)) {
+    } else if (/^(✖️|нет)?$/i.test(txt)) {
       clearTimeout(timeout)
       delete confirm[m.sender]
       m.reply('Ставка отменена.')
@@ -101,7 +101,7 @@ handler.before = async m => {
 
 handler.help = ['bet [amount]']
 handler.tags = ['rpg']
-handler.command = /^(bet)$/i
+handler.command = /^(ставка)$/i
 
 export default handler
 
