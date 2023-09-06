@@ -22,7 +22,7 @@
  if (new Date - global.db.data.users[m.sender].lastwork < 600000) throw `*Вы устали,ждите  ${msToTime(time - new Date())} Прежде чем работать!!*` 
   
  await conn.reply(m.chat, `*${pickRandom(global.work)}* ${GATA} XP`, fkontak, pp, m) 
- /*conn.sendHydrated(m.chat, wm, `${pickRandom(global.work)} ${hasil} XP`, pp, md, '饾檪饾櫈饾櫓饾檭饾櫔饾櫁', null, null, [ 
+ /*conn.sendHydrated(m.chat, wm, `${pickRandom(global.work)} ${GATA} XP`, pp, md, '饾檪饾櫈饾櫓饾檭饾櫔饾櫁', null, null, [ 
  ['饾棤 饾棙 饾棥 饾棬 鈽橈笍', `#menu`] 
  ], m,) */ 
  global.db.data.users[m.sender].lastwork = new Date * 1 
