@@ -8,15 +8,15 @@ async function handler(m, { conn, args }) {
 
   try {
     let user = global.db.data.users[m.sender]
-    let count = (args[0] && number(parseInt(args[0])) ? Math.max(parseInt(args[0]), 1) : /all/i.test(args[0]) ? Math.floor(user.money) : 1) * 1
+    let count = (args[0] && number(parseInt(args[0])) ? Math.max(parseInt(args[0]), 1) : /all/i.test(args[0]) ? Math.floor(user.exp) : 1) * 1
 
-    // Limiting the maximum bet amount to 10000.
-    if (count > 10000) {
-      count = 10000
+    // Ограничение максимальной суммы ставки до 10000.
+    if (count > 50000) {
+      count = 50000
     }
 
-    if (user.money < count) {
-      return m.reply('💹 У вас недостаточно денег.')
+    if (user.exp < count) {
+      return m.reply('💹 У вас недостаточно xp.')
     }
 
     if (!(m.sender in confirm)) {
@@ -46,7 +46,7 @@ handler.before = async m => {
 
   let { timeout, count } = confirm[m.sender]
   let user = global.db.data.users[m.sender]
-  let initialMoney = user.money * 1
+  let initialMoney = user.exp * 1
   let txt = (m.msg && m.msg.selectedDisplayText ? m.msg.selectedDisplayText : m.text ? m.text : '').toLowerCase()
 
   try {
@@ -56,13 +56,13 @@ handler.before = async m => {
       let status = 'проиграли'
 
       if (botScore < playerScore) {
-        user.money += count * 1
+        user.exp += count * 1
         status = 'выйграли'
       } else if (botScore > playerScore) {
-        user.money -= count * 1
+        user.exp -= count * 1
       } else {
         status = 'draw'
-        user.money += Math.floor(count / 1.5) * 1
+        user.exp += Math.floor(count / 1.5) * 1
       }
 
       let result = `
@@ -88,7 +88,7 @@ handler.before = async m => {
     delete confirm[m.sender]
 
     // If money was lost due to an error, restore it.
-    if (initialMoney > user.money) user.money = initialMoney
+    if (initialMoney > user.exp) user.exp = initialMoney
 
     m.reply('Ставка отменена из-за ошибка.')
     return true
