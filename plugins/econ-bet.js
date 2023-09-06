@@ -67,8 +67,8 @@ handler.before = async m => {
 
       let result = `
       | *Игрок* | *Очки* |
-      * Бот:*      ${botScore}
-      * Вы:*    ${playerScore}
+      *Бот:*      ${botScore}
+      *Вы:*    ${playerScore}
       Вы *${status}*. Ваш новый баланс: ${user.money} 💹
           `.trim()
 
