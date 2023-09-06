@@ -32,7 +32,7 @@ function pickRandom(list) {
 }
 
 global.work = [
-  'Eres un maestro alquimista, destilando misteriosas pociones en busca de secretos perdidos.', 
+  'Вы дегустировали еду для президента и отравились.', 
    'Te conviertes en un intrépido cazador de tesoros, explorando lugares olvidados en busca de riquezas escondidas.', 
    'Diriges un negocio de transmutación de metales, convirtiendo lo común en valiosos tesoros.', 
    'Exploras antiguas ruinas y encuentras una reliquia valiosa que te otorga conocimientos ancestrales.', 
