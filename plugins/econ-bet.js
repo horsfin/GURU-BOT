@@ -57,11 +57,11 @@ let confirm = {}
   
        if (botScore < playerScore) { 
          user.money += count * 1 
-         status = 'won' 
+         status = 'выйграли' 
        } else if (botScore > playerScore) { 
          user.money -= count * 1 
        } else { 
-         status = 'draw' 
+         status = 'в ничьей' 
          user.money += Math.floor(count / 1.5) * 1 
        } 
   
