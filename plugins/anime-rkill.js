@@ -8,7 +8,7 @@ let handler = async (m, { conn, args, usedPrefix, command }) => {
     let who
     if (m.isGroup) who = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : false
     else who = m.chat
-    if (!who) throw `✳️ Отметьте когото или ответьте на соо\n\n📌 Example : ${usedPrefix + command} @тег`
+    if (!who) throw `✳️ Отметьте кого-то или ответьте на сообщение\n\n📌 Пример: ${usedPrefix + command} @тег`
 
     let user = global.db.data.users[who]
     let name = conn.getName(who)
@@ -20,11 +20,6 @@ let handler = async (m, { conn, args, usedPrefix, command }) => {
     let jkis = await rki.json()
     let { url } = jkis
     let stiker = await sticker(null, url, `(${name2}) убил`, `${name}`)
-
-    // Отправляем стикер
-    conn.sendFile(m.chat, stiker, null, { asSticker: true }, m)
-
-    // Отправляем сообщение
     conn.sendMessage(m.chat, `(${name2}) убил ${name}`, MessageType.text)
 
     m.react('🗡️')
