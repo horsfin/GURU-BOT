@@ -29,7 +29,7 @@ global.rpg = {
 { name: 'Чернокнижник V', level: 220 }, { name: 'Чернокнижник IV', level: 224 }, { name: 'Чернокнижник III', level: 228 }, { name: 'Чернокнижник II', level: 232 }, { name: 'Чернокнижник I', level: 236 },
 { name: 'Волшебник V', level: 240 }, { name: 'Волшебник IV', level: 244 }, { name: 'Волшебник III', level: 248 }, { name: 'Волшебник II', level: 252 }, { name: 'Волшебник I', level: 256 },
 { name: 'Мудрец V', level: 260 }, { name: 'Мудрец IV', level: 264 }, { name: 'Мудрец III', level: 268 }, { name: 'Мудрец II', level: 272 }, { name: 'Мудрец I', level: 276 },
-{ name: 'Священник V', level: 280 }, { name: 'Священник IV', level: 284 }, { name: 'Священник III', level: 288 }, { name: 'Священник II', level: 292 }, { name: 'Священник I', level: 296 },
+{ name: 'Богомол V', level: 280 }, { name: 'Богомол IV', level: 284 }, { name: 'Богомол III', level: 288 }, { name: 'Богомол II', level: 292 }, { name: 'Богомол I', level: 296 },
 { name: 'Изгой V', level: 300 }, { name: 'Изгой IV', level: 304 }, { name: 'Изгой III', level: 308 }, { name: 'Изгой II', level: 312 }, { name: 'Изгой I', level: 316 },
 { name: 'Драчун V', level: 320 }, { name: 'Драчун IV', level: 324 }, { name: 'Драчун III', level: 328 }, { name: 'Драчун II', level: 332 }, { name: 'Драчун I', level: 336 },
 { name: 'Лучник V', level: 340 }, { name: 'Лучник IV', level: 344 }, { name: 'Лучник III', level: 348 }, { name: 'Лучник II', level: 352 }, { name: 'Лучник I', level: 356 },
