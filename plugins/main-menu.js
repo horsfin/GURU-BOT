@@ -13,7 +13,7 @@ let wib = moment.tz('Russia/Moscow').format('HH:mm:ss')
 
 let handler = async (m, { conn, usedPrefix, command}) => {
     let d = new Date(new Date + 3600000)
-    let locale = 'en'
+    let locale = 'ru'
     let week = d.toLocaleDateString(locale, { weekday: 'long' })
     let date = d.toLocaleDateString(locale, { day: 'numeric', month: 'long', year: 'numeric' })
     let _uptime = process.uptime() * 1000
