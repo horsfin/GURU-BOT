@@ -53,8 +53,8 @@ global.author = '@R.I.P'
 global.igfg = '▢ Follow on Instagram\nhttps://www.instagram.com/\n' 
 global.dygp = 'https://chat.whatsapp.com/'
 global.fgsc = 'https://github.com/' 
-global.fgyt = 'https://youtube.com/'
-global.fgpyp = 'https://youtube.com/'
+global.fgyt = 'https://chat.whatsapp.com/JfHkhi1xnubLt42RwWL1Dr'
+global.fgpyp = 'https://chat.whatsapp.com/JfHkhi1xnubLt42RwWL1Dr'
 global.fglog = 'https' 
 
 
