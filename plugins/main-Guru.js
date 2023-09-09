@@ -3,14 +3,8 @@ let handler = async m => m.reply(`
 ≡  *РИП ┃ ᴮᴼᵀ*   GROUPS
 
 ─────────────
-▢ Join public bot group and support
-https://chat.whatsapp.com/
-
-▢ Group 2
-https://chat.whatsapp.com/
-
-▢ Group 3
-https://chat.whatsapp.com/
+▢ Группа бота
+https://chat.whatsapp.com/JfHkhi1xnubLt42RwWL1Dr
 
 ─────────────
 ≡ Disabled links? enter here! 
@@ -28,6 +22,6 @@ https://chat.whatsapp.com/
 `.trim())
 handler.help = ['gpguru']
 handler.tags = ['main']
-handler.command = ['groups', 'groupguru', 'gugp', 'ggp', 'gpguru'] 
+handler.command = ['группы', 'groupguru', 'gugp', 'ggp', 'gpguru'] 
 
 export default handler
