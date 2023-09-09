@@ -58,7 +58,7 @@
      let user = global.db.data.users[m.sender] 
      const listItems = Object.fromEntries(Object.entries(items[command.toLowerCase()]).filter(([v]) => v && v in user)) 
      const info = ` 
- Вот так правильно *${usedPrefix}${command} [crate] [count]* 
+ Вот так правильно *${usedPrefix}${command} [предмет] [кол-во]* 
  Пример: *${usedPrefix}${command} potion 10* 
       
  📍ЛИСТ ПРЕДМЕТОВ:  
