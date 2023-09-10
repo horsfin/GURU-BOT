@@ -9,14 +9,14 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
     let users = global.db.data.users
     users[who].banned = true
     conn.reply(m.chat, `
-✅ BANNED
+✅ ЗАБАНЕН
 
 ───────────
-@${who.split`@`[0]} you will no longer be able to use my commands `, m, { mentions: [who] })
+@${who.split`@`[0]} ты больше не сможешь пользоваться моими командами✋ `, m, { mentions: [who] })
 }
 handler.help = ['ban @user']
 handler.tags = ['owner']
-handler.command = /^ban$/i
+handler.command = /^бан$/i
 handler.rowner = true
 
 export default handler
