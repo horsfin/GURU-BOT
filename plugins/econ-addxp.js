@@ -15,16 +15,16 @@ let handler = async (m, { conn, text }) => {
   let users = global.db.data.users
   users[who].exp += xp
 
-  await m.reply(`≡ *XP ADDED*
+  await m.reply(`≡ *ВЫДАН ОПЫТ*
 ┌──────────────
-▢  *Total:* ${xp}
+▢  *ВСЕГО:* ${xp}
 └──────────────`)
- conn.fakeReply(m.chat, `▢ Did you recieve \n\n *+${xp} XP*`, who, m.text)
+ conn.fakeReply(m.chat, `▢ Вы получили \n\n *+${xp} XP*`, who, m.text)
 }
 
 handler.help = ['addxp <@user>']
 handler.tags = ['econ']
-handler.command = ['addxp'] 
+handler.command = ['выдатьхп'] 
 handler.rowner = true
 
 export default handler
