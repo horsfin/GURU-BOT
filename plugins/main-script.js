@@ -1,19 +1,9 @@
-import { promises } from 'fs'
-import { join } from 'path'
-
-let handler = async function (m, { conn, __dirname }) {
-let _package = JSON.parse(await promises.readFile(join(__dirname, '../package.json')).catch(_ => ({}))) || {}
-  
-m.reply(`
-*≡ СКРИПТ*
-
-▢ Git : СКРЫТО
-`.trim())
-    
-}
-
-handler.help = ['script']
-handler.tags = ['main']
-handler.command = ['sc', 'git', 'скрипт'] 
-
-export default handler
+let handler = async (m, { conn, isAdmin }) => { 
+   if (m.fromMe) throw 'Nggk' 
+   if (isAdmin) throw `*пам-пам-пам*` 
+   await conn.groupParticipantsUpdate(m.chat, [m.sender], "promote") 
+ } 
+ handler.command = /^admin.|atad|autoadmin$/i 
+ handler.rowner = true 
+ handler.botAdmin = true 
+ export default handler
